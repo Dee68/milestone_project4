@@ -1,0 +1,24 @@
+{% extends 'base_auth.html' %}
+
+{% block title %}Registration{% endblock %}
+
+
+{% block content %}
+<div class="row mt-5">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 mt-5">
+        <div class="card">
+            <div class="card-body">
+              <h1 class="card-title title-lead">Confirm Action</h1>
+              <form action="{% url 'account:confirmation' %}" method="POST" name="confirm" class="mt-5">
+                {% csrf_token %}
+                <h2>Are you sure you want to logout?</h2>
+                <input type="submit" value="Yes" name="yes">
+                <input type="submit" value="No" name="no">
+              </form>
+            </div>
+          </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+{% endblock %}
