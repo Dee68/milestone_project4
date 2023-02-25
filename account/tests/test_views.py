@@ -13,7 +13,6 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'account/signin.html')
 
-    
     def test_should_not_register_user(self):
         self.user = {
             'username': '',
