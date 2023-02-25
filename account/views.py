@@ -30,7 +30,7 @@ def register(request):
         context = {'reg_form': reg_form, 'field_vals': field_vals}
         if len(username) == 0 or len(fname) == 0 or len(lname) == 0 or len(passw1) == 0:
             messages.error(request, 'all fields are required.')
-            return render(request, 'account/register.html', context)
+            return render(request, 'account/register.html', context, status=400)
         if len(username) < 2 or len(username) > 8:
             messages.error(request, 'username must be between 2 or 8 characters.')
             return render(request, 'account/register.html', context)
