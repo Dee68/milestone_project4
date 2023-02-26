@@ -19,14 +19,22 @@
         </ul>
         <ul class="navbar-nav mb-2 mb-md-0">
           {% if user.id is not None %}
-          <li class="nav-item">
-            <a class="nav-link" href="#">Account</a>
-          </li>
-          <li class="nav-item">
-            <span>
-              <img src="{% if profile.avatar %}{{ profile.avatar.url }}{% else %}{% static 'images/userimage.png' %}{% endif %}" style="height:30px; border-radius:30%;">
-              </span>
+          <!-- <li class="nav-item">
             <a class="nav-link" href="{% url 'account:logout' %}">Logout</a>
+          </li> -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Account</a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown01">
+              <li class="nav-item">
+                <span style="margin-left: 15px;">
+                  <img src="{% if profile.avatar %}{{ profile.avatar.url }}{% else %}{% static 'images/userimage.png' %}{% endif %}" style="height:30px; border-radius:30%;">
+                </span>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'account:logout' %}">Logout</a>
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
           </li>
           {% else %}
           <li class="nav-item">
