@@ -33,32 +33,31 @@ def register(request):
             return render(request, 'account/register.html', context, status=400)
         if len(username) < 2 or len(username) > 8:
             messages.error(request, 'username must be between 2 or 8 characters.')
-            return render(request, 'account/register.html', context)
+            return render(request, 'account/register.html', context, status=400)
         if not username.isalnum() or not fname.isalnum() or not lname.isalnum():
             messages.error(request, 'Only alpha numeric characters allowed.')
-            return render(request, 'account/register.html', context)
+            return render(request, 'account/register.html', context, status=400)
         if len(passw1) == 0 or len(passw2) == 0:
             messages.error(request, 'All fields are required.')
-            return render(request, 'account/register.html', context)
+            return render(request, 'account/register.html', context, status=400)
         if passw1 != passw2:
             messages.error(request, 'Passwords do not match.')
-            return render(request, 'account/register.html', context)
+            return render(request, 'account/register.html', context, status=404)
         if User.objects.filter(username=username).exists():
             messages.error(request, 'Username already taken, choose another.')
             return render(request, 'account/register.html', context, status=409)
         if User.objects.filter(email=email).exists():
             messages.error(request, 'Email already taken, choose another.')
-            return render(request, 'account/register.html', context)
+            return render(request, 'account/register.html', context, status=409)
         if not (re.search(regex, email)):
             messages.error(request, 'Email is invalid.')
-            return render(request, 'account/register.html', context, status=406)
+            return render(request, 'account/register.html', context, status=400)
         if reg_form.is_valid():
             user = User.objects.create_user(username=username, first_name=fname, last_name=lname, email=email, password=passw1)
             user.set_password(passw1)
             user.save()
             messages.success(request, 'Account successfully created, you can now log in.')
             return redirect('account:signin')
-        return render(request, 'account/register.html')
     return render(request, 'account/register.html', context)
 
 
