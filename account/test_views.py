@@ -1,38 +1,5 @@
 from django.test import TestCase
 from django.urls import reverse
-# from django.contrib.auth import get_user_model
-# from account.models import Profile
-
-
-# class TestBase(TestCase):
-#     def setUp(self):
-#         self.register_url = reverse('account:register')
-#         self.user = { 
-#             'username': 'username',
-#             'firstname': 'firstname',
-#             'lastname': 'lastname',
-#             'email': 'noreply@gmail.com',
-#             'password1': 'password',
-#             'password2': 'password'
-#         }
-#         self.user_with_long = {
-#             'username': 'username12',
-#             'firstname': 'firstname',
-#             'lastname': 'lastname',
-#             'email': 'noreply@gmail.com',
-#             'password1': 'password',
-#             'password2': 'password'
-#         }
-#         self.user_with_invalid_email = {
-#             'username': 'username',
-#             'firstname': 'firstname',
-#             'lastname': 'lastname',
-#             'email': 'noreply.com',
-#             'password1': 'password',
-#             'password2': 'password'
-#         }
-#         return super().setUp()
-
 
 class TestRegister(TestCase):
     def test_should_show_register_page(self):
