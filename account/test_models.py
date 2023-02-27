@@ -1,6 +1,6 @@
 from django.test import TestCase
+from .models import Profile
 from django.contrib.auth import get_user_model
-from account.models import Profile
 
 
 class TestModels(TestCase):

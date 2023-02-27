@@ -57,7 +57,10 @@ def register(request):
             user.set_password(passw1)
             user.save()
             messages.success(request, 'Account successfully created, you can now log in.')
-            return redirect('account:signin')
+            response = redirect('account:signin')
+            return response
+        else:
+            return render(request, 'account/register.html', context)
     return render(request, 'account/register.html', context)
 
 
