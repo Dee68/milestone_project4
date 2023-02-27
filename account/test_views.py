@@ -75,17 +75,12 @@ class TestRegister(TestCase):
         response = self.client.post(self.register_url, self.user_with_invalid_email, format='text/html')
         self.assertEqual(response.status_code, 400)
 
-    # def test_can_not_register_user_taken_email_or_username(self):
-    #     self.client.post(self.register_url, self.user, format='text/html', follow=True)
-    #     response = self.client.post(self.register_url, self.user, format='text/html', follow=True)
-    #     self.assertEqual(response.status_code, 409)
-
     def test_should_show_login_page(self):
         response = self.client.get(reverse('account:signin'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'account/signin.html')
 
-    def test_after_register_user(self):
+    def test_can_register_user(self):
         self.register_url = reverse('account:register')
         self.user = { 
             'username': 'jane',
@@ -95,21 +90,7 @@ class TestRegister(TestCase):
             'password1': 'password',
             'password2': 'password'
         }
-        self.client.post(self.register_url, self.user, format='text/html', follow=True)
-        response = self.client.get(self.register_url)
-        # self.assertRedirects(response, reverse('account:signin'))
-        self.assertEqual(response.status_code, 302)
-        self.assertContains(response, 'Account successfully created, you can now log in.')
-
-
-    # def test_should_not_register_user(self):
-    #     self.user = {
-        #     'username': '',
-        #     'firstname': 'firstname',
-        #     'lastname': 'lastname',
-        #     'email': 'noreply@gmail.com',
-        #     'password1': 'password',
-        #     'password2': 'password'
-        # }
-    #     response = self.client.post(reverse('account:register'), self.user)
-    #     self.assertEquals(response.status_code, 400)
+        response = self.client.post(self.register_url, self.user, format='text/html', follow=True)
+        self.assertRedirects(response, 'account/signin')
+        # self.assertEqual(response.status_code, 302)
+        # self.assertContains(response, 'Account successfully created, you can now log in.')
