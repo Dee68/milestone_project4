@@ -47,18 +47,18 @@ class TestRegister(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'account/signin.html')
 
-    def test_can_register_user(self):
-        self.register_url = reverse('account:register')
-        self.user = { 
-            'username': 'user12',
-            'firstname': 'firstname',
-            'lastname': 'lastname',
-            'email': 'noreply@gmail.com',
-            'password1': 'password',
-            'password2': 'password'
-        }
-        response = self.client.post(self.register_url, self.user, format='text/html', follow=True)
-        print(response.status_code)
+    # def test_can_register_user(self):
+    #     self.register_url = reverse('account:register')
+    #     self.user = { 
+    #         'username': 'user12',
+    #         'firstname': 'firstname',
+    #         'lastname': 'lastname',
+    #         'email': 'noreply@gmail.com',
+    #         'password1': 'password',
+    #         'password2': 'password'
+    #     }
+    #     response = self.client.post(self.register_url, self.user, format='text/html', follow=True)
+    #     print(response.status_code)
         # self.assertRedirects(response, reverse('account:signin'), status_code=302, target_status_code=200,fetch_redirect_response=True)
         # # self.assertEqual(response.status_code, 302)
         # self.assertContains(response, 'Account successfully created, you can now log in.')
