@@ -5,6 +5,8 @@ from .import views
 app_name = 'account'
 
 urlpatterns = [
+    path('', views.profile_page, name='profile'),
+    path('update-profile/', views.profile_update, name='update-profile'),
     path('register', views.register, name='register'),
     path('signin', views.signin, name='signin'),
     path('logout', views.logout_page, name='logout'),

@@ -1,12 +1,13 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.utils.safestring import mark_safe
 from django.http import JsonResponse, HttpResponseRedirect
-from django.core.validators import validate_email
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.urls import reverse
-from .forms import RegisterForm
+from .models import Profile
+from .forms import RegisterForm, UserProfileForm
 import re
 
 import json
@@ -126,3 +127,27 @@ def validate_email(request):
         return JsonResponse({'email_valid': True}, status=200)
     else:
         return JsonResponse({'email_error': err_str1}, status=400)
+
+
+@login_required(login_url='account/signin')
+def profile_page(request):
+    user_profile = get_object_or_404(Profile, user=request.user)
+    return render(request, 'account/index.html', {'user_profile': user_profile })
+
+@login_required(login_url='account/signin')
+def profile_update(request):
+    current_user = request.user
+    user_profile = Profile.objects.get(user_id=current_user.id)
+    if request.method == 'POST':
+        user_form = UserUpdateForm(request.POST, instance=request.user)
+        profile_form = UserProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Your profile has been updated.')
+            return redirect('/account')
+    else:
+        user_form = UserUpdateForm(instance=request.user)
+        profile_form = UserProfileForm(instance=request.user.user_profile)
+    context = {'user_form':user_form,'profile_form':profile_form}
+    return render(request, 'account/update_profile.html', context)

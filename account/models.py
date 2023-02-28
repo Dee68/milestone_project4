@@ -25,4 +25,4 @@ class Profile(models.Model):
     image_tag.short_description = 'Avatar'
 
     def __str__(self):
-        return str(f"{self.user.username}'s profile")
+        return str(f"{self.user.username.capitalize()}'s Profile")
