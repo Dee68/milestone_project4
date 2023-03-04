@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}Restaurant{% endblock %}
 
 {% block content %}
@@ -7,8 +9,59 @@
     <div class="col-md-3"></div>
     <div class="col-md-6">
         {% include '_partials/messages.html' %}
-        <h1>Restaurant Menu</h1>
     </div>
     <div class="col-md-3"></div>
 </div>
+<div class="album py-5 bg-light">
+<div class="container">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="{% static 'images/caribean-food.jpg' %}" alt="caribean-food">
+            <div class="card-body">
+              <p class="card-text">Book a table in our restaurant to get a taste.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="{% static 'images/european-food.jpg' %}" alt="european-food">
+            <div class="card-body">
+              <p class="card-text">Book a table in our restaurant to get a taste.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="{% static 'images/exotic-food.jpg' %}" alt="exotic-food">
+            <div class="card-body">
+              <p class="card-text">Book a table in our restaurant to get a taste.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+</div>
+</div>
+</div>
+
 {% endblock %}

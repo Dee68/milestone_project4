@@ -1,9 +1,114 @@
 {% extends 'base_auth.html' %}
 
-{% block title %}profile  update{% endblock%}
+{% load static %}
+
+{% block title %}profile update{% endblock%}
 
 {% block content %}
 
-<h1>Profile update page</h1>
+<div class="row mt-5">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 mt-5">
+        <div class="card">
+            <div class="card-body">
+              <h3 class="card-title title-lead">{{ user_profile }} Info:</h3>
+              <hr>
+              {% include '_partials/messages.html' %}
+                
+             <div class="row md-5 gx-5">
+              <div class="col-md-6">
+                <img src="{% if user_profile.avatar %}{{ user_profile.avatar.url }}{% else %}{% static 'images/userimage.png' %}{% endif %}" style="height:80px; border-radius:30%;">
+              </div>
+              <div class="col-md-6">
+                <a href="#" class="btn btn-success btn-block">Change Password</a>
+              </div>
+             </div>
+             <br>
+               
+              <!-- <th><img src="{% if user_profile.image %}{{ user_profile.avatar.url }}{% else %}{% static 'images/userimage.png' %}{% endif %}" style="height:70px; border-radius:30%;"></th>
+                        <th><a href="{% url 'account:update-profile' %}" class="btn btn-primary">Update Profile</a></th>
+							<th><a href="#" class="btn btn-primary">Change Password</a></th> -->
+              <div class="row mb-5 gx-5">
+                <form action="" method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <div class="row mb-3">
+                    <div class="col-md-3">
+                      <label class="form-label">User Name:</label>
+                    </div>
+                    <div class="col-md-9">
+                    <input type="text" class="form-control" placeholder="" aria-label="User name" value="{{ user_profile.user.username}}">
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-md-3">
+                      <label class="form-label">First Name:</label>
+                    </div>
+                    <div class="col-md-9">
+                    <input type="text" class="form-control" placeholder="" aria-label="First name" value="{{ user_profile.user.first_name}}">
+                    </div>
+                  </div>
+                <div class="row mb-3">
+                  <div class="col-md-3">
+                    <label class="form-label">Last Name:</label>
+                  </div>
+                  <div class="col-md-9">
+                  <input type="text" class="form-control" placeholder="" aria-label="Last name" value="{{ user_profile.user.last_name}}">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-md-3">
+                    <label class="form-label">Address:</label>
+                  </div>
+                  <div class="col-md-9">
+                  <input type="text" class="form-control" placeholder="" aria-label="address" value="{{ user_profile.address}}">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                      <label class="form-label btn btn-success btn-block" for="avatar">Upload:</label>
+                    </div>
+                    <div class="col-md-9">
+                    <input type="file" class="form-control" name="avatar">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-md-3">
+                    
+                  </div>
+                  <div class="col-md-9">
+                    <select class="form-select" aria-label="Default select example">
+                      <option selected>Male</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-md-3">
+                    <label class="form-label" for="bio">Bio:</label>
+                  </div>
+                  <div class="col-md-9">
+                    <textarea name="bio" id="bio" cols="30" rows="7" class="form-control">
+                      Write something about yourself...
+                    </textarea>
+                  </div>
+                </div>
+                <br>
+                <div class="row mb-3">
+                  <div class="col-md-4"></div>
+                  <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary btn-block form-control">Update Profile</button>
+                  </div>
+                  <div class="col-md-4"></div>
+                </div>
+                </form>
+              </div>
+                     
+              
+            </div>
+          </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
 
 {% endblock %}
