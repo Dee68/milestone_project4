@@ -4,9 +4,9 @@
 
 {% block content %}
 <div class="row mt-5">
-    <div class="col-md-3"></div>
-    <div class="col-md-6 mt-5">
-        <div class="card">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 mt-5">
+        <div class="card logout">
             <div class="card-body">
               <h1 class="card-title title-lead">Login</h1>
               <form action="{% url 'account:signin' %}" method="POST" class="mt-5">
@@ -29,16 +29,16 @@
                 </div>
               
                 <div class="d-grid gap-2 col-12 mx-auto"> 
-                <button type="submit" class="btn btn-success btn-block">Signin</button>
+                <button type="submit" class="btn btn-success btn-block lgn">Signin</button>
                 </div>
                   
                <br>
-               <span>Don't have an account yet? <a href="{% url 'account:register' %}">Signup</a></span>
+               <span id="sp-teller">Don't have an account yet? <a href="{% url 'account:register' %}">Signup</a></span>
               </form>
               
             </div>
           </div>
     </div>
-    <div class="col-md-3"></div>
+    <div class="col-md-4"></div>
 </div>
 {% endblock %}

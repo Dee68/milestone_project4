@@ -1,20 +1,40 @@
+body {
+    background-color: #2a2a2c;
+}
+.title-lead {
+    text-align: center;
+    color: #c5ab50;
+}
+.alert {
+    text-align: center;
+}
+.logout {
+    border: 2px solid #c5ab50;
+    background-color: #2a2a2c;
+    box-shadow: 15px 10px 10px rgba(198, 172, 82, 0.5); 
+    
+}
+h3 {
+    text-align: center;
+    color: #c5ab50;
+}
 .footer {
     position: fixed;
     left: 0;
     bottom: 0;
-    /* min-height: 8%; */
     width: 100%;
-    background-color: #d2d2bc;
-    color: white;
+    background-color: rgba(198, 172, 82, 0.8); ;
+    color: #2a2a2c;
     text-align: center;
   }
   #nav {
     min-height: 10%!important;
-    background-color: #d2d2bc!important;
+    background-color: rgba(198, 172, 82)!important;
   }
   .rtend {
     margin-right: 3rem;
   }
+  
   #to-top {
     text-decoration: none;
     align-items: center;
@@ -33,7 +53,7 @@
     border-radius: 52px;
     text-decoration: none;
     line-height: 52px;
-    background-color: rgba(105, 151, 141, 0.7);
+    background-color: rgba(198, 172, 82, 0.7);
     border: 2px solid transparent;
     text-align: center;
 }
@@ -43,13 +63,22 @@
 }
 #to-top i {
     color: #292F36;
-    font-size: 250%;
+    font-size: 300%;
 }
 
 .move_to_top {
     position: relative;
     display: inline-block;
     vertical-align: middle;
+}
+.cfm {
+    color: #c5ab50!important;
+    border: 1px solid #c5ab50;
+}
+.cfm:hover {
+    color: #fff;
+    background-color: rgba(198, 172, 82, 0.5);
+    border: 1px solid #c5ab50!important;
 }
 .mk-top {
     padding-top: 10px;
@@ -61,10 +90,26 @@
 
 .social-links i {
     font-size: 120%;
-    color: #292F36;
+    color: #2a2a2a;
     margin: 1%;
     padding: 0.5%;
 }
 .social-links>li {
     display: inline;
+}
+#dk-bg {
+    background-color: #2a2a2a!important;
+}
+#sp-teller, #sp-teller > a {
+    color: #fff;
+    font-size: 120%;
+}
+.signup, .lgn {
+    color: #fff;
+    font-size: 140%;
+    border: 1px solid #c5ab50;
+    background-color: #c5ab50!important;
+}
+.bi {
+    color: #c5ab50!important;
 }

@@ -1,7 +1,20 @@
+body {
+    background-color: #2a2a2c;
+}
 .title-lead {
     text-align: center;
-    color: #333;
+    color: #c5ab50;
 }
 .alert {
     text-align: center;
+}
+.logout {
+    border: 2px solid #cac1c1;
+    background-color: #2a2a2c;
+    box-shadow: 15px 10px 10px rgba(198, 172, 82, 0.5); 
+    
+}
+h3 {
+    text-align: center;
+    color: #c5ab50;
 }
