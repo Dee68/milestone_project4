@@ -14,6 +14,7 @@ class Table(models.Model):
     table_type = models.CharField(max_length=5, choices=TABLE_TYPE, default='basic')
     number = models.IntegerField()
     capacity = models.IntegerField(default=1)
+    cost = models.DecimalField(decimal_places=2, max_digits=10, default=100.00)
     image = models.ImageField(blank=True, upload_to="tables/")
 
     def image_tag(self):
@@ -29,7 +30,6 @@ class Table(models.Model):
 class Reservation(models.Model):
     customer = models.ForeignKey(to=User, on_delete=models.CASCADE)
     table = models.ForeignKey(to=Table, on_delete=models.CASCADE)
-    cost = models.DecimalField(decimal_places=2, max_digits=10, default=100.00)
     reserve_date = models.DateField()
     reserve_time = models.TimeField()
 

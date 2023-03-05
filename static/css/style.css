@@ -100,9 +100,12 @@ h3 {
 #dk-bg {
     background-color: #2a2a2a!important;
 }
-#sp-teller, #sp-teller > a {
+.sp-teller, .sp-teller > a {
     color: #fff;
     font-size: 120%;
+}
+.ctr {
+    text-align: center;
 }
 .signup, .lgn {
     color: #fff;
@@ -110,6 +113,6 @@ h3 {
     border: 1px solid #c5ab50;
     background-color: #c5ab50!important;
 }
-.bi {
+.bi, .bi > a {
     color: #c5ab50!important;
 }

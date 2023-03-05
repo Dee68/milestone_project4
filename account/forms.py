@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from .models import Profile
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.forms import widgets
 from django import forms
 
@@ -14,30 +14,7 @@ class RegisterForm(UserCreationForm):
 class UserUpdateForm(UserChangeForm):
     class Meta:
         model = User
-        fields = ['username', 'email', 'first_name', 'last_name']   
-        widgets = {
-        'username':forms.TextInput(attrs={'class':'form-control','placeholder':'UserName'}),
-        'first_name':forms.TextInput(attrs={'class':'form-control','placeholder':'First Name'}),
-        'last_name':forms.TextInput(attrs={'class':'form-control','placeholder':'Last Name'}),
-        'email':forms.EmailInput(attrs={'class':'form-control','placeholder':'Email.'}),
-       
-    }
-
-
-class ChangePasswordForm(PasswordChangeForm):
-    class Meta:
-        model = User
-        fields = ['old_password','new_password1', 'new_password2'] 
-        labels = {
-            'old_password':'Old Password',
-            'new_password1':'New Password',
-            'new_password2':'Confirm Password'
-        }
-        widgets = {
-            'old_password':forms.PasswordInput(attrs={'class':'form-control','autocomplete':True,'required':'required'}),
-            'new_password1':forms.PasswordInput(attrs={'class':'form-control', 'required':'required'}),
-            'new_password2':forms.PasswordInput(attrs={'class':'form-control','required':'required'})
-        }  
+        fields = ['username', 'email', 'first_name', 'last_name']
 
 
 GENDER = (

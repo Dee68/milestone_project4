@@ -5,7 +5,7 @@ from django.utils.safestring import mark_safe
 from django.http import JsonResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from .models import Profile
 from .forms import RegisterForm, UserProfileForm, UserUpdateForm
 import re
@@ -26,10 +26,10 @@ def register(request):
         fname = request.POST['firstname']
         lname = request.POST['lastname']
         email = request.POST['email']
-        passw1 = request.POST['password1']
-        passw2 = request.POST['password2']
+        password1 = request.POST['password1']
+        password2 = request.POST['password2']
         context = {'reg_form': reg_form, 'field_vals': field_vals}
-        if len(username) == 0 or len(fname) == 0 or len(lname) == 0 or len(passw1) == 0:
+        if len(username) == 0 or len(fname) == 0 or len(lname) == 0 or len(password1) == 0:
             messages.error(request, 'all fields are required.')
             return render(request, 'account/register.html', context, status=400)
         if len(username) < 2 or len(username) > 8:
@@ -38,10 +38,10 @@ def register(request):
         if not username.isalnum() or not fname.isalnum() or not lname.isalnum():
             messages.error(request, 'Only alpha numeric characters allowed.')
             return render(request, 'account/register.html', context, status=400)
-        if len(passw1) == 0 or len(passw2) == 0:
+        if len(password1) == 0 or len(password2) == 0:
             messages.error(request, 'All fields are required.')
             return render(request, 'account/register.html', context, status=400)
-        if passw1 != passw2:
+        if password1 != password2:
             messages.error(request, 'Passwords do not match.')
             return render(request, 'account/register.html', context, status=404)
         if User.objects.filter(username=username).exists():
@@ -54,15 +54,14 @@ def register(request):
             messages.error(request, 'Email is invalid.')
             return render(request, 'account/register.html', context, status=400)
         if reg_form.is_valid():
-            # user = User.objects.create_user(username=username, first_name=fname, last_name=lname, email=email, password=passw1)
-            # user.set_password(passw1)
-            # user.save()
-            reg_form.save()
-            user = reg_form.cleaned_data.get('username')
-            messages.success(request, f'Account successfully created for {user}, you can now log in.')
-            response = redirect('account:signin')
-            return response
+            user = User.objects.create_user(username=username, first_name=fname, last_name=lname, email=email, password=password1)
+            user.set_password(password1)
+            username = reg_form.cleaned_data.get('username')
+            messages.success(request, f'Account successfully created for {username}, you can now log in.')
+            # login(request, user)
+            return redirect('account:signin')
         else:
+            messages.error(request, str(reg_form.errors))
             return render(request, 'account/register.html', context)
     return render(request, 'account/register.html', context)
 
@@ -133,41 +132,46 @@ def validate_email(request):
 
 @login_required(login_url='account/signin')
 def profile_page(request):
-    # current_user = request.user
-    # form = UserProfileForm(instance=current_user)
-    # if request.method == 'POST':
-    #     form = UserProfileForm(request.POST, request.FILES, instance=current_user)
-    #     if form.is_valid():
-    #         form.save()
-    #         messages.success(request, 'Profile successfully updated.')
-    #         return render(request, 'account/index.html', context={'form': form, 'current_user': current_user})
-    #     else:
-    #         messages.error(request, 'Something went wrong')
-    #         return render(request, 'account/index.html', context={'form': form })
-    # else:
     user = request.user
     user_profile = get_object_or_404(Profile, user=request.user)
     context = {'user_profile': user_profile, 'user': user}
     return render(request, 'account/index.html', context)
 
+
 @login_required(login_url='account/signin')
 def profile_update(request):
-    current_user = request.user
-    user_profile = Profile.objects.get(user_id=current_user.id)
+    user_profile = Profile.objects.get(user_id=request.user.id)
+    post_data = request.POST or None
     if request.method == 'POST':
-        user_form = UserUpdateForm(request.POST, instance=request.user)
-        profile_form = UserProfileForm(request.POST, request.FILES, instance=current_user.profile)
-        if user_form and profile_form.is_valid():
+        user_form = UserUpdateForm(post_data, instance=request.user)
+        profile_form = UserProfileForm(post_data, request.FILES, instance=request.user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
             messages.success(request, 'Your profile has been updated.')
-            return redirect('/account')
-        else:
-            messages.error(request, 'Something went wrong.')
-            return redirect('account:profile')
-    else:
-        user_form = UserUpdateForm(instance=request.user)
-        profile_form = UserProfileForm(instance=current_user)
+            return HttpResponseRedirect(reverse_lazy('account:profile'))       
         messages.error(request, 'Something went wrong.')
-        context = {'user_form': user_form, 'profile_form': profile_form, 'user_profile': user_profile}
-        return render(request, 'account/update_profile.html', context)
+        context={'user_form': user_form, 'profile_form': profile_form, 'user_profile': user_profile}
+        return render(request, 'account/update_profile.html', context )
+    user_form = UserUpdateForm(instance=request.user)
+    profile_form = UserProfileForm(instance=request.user.profile)
+    context = {'user_form': user_form, 'profile_form': profile_form, 'user_profile': user_profile}
+    return render(request, 'account/update_profile.html', context)
+
+
+# @login_required(login_url='account/signin')
+# def update_password(request):
+#     user_profile = Profile.objects.get(user_id=request.user.id)
+#     if request.method == 'POST':
+#         form = ChangePasswordForm(request.user, request.POST)
+#         if form.is_valid():
+#             user = form.save()
+#             update_session_auth_hash(request, user)
+#             messages.success(request, 'Password successfully changed.')
+#             return HttpResponseRedirect(reverse_lazy('account:profile'))
+#         else:
+#             messages.error(request, str(form.errors))
+#             return HttpResponseRedirect('account:change-password')
+#     form = ChangePasswordForm(request.user)
+#     context = {'form': form, 'user_profile': user_profile}
+#     return render(request, 'account/update_password.html', context)

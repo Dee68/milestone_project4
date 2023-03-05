@@ -10,4 +10,4 @@ class TestModels(TestCase):
         user.set_password('password')
         user.save()
         pr = Profile.objects.get(user=user)
-        self.assertEqual(str(pr), f"{user.username}'s profile")
+        self.assertEqual(str(pr), f"{user.username[0].upper()+ user.username[1:]}'s Profile")

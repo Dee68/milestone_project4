@@ -9,63 +9,83 @@
 <div class="row mt-5">
     <div class="col-md-3"></div>
     <div class="col-md-6 mt-5">
-        <div class="card">
+        <div class="card logout">
             <div class="card-body">
               <h3 class="card-title title-lead">{{ user_profile }} Info:</h3>
               <hr>
               {% include '_partials/messages.html' %}
                 
-             <div class="row md-5 gx-5">
+             <div class="row md-5">
               <div class="col-md-6">
-                <img src="{% if current_user.avatar %}{{ current_user.avatar.url }}{% else %}{% static 'images/userimage.png' %}{% endif %}" style="height:80px; border-radius:30%;">
+                <img src="{% if user.profile.avatar %}{{ user.profile.avatar.url }}{% else %}{% static 'images/userimage.png' %}{% endif %}" style="height:80px; width:80px; border-radius:50%;">
               </div>
+             <br>
               <div class="col-md-6">
-                <a href="#" class="btn btn-success btn-block">Change Password</a>
+                <a href="{% url 'account:update-profile' %}" class="btn btn-outline-success btn-block cfm">Update Profile</a>
               </div>
              </div>
              <br>
                
-              <!-- <th><img src="{% if user_profile.image %}{{ user_profile.avatar.url }}{% else %}{% static 'images/userimage.png' %}{% endif %}" style="height:70px; border-radius:30%;"></th>
-                        <th><a href="{% url 'account:update-profile' %}" class="btn btn-primary">Update Profile</a></th>
-							<th><a href="#" class="btn btn-primary">Change Password</a></th> -->
+              
               <div class="row mb-5 gx-5">
-                <form action="{% url 'account:update-profile' %}" method="post" enctype="multipart/form-data">
-                  {% csrf_token %}
-                  <div class="row mb-3">
+                  <div class="row mb-3 ctr">
                     <div class="col-md-3">
-                      <label class="form-label">User Name:</label>
+                      <label class="form-label sp-teller">Name:</label>
                     </div>
                     <div class="col-md-9">
-                    <input type="text" class="form-control" placeholder="" aria-label="User name" value="{{ user_profile.user.username}}">
+                    <div class="form-control">
+                      {{ user.username }}
                     </div>
+                    <br>
                   </div>
-                  <div class="row mb-3">
+
+                  <div class="row mb-3 ctr">
                     <div class="col-md-3">
-                      <label class="form-label">First Name:</label>
+                      <label class="form-label sp-teller">Email:</label>
                     </div>
                     <div class="col-md-9">
-                    <input type="text" class="form-control" placeholder="" aria-label="First name" value="{{ user_profile.user.first_name}}">
+                    <div class="form-control">
+                      {{ user.email }}
+                    </div>
+                    <br>
+                  </div>
+                
+                  <div class="row mb-3 ctr">
+                    <div class="col-md-3">
+                      <label class="form-label sp-teller">FName:</label>
+                    </div>
+                    <div class="col-md-9">
+                    <div class="form-control">
+                      {{ user.first_name }}
+                    </div>
+                    <br>
                     </div>
                   </div>
-                <div class="row mb-3">
+                <div class="row mb-3 ctr">
                   <div class="col-md-3">
-                    <label class="form-label">Last Name:</label>
+                    <label class="form-label sp-teller">LName:</label>
                   </div>
                   <div class="col-md-9">
-                  <input type="text" class="form-control" placeholder="" aria-label="Last name" value="{{ user_profile.user.last_name}}">
+                  <div class="form-control">
+                    {{ user.last_name }}
+                  </div>
+                  <br>
+                  </div>
+                </div>
+                <div class="row mb-3 ctr">
+                  <div class="col-md-3">
+                    <label class="form-label sp-teller">Address:</label>
+                  </div>
+                  <div class="col-md-9">
+                  <div class="form-control">
+                    {% if not user_profile.address %}Please supplier your address{% else %}{{ user_profile.address}}{% endif %}
+                  </div>
+                  <br>
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <div class="col-md-3">
-                    <label class="form-label">Address:</label>
-                  </div>
-                  <div class="col-md-9">
-                  <input type="text" class="form-control" placeholder="" aria-label="address" value="{{ user_profile.address}}">
-                  </div>
-                </div>
-                <div class="row mb-3">
                     <div class="col-md-3">
-                      <label class="form-label btn btn-success btn-block" for="avatar">Upload:</label>
+                      <label class="form-label sp-teller" for="avatar">Upload:</label>
                     </div>
                     <div class="col-md-9">
                     <input type="file" class="form-control" name="avatar">
@@ -73,11 +93,11 @@
                 </div>
                 <div class="row mb-3">
                   <div class="col-md-3">
-                    
+                    <label for="" class="form-label sp-teller">Gender:</label>
                   </div>
                   <div class="col-md-9">
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected>Male</option>
+                    <select class="form-select" aria-label="Default select example" name="gender">
+                      <option selected>{{ user_profile.gender }}</option>
                       <option value="male">Male</option>
                       <option value="female">Female</option>
                     </select>
@@ -85,23 +105,21 @@
                 </div>
                 <div class="row mb-3">
                   <div class="col-md-3">
-                    <label class="form-label" for="bio">Bio:</label>
+                    <label class="form-label sp-teller" for="bio">Bio:</label>
                   </div>
                   <div class="col-md-9">
-                    <textarea name="bio" id="bio" cols="30" rows="7" class="form-control">
-                      Write something about yourself...
-                    </textarea>
+                   <div class="form-control">
+                    {% if user_profile.bio == '' %}Write something about yourself...{% else %}{{user_profile.bio}}{% endif %}
+                   </div>
                   </div>
                 </div>
-                <br>
                 <div class="row mb-3">
-                  <div class="col-md-4"></div>
-                  <div class="col-md-4">
-                    <button type="submit" class="btn btn-primary btn-block form-control">Update Profile</button>
+                  <div class="col-md-3"></div>
+                  <div class="col-md-9">
+                    <a href="{% url 'account:logout' %}" class="btn btn-outline-primary cfm">Logout</a>
                   </div>
-                  <div class="col-md-4"></div>
                 </div>
-                </form>
+              
               </div>
                      
               

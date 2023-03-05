@@ -19,7 +19,7 @@ class Profile(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
 
     def image_tag(self):
-        if self.image:
+        if self.avatar:
             return mark_safe('<img src="%s" height="50" width="50">' %self.avatar.url)
         return "No image found"
     image_tag.short_description = 'Avatar'
