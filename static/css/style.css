@@ -27,6 +27,7 @@ h3 {
     color: #2a2a2c;
     text-align: center;
   }
+  
   #nav {
     min-height: 10%!important;
     background-color: rgba(205, 164, 94, 0.7)!important;
@@ -34,7 +35,9 @@ h3 {
   .rtend {
     margin-right: 3rem;
   }
-  
+  .ltend {
+    margin-left: 3rem;
+  }
   #to-top {
     text-decoration: none;
     align-items: center;

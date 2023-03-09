@@ -3,10 +3,10 @@ from .models import Table, TableImage, Reservation
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import ReservationForm
+from account.models import Profile
+from django.utils.timezone import now
 import datetime
-
-
-# Create your views here.
+import pytz
 
 
 def restaurant(request):
@@ -15,7 +15,6 @@ def restaurant(request):
     return render(request, 'restaurant/index.html', context)
 
 
-# @login_required(login_url='account/signin')
 def table_detail(request, id, slug):
     table = get_object_or_404(Table, id=id, slug=slug)
     table_images = TableImage.objects.filter(table=table)
@@ -26,18 +25,20 @@ def table_detail(request, id, slug):
         customer = request.user
         reserve_start = request.POST['reserve_start']
         reserve_end = request.POST['reserve_end']
-        reserve_start = datetime.datetime.strptime(reserve_start, '%m/%d/%Y %H:%M %p')
-        reserve_end = datetime.datetime.strptime(reserve_end, '%m/%d/%Y %H:%M %p')
+        if reserve_start == '' or reserve_end == '':
+            messages.error(request, 'Enter your desires times for reservation.')
+            return redirect('restaurant:table-detail', id=table.id, slug=table.slug)
+        reserve_start = datetime.datetime.strptime(reserve_start, '%m/%d/%Y %I:%M %p').replace(tzinfo=pytz.utc)
+        reserve_end = datetime.datetime.strptime(reserve_end, '%m/%d/%Y %I:%M %p').replace(tzinfo=pytz.utc)
         case_1 = Reservation.objects.filter(table=table, reserve_start__lte=reserve_start, reserve_end__gte=reserve_start).exists()
         case_2 = Reservation.objects.filter(table=table, reserve_start__lte=reserve_end, reserve_end__gte=reserve_end).exists()
         case_3 = Reservation.objects.filter(table=table, reserve_start__gte=reserve_start, reserve_end__lte=reserve_end).exists()
         if case_1 or case_2 or case_3:
             messages.warning(request, 'This table is not available on your booking schedule.')
-            return render(request, 'restaurant/table_detail.html')
-        elif datetime.datetime.now() < reserve_start or datetime.datetime.now() < reserve_end:
+            return redirect('restaurant:table-detail', id=table.id, slug=table.slug)
+        elif now() > reserve_start or now() > reserve_end or reserve_start > reserve_end:
             messages.error(request, 'You can not book from past,please check your inputs.')
-            return render(request, 'restaurant/table_detail.html')
-            
+            return redirect('restaurant:table-detail', id=table.id, slug=table.slug)         
         else:
             reservation = Reservation.objects.create(
                customer=customer,
@@ -45,8 +46,16 @@ def table_detail(request, id, slug):
                reserve_start=reserve_start,
                reserve_end=reserve_end
             )
-            
             reservation.save()
             messages.success(request, 'You have successfully booked the table.')
             return redirect('restaurant:home')
     return render(request, 'restaurant/table_detail.html', context)
+
+
+@login_required(login_url='account/signin')
+def reservation_list(request):
+    user = request.user
+    profile = get_object_or_404(Profile, user=user)
+    reservations = Reservation.objects.filter(customer=user)
+    context = {'profile': profile, 'reservations': reservations }
+    return render(request, 'restaurant/reservation_list.html', context)

@@ -3,13 +3,7 @@
 {% load static %}
 {% block title %}Reservation {% endblock %}
 {% block content %}
-<div class="row mt-3">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-        {% include '_partials/messages.html' %}
-    </div>
-    <div class="col-md-3"></div>
-</div>
+<div class="row mt-3"></div>
 <div class="row mt-3">
     <div class="col-lg-5 mt-5">
         <div class="card mb-3">
@@ -90,21 +84,17 @@
                     {% csrf_token %}
                     
                     <div class="row mb-3 pb-3">
-                        <!-- <div class="col-auto"> -->
                             <div class="row">
                                 <div class="col-md-3">Start:</div>
                                 <div class="col-md-9">
                                 <div class="input-group date mb-3" id="datetimepicker1" data-target-input="nearest">
+                                
                                     <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" name="reserve_start" id="id_reserve_start"/>
                                     <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                     </div>
                                 </div>
-                                </div>
-                        
-                        <!-- </div> -->
-                        
-                        <!-- <div class="col-auto"> -->
+                                </div>         
                             <div class="row">
                                 <div class="col-md-3">End:</div>
                                     <div class="col-md-9">
@@ -119,9 +109,15 @@
                         <!-- </div> -->
                     </div>
                     <div class="row pb-2 btn-group gap-4">
+                        {% if request.user.is_authenticated %}
                         <div class="col d-grid">
                             <button type="submit" class="btn btn-outline btn-lg cfm" name="submit">Book Now</button>
                         </div>
+                        {% else %}
+                        <div class="col d-grid">
+                            <a href="{% url 'account:signin' %}" class="btn btn-outline btn-lg cfm" name="go_home">Login To Book</a>
+                        </div>
+                        {% endif %}
                         <div class="col d-grid">
                             <a href="{% url 'restaurant:home' %}" class="btn btn-outline btn-lg cfm" name="go_home">Go Back Home</a>
                         </div>

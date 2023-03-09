@@ -4,9 +4,6 @@ from django.utils.text import slugify
 from cloudinary.models import CloudinaryField
 from django.contrib.auth.models import User
 from django.shortcuts import reverse
-from django.utils.timezone import now
-import datetime
-from datetime import date, timedelta
 
 # Create your models here.
 
@@ -38,13 +35,6 @@ class Table(models.Model):
     def __str__(self):
         return f'Table number {self.number} with a capacity of {self.capacity}'
 
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
-        else:
-            self.slug
-        super().save(self, *args, **kwargs)
-
 
 class TableImage(models.Model):
     table = models.ForeignKey(Table, on_delete=models.CASCADE)
@@ -60,10 +50,6 @@ class Reservation(models.Model):
     reserve_start = models.DateTimeField()
     reserve_end = models.DateTimeField()
     reserved_on = models.DateTimeField(auto_now_add=False, auto_now=True)
-
-    @property
-    def is_past_due(self):
-        return datetime.datetime.now() < self.reserve_start
 
     def __str__(self):
         return f'{self.customer.username} reserved {self.table.title} on {self.reserved_on} '
