@@ -50,35 +50,3 @@ def table_detail(request, id, slug):
             messages.success(request, 'You have successfully booked the table.')
             return redirect('restaurant:home')
     return render(request, 'restaurant/table_detail.html', context)
-
-
-#@login_required(login_url='account/signin')
-def reserve_table(request):
-
-    # form = AvailabilityForm()
-    # if request.method == 'POST':
-    #     form = AvailabilityForm(request.POST)
-    #     if form.is_valid():
-    #         table_list = Table.objects.filter(table_type=form['table_type'])
-    #         available_tables = []
-    #         for t in table_list:
-    #             if check_availability(t, form.cleaned_data['reserve_date'], form.cleaned_data['reserve_time']):
-    #                 available_tables.append(t)
-    #         if len(available_tables > 0):
-    #             table = available_tables[0]
-    #             reservation = Reservation.objects.create(
-    #                 customer=request.user,
-    #                 table=table,
-    #                 reserve_date=form.cleaned_data['reserve_date'],
-    #                 reserve_time=form.cleaned_data['reserve_time']
-    #             )
-    #             reservation.save()
-    #             messages.success(request, 'You have successfully booked your table.')
-    #             return HttpResponseRedirect('restaurant:home')
-    #         else:
-    #             messages.info(request, 'No available tables of this type.')
-    #     else:
-    #         messages.error(request, 'invalid input')
-    # context = {'form': form}
-
-    return render(request, 'restaurant/booking.html', context)
