@@ -3,33 +3,33 @@ body {
 }
 .title-lead {
     text-align: center;
-    color: #c5ab50;
+    color: #cda45e;
 }
 .alert {
     text-align: center;
 }
 .logout {
-    border: 2px solid #c5ab50;
+    border: 2px solid #cda45e;
     background-color: #2a2a2c;
-    box-shadow: 15px 10px 10px rgba(198, 172, 82, 0.5); 
+    box-shadow: 15px 10px 10px rgba(205, 164, 94, 0.5); 
     
 }
 h3 {
     text-align: center;
-    color: #c5ab50;
+    color: #cda45e;
 }
 .footer {
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: rgba(198, 172, 82, 0.8); ;
+    background-color: rgba(205, 164, 94, 0.7);
     color: #2a2a2c;
     text-align: center;
   }
   #nav {
     min-height: 10%!important;
-    background-color: rgba(198, 172, 82)!important;
+    background-color: rgba(205, 164, 94, 0.7)!important;
   }
   .rtend {
     margin-right: 3rem;
@@ -53,7 +53,7 @@ h3 {
     border-radius: 52px;
     text-decoration: none;
     line-height: 52px;
-    background-color: rgba(198, 172, 82, 0.7);
+    background-color: rgba(205, 164, 94, 0.7);
     border: 2px solid transparent;
     text-align: center;
 }
@@ -72,13 +72,13 @@ h3 {
     vertical-align: middle;
 }
 .cfm {
-    color: #c5ab50!important;
-    border: 1px solid #c5ab50;
+    color: #cda45e!important;
+    border: 1px solid #cda45e;
 }
 .cfm:hover {
     color: #fff;
     background-color: rgba(198, 172, 82, 0.5);
-    border: 1px solid #c5ab50!important;
+    border: 1px solid #cda45e!important;
 }
 .mk-top {
     padding-top: 10px;
@@ -110,9 +110,19 @@ h3 {
 .signup, .lgn {
     color: #fff;
     font-size: 140%;
-    border: 1px solid #c5ab50;
-    background-color: #c5ab50!important;
+    border: 1px solid #cda45e;
+    background-color: #cda45e!important;
 }
+
 .bi, .bi > a {
-    color: #c5ab50!important;
+    color: #cda45e!important;
+}
+.input-group-append {
+    cursor: pointer;
+}
+.text-dark {
+    color: #cda45e!important;
+}
+.input-group-text {
+    color: #cda45e!important;
 }

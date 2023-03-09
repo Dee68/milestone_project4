@@ -23,19 +23,17 @@ def register(request):
         reg_form = RegisterForm(request.POST)
         field_vals = request.POST
         username = request.POST['username']
-        fname = request.POST['firstname']
-        lname = request.POST['lastname']
         email = request.POST['email']
         password1 = request.POST['password1']
         password2 = request.POST['password2']
         context = {'reg_form': reg_form, 'field_vals': field_vals}
-        if len(username) == 0 or len(fname) == 0 or len(lname) == 0 or len(password1) == 0:
+        if len(username) == 0 or len(password1) == 0:
             messages.error(request, 'all fields are required.')
             return render(request, 'account/register.html', context, status=400)
         if len(username) < 2 or len(username) > 8:
             messages.error(request, 'username must be between 2 or 8 characters.')
             return render(request, 'account/register.html', context, status=400)
-        if not username.isalnum() or not fname.isalnum() or not lname.isalnum():
+        if not username.isalnum():
             messages.error(request, 'Only alpha numeric characters allowed.')
             return render(request, 'account/register.html', context, status=400)
         if len(password1) == 0 or len(password2) == 0:
@@ -54,11 +52,10 @@ def register(request):
             messages.error(request, 'Email is invalid.')
             return render(request, 'account/register.html', context, status=400)
         if reg_form.is_valid():
-            user = User.objects.create_user(username=username, first_name=fname, last_name=lname, email=email, password=password1)
+            user = User.objects.create_user(username=username, email=email, password=password1)
             user.set_password(password1)
             username = reg_form.cleaned_data.get('username')
             messages.success(request, f'Account successfully created for {username}, you can now log in.')
-            # login(request, user)
             return redirect('account:signin')
         else:
             messages.error(request, str(reg_form.errors))
@@ -93,7 +90,7 @@ def confirm_page(request):
             messages.success(request, 'You are now logged out.')
             return redirect('restaurant:home')
         else:
-            return render(request, 'restaurant/index.html')
+            return redirect('restaurant:home')
     return render(request, 'account/confirm.html')
 
 
@@ -157,21 +154,3 @@ def profile_update(request):
     profile_form = UserProfileForm(instance=request.user.profile)
     context = {'user_form': user_form, 'profile_form': profile_form, 'user_profile': user_profile}
     return render(request, 'account/update_profile.html', context)
-
-
-# @login_required(login_url='account/signin')
-# def update_password(request):
-#     user_profile = Profile.objects.get(user_id=request.user.id)
-#     if request.method == 'POST':
-#         form = ChangePasswordForm(request.user, request.POST)
-#         if form.is_valid():
-#             user = form.save()
-#             update_session_auth_hash(request, user)
-#             messages.success(request, 'Password successfully changed.')
-#             return HttpResponseRedirect(reverse_lazy('account:profile'))
-#         else:
-#             messages.error(request, str(form.errors))
-#             return HttpResponseRedirect('account:change-password')
-#     form = ChangePasswordForm(request.user)
-#     context = {'form': form, 'user_profile': user_profile}
-#     return render(request, 'account/update_password.html', context)
