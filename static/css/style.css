@@ -74,6 +74,13 @@ h3 {
     display: inline-block;
     vertical-align: middle;
 }
+.sft {
+    color: #342408;
+    border: 1px solid #cda45e;
+}
+.sft:hover {
+    background-color: #cda45e;
+}
 .cfm {
     color: #cda45e!important;
     border: 1px solid #cda45e;
@@ -128,4 +135,11 @@ h3 {
 }
 .input-group-text {
     color: #cda45e!important;
+}
+.table-bordered {
+    border: 2px solid #cda45e!important;
+}
+table.table-bordered th {
+    color: #342408;
+    text-align: center;
 }

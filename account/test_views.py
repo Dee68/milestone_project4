@@ -1,8 +1,14 @@
 from django.test import TestCase
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 
 class TestRegister(TestCase):
+    # def set_up(self):
+    #     self.user_1 = User.objects.create_user('Chevy', 'chevy@chase.com', 'chevyspassword', 'chevyspassword')
+    #     self.user_2 = User.objects.create_user('Jim', 'jim@carrey.com', 'jimspassword','jimpassword')
+    #     self.user_3 = User.objects.create_user('Dennis', 'dennis@leary.com', 'denisspassword','densspasswd')
+
     def test_should_show_register_page(self):
         self.register_url = reverse('account:register')
         self.user = { 
@@ -55,7 +61,9 @@ class TestRegister(TestCase):
         }     
         response = self.client.get(self.register_url)
         self.assertEqual(response.status_code, 200)
-        response = self.client.post(self.register_url, self.user, format='text/html')
+        response = self.client.post(self.register_url, self.user, format='text/html', follow=True)
+        print(response.redirect_chain)
+        # self.assertRedirects(response, reverse('account:signin'))
         self.assertEqual(response.status_code, 200)
 
     def test_should_show_login_page(self):

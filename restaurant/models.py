@@ -51,5 +51,13 @@ class Reservation(models.Model):
     reserve_end = models.DateTimeField()
     reserved_on = models.DateTimeField(auto_now_add=False, auto_now=True)
 
+    @property
+    def get_reserve_start(self):
+        return self.reserve_start.strftime('%m/%d/%Y %I:%M %p')
+
+    @property
+    def get_reserve_end(self):
+        return self.reserve_end.strftime('%m/%d/%Y %I:%M %p')
+
     def __str__(self):
         return f'{self.customer.username} reserved {self.table.title} on {self.reserved_on} '

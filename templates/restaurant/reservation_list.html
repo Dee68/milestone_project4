@@ -10,7 +10,7 @@
  <div class="row mt-5">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-        <div class="card shadow mb-4 logout">
+        <div class="card mb-4 logout">
             <div class="card-header py-3">
                 <h3 class="card-title title-lead">RESERVATION LIST</h3>
             </div>
@@ -31,9 +31,8 @@
                             <tr role="row"><th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending">Table</th>
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending">Reservation Date</th>
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending">Expiration Date</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending">Edit</th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 68px;">Delete</th>
-                                <!-- <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 67px;">Salary</th> -->
+                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="2" aria-label="Age: activate to sort column ascending" style="text-align: center;">Actions</th>
+                                <!-- <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 68px;">Delete</th> -->
                             </tr>
                         </thead>
                         <tbody> 
@@ -42,8 +41,8 @@
                                     <td class="sorting_1">{{ r.table.title }}</td>
                                     <td>{{ r.reserve_start }}</td>
                                     <td>{{ r.reserve_end }}</td>
-                                    <td><a href="{{ r.table.get_absolute_url }}" class="btn btn-outline cfm">Edit</a></td>
-                                    <td><a href="#" class="btn btn-outline-danger cfm">Delete</a></td>
+                                    <td><a href="{% url 'restaurant:reservation-edit' r.id %}" class="btn btn-outline sft">Edit</a></td>
+                                    <td><a href="{% url 'restaurant:reservation-delete' r.id %}" class="btn btn-outline sft">Delete</a></td>
                                 
                                 </tr>
                             {% endfor %}
