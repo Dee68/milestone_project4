@@ -5,14 +5,29 @@ from django.contrib.auth.decorators import login_required
 from .forms import ReservationForm
 from account.models import Profile
 from django.utils.timezone import now
+from django.core.mail import EmailMessage
 import datetime
-import pytz 
+import pytz
 
 
 def restaurant(request):
     tables = Table.objects.all()
     context = {'tables': tables}
     return render(request, 'restaurant/index.html', context)
+
+
+def contact(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        message = request.POST['message']
+
+        #send email
+        return render(request, 'restaurant/contact.html', {'name': name })
+
+    else:
+        return render(request, 'restaurant/contact.html')
 
 
 def table_detail(request, id, slug):
@@ -67,6 +82,10 @@ def reservation_edit(request, id):
     table_images = TableImage.objects.filter(table=r.table)
     form = ReservationForm(instance=r)
     context = {'r': r, 'table_images': table_images, 'form': form}
+    if now() > r.reserve_end:
+        messages.error(request, 'Your reservation has expired.')
+        return redirect('restaurant:reservations')
+
     if request.method == 'POST':
         form = ReservationForm(request.POST, instance=r)
         if form.is_valid():

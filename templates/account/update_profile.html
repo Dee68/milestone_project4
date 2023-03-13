@@ -60,9 +60,11 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-3">
+                      <p class="sp-teller">Current Image:</p>
                       <label class="form-label sp-teller" for="avatar">Avatar:</label>
                     </div>
                     <div class="col-md-9">
+                      <p class="sp-teller">{{ user_profile.avatar }}</p>
                     <input type="file" class="form-control" name="avatar">
                     </div>
                 </div>
@@ -86,7 +88,7 @@
                   </div>
                   <div class="col-md-9">
                     <textarea name="bio" id="bio" cols="30" rows="7" class="form-control">
-                      Write something about yourself...
+                      {% if user_profile.bio == '' %}Write something about yourself...{% else %}{{user_profile.bio}}{% endif %}
                     </textarea>
                   </div>
                 </div>

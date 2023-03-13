@@ -143,3 +143,69 @@ table.table-bordered th {
     color: #342408;
     text-align: center;
 }
+.contact .info i {
+    font-size: 20px;
+    float: left;
+    width: 44px;
+    height: 44px;
+    background: #cda45e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+}
+.contact .info p {
+    padding: 0 0 0 60px;
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #bab3a6;
+}
+.contact .info .open-hours, .contact .info .email, .contact .info .phone {
+    margin-top: 40px;
+}
+.contact .php-email-form input {
+    height: 44px;
+}
+.contact .php-email-form input, .contact .php-email-form textarea {
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 14px;
+    background: #0c0b09;
+    border-color: #625b4b;
+    color: white;
+}
+.contact .php-email-form button[type=submit] {
+    background: #cda45e;
+    border: 0;
+    padding: 10px 35px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 50px;
+}
+.bm {
+    color: #fff!important;
+}
+.bi-geo-alt::before {
+    content: "\f3e8";
+}
+.bi::before, [class^="bi-"]::before, [class*=" bi-"]::before {
+    display: inline-block;
+    font-family: bootstrap-icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: -0.125em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.contact .info h4 {
+    padding: 0 0 0 60px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #fff;
+    /* font-family: "Poppins", sans-serif; */
+}

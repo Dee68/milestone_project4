@@ -32,31 +32,30 @@ def register(request):
             return render(request, 'account/register.html', context, status=400)
         if len(username) < 2 or len(username) > 8:
             messages.error(request, 'username must be between 2 or 8 characters.')
-            return render(request, 'account/register.html', context, status=400)
+            return render(request, 'account/register.html', context, status=406)
         if not username.isalnum():
             messages.error(request, 'Only alpha numeric characters allowed.')
-            return render(request, 'account/register.html', context, status=400)
-        if len(password1) == 0 or len(password2) == 0:
-            messages.error(request, 'All fields are required.')
             return render(request, 'account/register.html', context, status=400)
         if password1 != password2:
             messages.error(request, 'Passwords do not match.')
             return render(request, 'account/register.html', context, status=404)
-        if User.objects.filter(username=username).exists():
-            messages.error(request, 'Username already taken, choose another.')
-            return render(request, 'account/register.html', context, status=409)
-        if User.objects.filter(email=email).exists():
-            messages.error(request, 'Email already taken, choose another.')
-            return render(request, 'account/register.html', context, status=409)
+        # if User.objects.filter(email=email).exists():
+        #     messages.error(request, 'Email already taken, choose another.')
+        #     return render(request, 'account/register.html', context, status=409)
         if not (re.search(regex, email)):
             messages.error(request, 'Email is invalid.')
             return render(request, 'account/register.html', context, status=400)
         if reg_form.is_valid():
+            if User.objects.filter(email=email).exists():
+                messages.error(request, 'Email already taken, choose another.')
+                return render(request, 'account/register.html', context, status=409)
+            username = reg_form.cleaned_data.get('username')
+            
             user = User.objects.create_user(username=username, email=email, password=password1)
             user.set_password(password1)
-            username = reg_form.cleaned_data.get('username')
-            messages.success(request, f'Account successfully created for {username}, you can now log in.')
-            return redirect('account:signin')
+            login(request, user)
+            messages.success(request, f'Account successfully created, you can now log in.')
+            return render(request, 'account/register.html', context)
         else:
             messages.error(request, str(reg_form.errors))
             return render(request, 'account/register.html', context)
@@ -64,6 +63,10 @@ def register(request):
 
 
 def signin(request):
+    context = {
+        'data': request.POST,
+        'has_error': False
+    }
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -73,12 +76,14 @@ def signin(request):
                 login(request, user)
                 messages.success(request, mark_safe('Welcome ' + user.username))
                 return redirect('restaurant:home')
-            else:
+            elif not user and not context['has_error']:
                 messages.error(request, 'Invalid credentials,try again.')
-                return render(request, 'account/signin.html')
+                context['has_error'] = True
+                return render(request, 'account/signin.html', context, status=401)
         else:
             messages.error(request, 'All fields are required.')
-            return render(request, 'account/signin.html')
+            context['has_error'] = True
+            return render(request, 'account/signin.html', context, status=401)
     return render(request, 'account/signin.html')
 
 
@@ -108,8 +113,8 @@ def validate_username(request):
         return JsonResponse({'username_error': err_str}, status=400)
     if len(data['username']) <= 1 or len(data['username']) >= 9:
         return JsonResponse({'username_error': err_str1}, status=406)
-    if User.objects.filter(username=username).exists():
-        return JsonResponse({'username_error': err_str2}, status=409)
+    # if User.objects.filter(username=username).exists():
+    #     return JsonResponse({'username_error': err_str2}, status=409)
     return JsonResponse({'username_valid': True}, status=200)
 
 

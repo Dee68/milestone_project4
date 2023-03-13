@@ -16,7 +16,7 @@
             <a class="nav-link ltend" aria-current="page" href="{% url 'restaurant:home' %}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link ltend{% if request.path == contact %}active{% endif %}" href="#">Contact</a>
+            <a class="nav-link ltend{% if request.path == contact %}active{% endif %}" href="{% url 'restaurant:contact' %}">Contact</a>
           </li>
         </ul>
         <ul class="navbar-nav mb-2 mb-md-0">
