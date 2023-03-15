@@ -53,10 +53,6 @@ class TableTest(BaseTest):
         user_table.save()
         response = self.client.get(user_table.get_absolute_url())
         self.assertEqual(response.status_code, 200)
-        
-
-    
-
 
 
 class ReservationTest(BaseTest):
