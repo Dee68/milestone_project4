@@ -11,12 +11,12 @@ class RegisterForm(UserCreationForm):
         model = User
         fields = ['username', 'email', 'password1', 'password2']
  
-    def clean(self):
-        super(UserCreationForm, self).clean()
-        email = self.cleaned_data.get('email')
-        if User.objects.filter(email=email).exists():
-            raise ValidationError('Email already taken, choose another.')
-        return self.cleaned_data
+    # def clean(self):
+    #     super(UserCreationForm, self).clean()
+    #     email = self.cleaned_data.get('email')
+    #     if User.objects.filter(email=email).exists():
+    #         raise ValidationError('Email already taken, choose another.')
+    #     return self.cleaned_data
     
 
 class UserUpdateForm(UserChangeForm):

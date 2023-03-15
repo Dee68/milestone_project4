@@ -39,26 +39,21 @@ def register(request):
         if password1 != password2:
             messages.error(request, 'Passwords do not match.')
             return render(request, 'account/register.html', context, status=404)
-        # if User.objects.filter(email=email).exists():
-        #     messages.error(request, 'Email already taken, choose another.')
-        #     return render(request, 'account/register.html', context, status=409)
+        if User.objects.filter(username=username).exists():
+            messages.error(request, 'Email already taken, choose another.')
+            return render(request, 'account/register.html', context, status=409)
         if not (re.search(regex, email)):
             messages.error(request, 'Email is invalid.')
             return render(request, 'account/register.html', context, status=400)
-        if reg_form.is_valid():
-            if User.objects.filter(email=email).exists():
-                messages.error(request, 'Email already taken, choose another.')
-                return render(request, 'account/register.html', context, status=409)
-            username = reg_form.cleaned_data.get('username')
-            
-            user = User.objects.create_user(username=username, email=email, password=password1)
-            user.set_password(password1)
-            login(request, user)
-            messages.success(request, f'Account successfully created, you can now log in.')
-            return render(request, 'account/register.html', context)
-        else:
-            messages.error(request, str(reg_form.errors))
-            return render(request, 'account/register.html', context)
+        if User.objects.filter(email=email).exists():
+            messages.error(request, 'Email already taken, choose another.')
+            return render(request, 'account/register.html', context, status=409)  
+        user = User.objects.create_user(username=username, email=email, password=password1)
+        user.set_password(password1)
+        user.save()
+        login(request, user)
+        messages.success(request, f'Account successfully created, you can now log in.')
+        return redirect('account:signin')
     return render(request, 'account/register.html', context)
 
 
@@ -113,8 +108,8 @@ def validate_username(request):
         return JsonResponse({'username_error': err_str}, status=400)
     if len(data['username']) <= 1 or len(data['username']) >= 9:
         return JsonResponse({'username_error': err_str1}, status=406)
-    # if User.objects.filter(username=username).exists():
-    #     return JsonResponse({'username_error': err_str2}, status=409)
+    if User.objects.filter(username=username).exists():
+        return JsonResponse({'username_error': err_str2}, status=409)
     return JsonResponse({'username_valid': True}, status=200)
 
 
@@ -143,19 +138,20 @@ def profile_page(request):
 @login_required(login_url='account/signin')
 def profile_update(request):
     user_profile = Profile.objects.get(user_id=request.user.id)
-    post_data = request.POST or None
+    post_data = request.POST
     if request.method == 'POST':
         user_form = UserUpdateForm(post_data, instance=request.user)
         profile_form = UserProfileForm(post_data, request.FILES, instance=request.user.profile)
+        context = {'user_form': user_form, 'profile_form': profile_form, 'user_profile': user_profile}
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
             messages.success(request, 'Your profile has been updated.')
-            return HttpResponseRedirect(reverse_lazy('account:profile'))       
+            return redirect('account:profile')      
         messages.error(request, 'Something went wrong.')
-        context={'user_form': user_form, 'profile_form': profile_form, 'user_profile': user_profile}
-        return render(request, 'account/update_profile.html', context )
-    user_form = UserUpdateForm(instance=request.user)
-    profile_form = UserProfileForm(instance=request.user.profile)
-    context = {'user_form': user_form, 'profile_form': profile_form, 'user_profile': user_profile}
-    return render(request, 'account/update_profile.html', context)
+        return render(request, 'account/update_profile.html', context, status=400)
+    else:
+        user_form = UserUpdateForm(instance=request.user)
+        profile_form = UserProfileForm(post_data, request.FILES, instance=request.user.profile)
+        context = {'user_form': user_form, 'profile_form': profile_form, 'user_profile': user_profile}
+        return render(request, 'account/update_profile.html', context)
