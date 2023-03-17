@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponseRedirect, get_object_or_404, redirect
-from .models import Table, TableImage, Reservation
+from .models import Table, TableImage, Reservation, Review
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import ReservationForm
@@ -104,3 +104,14 @@ def reservation_delete(request, id):
     r.delete()
     messages.success(request, f'You have successfully deleted your reservation of {r.table.title }.')
     return redirect('account:profile')
+
+
+@login_required(login_url='account/signin')
+def review_list(request):
+    tables = Table.objects.all()
+    context = {'tables': tables}
+    return render(request, 'restaurant/review_list.html', context)
+
+
+def login_user(request):
+    return render(request, 'restaurant/login_user.html')
