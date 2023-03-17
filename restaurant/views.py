@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect, get_object_or_404, re
 from .models import Table, TableImage, Reservation, Review
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import ReservationForm
+from .forms import ReservationForm, ReviewForm
 from account.models import Profile
 from django.utils.timezone import now
 from django.core.mail import EmailMessage
@@ -111,6 +111,14 @@ def review_list(request):
     tables = Table.objects.all()
     context = {'tables': tables}
     return render(request, 'restaurant/review_list.html', context)
+
+@login_required(login_url='account/signin')
+def review_table(request, id, slug):
+    form = ReviewForm()
+    table = get_object_or_404(Table, id=id, slug=slug)
+    # reviews = review.table_set.all()
+    context = {'table': table, 'form': form}
+    return render(request, 'restaurant/table_review.html', context)
 
 
 def login_user(request):

@@ -4,7 +4,7 @@
 {% url 'restaurant:table' as table %}
 {% url 'restaurant:contact' as contact %}
 {% url 'account:signin' as signin %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-none  py-4" id="nav">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-none  py-4" id="nav">
     <div class="container-fluid">
       <a class="navbar-brand ltend" href="{% url 'restaurant:home' %}">
         Bongo
@@ -61,4 +61,45 @@
         </ul>
       </div>
     </div>
-  </nav>
+  </nav> -->
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0 nav-bar">
+      <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+          <a href="{% url 'restaurant:home' %}" class="navbar-brand px-lg-4 m-0">
+              <h1 class="m-0 display-4 text-uppercase text-white">Bongo</h1>
+          </a>
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+              <div class="navbar-nav ml-auto p-4">
+                  <a href="{% url 'restaurant:home' %}" class="nav-item nav-link active">Home</a>
+                  <!-- <a href="{% url 'restaurant:login-user' %}" class="nav-item nav-link">Reviews</a> -->
+                  <a href="{% url 'restaurant:login-user' %}" class="nav-item nav-link">Reservations</a>
+                  {% if user.id is not None %}
+                 
+                  <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Hi, {{ request.user }}</a>
+                      <ul class="dropdown-menu text-capitalize" aria-labelledby="dropdown01">
+                        <li class="nav-item">
+                          <span style="margin-left: 15px;">
+                            <img src="{% if user.profile.avatar %}{{ user.profile.avatar.url }}{% else %}{% static 'images/userimage.png' %}{% endif %}" style="height:30px; border-radius:30%;">
+                          </span>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="{% url 'account:logout' %}">Logout</a>
+                        </li>
+                        <li><a class="dropdown-item" href="{% url 'account:profile' %}">Profile</a></li>
+                        <li><a class="dropdown-item" href="{% url 'restaurant:reservations' %}">Reservations</a></li>
+                      </ul>
+                  </div>
+                  <a href="#" class="nav-item nav-link">Menu</a>
+                  {% else %}
+                  <a href="{% url 'account:register' %}" class="nav-item nav-link">Signup</a>
+                  <a href="{% url 'account:signin' %}" class="nav-item nav-link">Login</a>
+                  {% endif %}
+              </div>
+          </div>
+      </nav>
+  </div>
+  <!-- Navbar End -->

@@ -75,4 +75,4 @@ class Review(models.Model):
     date_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f'{self.author.username} reviewed {self.table.title[:20]}'
+        return f'{self.author.username} reviewed {self.table.title}'
