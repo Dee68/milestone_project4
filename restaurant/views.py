@@ -118,6 +118,18 @@ def review_table(request, id, slug):
     table = get_object_or_404(Table, id=id, slug=slug)
     reviews = table.table_review.all()
     context = {'table': table, 'reviews': reviews, 'form': form}
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            content = request.POST.get('content')
+            author = request.user
+            review = Review.objects.create(table=table, author=author, content=content)
+            review.save()
+            messages.success(request, 'Your review is added successfully.')
+            return redirect('restaurant:home')
+        else:
+            messages.error(request, 'Something went wrong')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     return render(request, 'restaurant/table_review.html', context)
 
 

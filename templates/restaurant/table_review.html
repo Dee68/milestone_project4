@@ -9,87 +9,58 @@
         <div class="card mb-3">
             <img class="card-img img-fluid" src="{{ table.image.url }}" alt="Card image cap" id="product-detail">
         </div>
+        {% if reviews %}
         <div class="row">
-            <!--Start Controls-->
-            <div class="col-1 align-self-center">
-                <a href="#multi-item-example" role="button" data-bs-slide="prev">
-                    <i class="text-dark fas fa-chevron-left"></i>
-                    <span class="sr-only">Previous</span>
-                </a>
+            <div class="col-lg-6-offset-lg-3">
+                Review{{ reviews.count|pluralize}}
+                <span class="badge badge-dark ml-2">{{ reviews.count }}</span>
             </div>
-            <!--End Controls-->
-            <!--Start Carousel Wrapper-->
-            <div id="multi-item-example" class="col-10 carousel slide carousel-multi-item pointer-event" data-bs-ride="carousel">
-                <!--Start Slides-->
-                <div class="carousel-inner product-links-wap" role="listbox">
-
-                    <!--First slide-->
-                    <div class="carousel-item active">
-                        <div class="row">
-                            {% for t_img in table_images %}
-                            <div class="col-4"> 
-                                <a href="#">
-                                    <img class="card-img img-fluid" src="{{ t_img.images.url }}" alt="Product Image 1">
-                                </a>
-                            </div>
-                            {% endfor %}
-                        </div>
-                        
+            {% for review in reviews %}
+            <div class="col-lg-6 offset-lg-3 mt-2">
+                <div class="card p-2">
+                    <div class="row">
+                      <div class="col-12">
+                        <img src="{{ review.author.profile.avatar.url }}" style="height:80px; width:80px; border-radius:50%;" alt="userimage">
+                        <strong>{{ review.author.username }}</strong> said
+                      </div>
+                      <div class="col-12">
+                        <p class="m-1 mt-3">{{ review.content }}</p>
+                        <p class="text-right text-muted"><small>{{ review.date_created.date }}</small></p>
+                      </div>
                     </div>
-                    
+                  </div>
+            </div>
+            {% endfor %}
 
-                  
-                </div>
-                <!--End Slides-->
-            </div>
-            <!--End Carousel Wrapper-->
-            <!--Start Controls-->
-            <div class="col-1 align-self-center">
-                <a href="#multi-item-example" role="button" data-bs-slide="next">
-                    <i class="text-dark fas fa-chevron-right"></i>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-            <!--End Controls-->
         </div>
+        {% endif %}
+       
     </div>
     <div class="col-lg-7 mt-5">
         <div class="card">
             <div class="card-body">
-                <h1 class="h2">{{ table.title }}</h1>
-                <p class="h3 py-2">${{ table.cost }}</p>
-                
-                <ul class="list-inline">
-                    <li class="list-inline-item">
-                        <h6>Capacity: {{ table.capacity }}</h6>
-                    </li>
-                    <li class="list-inline-item">
-                        <p class="text-muted"><strong>people</strong></p>
-                    </li>
-                </ul>
-
-                <h6>Description:</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse. Donec condimentum elementum convallis. Nunc sed orci a diam ultrices aliquet interdum quis nulla.</p>
-                <ul class="list-inline">
-                    <li class="list-inline-item">
-                        <h6>Avaliable Color :</h6>
-                    </li>
-                    <li class="list-inline-item">
-                        <p class="text-muted"><strong>White / Black</strong></p>
-                    </li>
-                </ul>
+                <h2 class="ci">Review this table</h2>
+                   <br>
+               
                 {% include '_partials/messages.html' %}
                 <form action="" method="POST">
                     {% csrf_token %}
                     
                     <div class="row mb-3 pb-3">
+                        <div class="row">
+                            <div class="col-md-3"><label for="content" class="ci">User:</label></div>
+                            <div class="col-md-9 mb-3">
+                             <input type="text" id="username" name="username" class="form-control" value="{{ request.user.username}}">
+                            </div>
+                      
+                        </div>
                             <div class="row">
-                                <div class="col-md-3"><label for="content">Content:</label></div>
+                                <div class="col-md-3"><label for="content" class="ci">Content:</label></div>
                                 <div class="col-md-9 mb-3">
                                  <textarea name="content" id="" cols="15" rows="5" class="form-control"></textarea>
                                 </div>
                           
-                                </div>
+                            </div>
                     <div class="row pb-2 btn-group gap-4">
                         {% if request.user.is_authenticated %}
                         <div class="col d-grid">

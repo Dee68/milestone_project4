@@ -15,6 +15,7 @@ class BaseTest(TestCase):
         self.home_url = reverse('restaurant:home')
         self.reservation_url = reverse('restaurant:reservations')
         self.table_to_reserve_url = reverse('restaurant:table-detail', args=[1,'title'])
+        self.table_to_review_url = reverse('restaurant:table-review', args=[1,'title'])
         self.reservation_to_edit = reverse('restaurant:reservation-edit', args=[1])
         self.reservation_delete = reverse('restaurant:reservation-delete', args=[1])
         self.register_url = reverse('account:register')
@@ -224,3 +225,15 @@ class ReservationTest(BaseTest):
         self.client.post(self.table_to_reserve_url, self.correct_reservation_input)
         response = self.client.delete(self.reservation_delete)
         self.assertEqual(response.status_code, 302)
+
+
+# class ReviewTest(BaseTest):
+#     def test_show_review_page(self):
+#         self.client.post(self.register_url, self.user, format='text/html')
+#         username = self.user['username']
+#         password = self.user['password1']
+#         self.user_login = {'username':username, 'password': password}
+#         self.client.post(self.login_url, self.user_login)
+#         response = self.client.get(self.table_to_review_url)
+#         self.assertTemplateUsed(response, 'restaurant/table_review.html')
+#         self.assertEqual(response.status_code, 200)

@@ -200,7 +200,9 @@ table.table-bordered th {
     font-weight: 500;
     margin-bottom: 5px;
     color: #fff;
-    /* font-family: "Poppins", sans-serif; */
+}
+.ci {
+    color: rgba(51, 33, 29, 0.9)!important;
 }
 .footer {
     background-color: rgba(51,33,29,0.9);
@@ -210,7 +212,7 @@ table.table-bordered th {
     width: 100%;
 }
 .page-header {
-  background: linear-gradient(rgba(51, 33, 29, 0.9), rgba(51, 33, 29, 0.9)), url(https://res.cloudinary.com/dyrp3aqdq/image/upload/v1679059638/bg_px9kdy.webp);
+  background: linear-gradient(rgba(51, 33, 29, 0.9), rgba(51, 33, 29, 0.9)), url('https://res.cloudinary.com/dyrp3aqdq/image/upload/v1679059638/bg_px9kdy.webp');
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
