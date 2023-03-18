@@ -81,13 +81,23 @@ h3 {
 }
 .cfm {
     color: #cda45e!important;
-    border: 1px solid #cda45e;
+    border: 2px solid #cda45e;
 }
 .cfm:hover {
     color: #fff;
-    background-color: rgba(198, 172, 82, 0.5);
-    border: 1px solid #cda45e!important;
+    background-color: rgba(51,33,29,0.9);
+    border: 2px solid #cda45e!important;
 }
+.kn {
+    display: flex;
+}
+.ad {
+    padding: 10px 24px;
+    justify-content: left;
+}
+/* a.btn {
+    text-align: center;
+} */
 .mk-top {
     padding-top: 10px;
     padding-bottom: 0px;

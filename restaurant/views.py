@@ -112,12 +112,12 @@ def review_list(request):
     context = {'tables': tables}
     return render(request, 'restaurant/review_list.html', context)
 
-@login_required(login_url='account/signin')
+# @login_required(login_url='account/signin')
 def review_table(request, id, slug):
     form = ReviewForm()
     table = get_object_or_404(Table, id=id, slug=slug)
-    # reviews = review.table_set.all()
-    context = {'table': table, 'form': form}
+    reviews = table.table_review.all()
+    context = {'table': table, 'reviews': reviews, 'form': form}
     return render(request, 'restaurant/table_review.html', context)
 
 
