@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse, reverse_lazy
 from .models import Profile
-from .forms import RegisterForm, UserProfileForm, UserUpdateForm
+from .forms import RegisterForm, UserProfileForm, UserUpdateForm, ChangePasswordForm
 import re
 
 import json
@@ -16,6 +16,10 @@ import json
 
 
 def register(request):
+    '''
+        This view enables users to signup
+        with customized validation
+    '''
     regex = '^[a-z0-9]+[\._]?[ a-z0-9]+[@]\w+[. ]\w{2,3}$'
     reg_form = RegisterForm()
     context = {'reg-form': reg_form}
@@ -58,6 +62,10 @@ def register(request):
 
 
 def signin(request):
+    '''
+        This view enables users to sign in
+        with customized validation
+    '''
     context = {
         'data': request.POST,
         'has_error': False
@@ -83,6 +91,10 @@ def signin(request):
 
 
 def confirm_page(request):
+    '''
+        This view accounts for confirmation
+        of users action.
+    '''
     form = request.POST
     if request.method == 'POST':
         if form.get('yes'):
@@ -95,10 +107,19 @@ def confirm_page(request):
 
 
 def logout_page(request):
+    '''
+        This view displays the confirmation page
+        if a user wishes to log out.
+    '''
     return render(request, 'account/confirm.html')
 
 
 def validate_username(request):
+    '''
+        This view enables ajax validation
+        of the username input field for a
+        better userexperience
+    '''
     data = json.loads(request.body)
     err_str = 'Username should contain only alphanumeric characters.'
     err_str1 = 'Username must be between 2 and 8 characters.'
@@ -114,6 +135,11 @@ def validate_username(request):
 
 
 def validate_email(request):
+    '''
+        This view enables ajax validation
+        of the email input field for a
+        better userexperience
+    '''
     regex = '^[a-z0-9]+[\._]?[ a-z0-9]+[@]\w+[. ]\w{2,3}$'
     data = json.loads(request.body)
     err_str = 'Sorry,email already taken, choose another one'
@@ -129,6 +155,10 @@ def validate_email(request):
 
 @login_required(login_url='account/signin')
 def profile_page(request):
+    '''
+        This view displays the profile of
+        a logged in user
+    '''
     user = request.user
     user_profile = get_object_or_404(Profile, user=request.user)
     context = {'user_profile': user_profile, 'user': user}
@@ -137,6 +167,10 @@ def profile_page(request):
 
 @login_required(login_url='account/signin')
 def profile_update(request):
+    '''
+        This view enables user to update
+        his/her profile
+    '''
     user_profile = Profile.objects.get(user_id=request.user.id)
     post_data = request.POST
     if request.method == 'POST':
@@ -155,3 +189,14 @@ def profile_update(request):
         profile_form = UserProfileForm(post_data, request.FILES, instance=request.user.profile)
         context = {'user_form': user_form, 'profile_form': profile_form, 'user_profile': user_profile}
         return render(request, 'account/update_profile.html', context)
+
+
+@login_required(login_url='account/signin')
+def update_password(request):
+    '''
+        This view renders a form to enable a logged in user to
+        change his/her password.
+    '''
+    form = ChangePasswordForm(user=request.user)
+    context = {'form': form}
+    return render(request, 'account/update_password.html', context)

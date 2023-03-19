@@ -1,36 +1,29 @@
 from django.shortcuts import render, HttpResponseRedirect, get_object_or_404, redirect
-from .models import Table, TableImage, Reservation, Review
+from .models import Table, TableImage, Reservation, Review, Food, Drink
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import ReservationForm, ReviewForm
 from account.models import Profile
 from django.utils.timezone import now
-from django.core.mail import EmailMessage
 import datetime
 import pytz
 
 
 def restaurant(request):
+    '''
+        a view to display the home page
+        gets all the tables in the restaurant
+    '''
     tables = Table.objects.all()
     context = {'tables': tables}
     return render(request, 'restaurant/index.html', context)
 
 
-def contact(request):
-    if request.method == 'POST':
-        name = request.POST['name']
-        email = request.POST['email']
-        subject = request.POST['subject']
-        message = request.POST['message']
-
-        #send email
-        return render(request, 'restaurant/contact.html', {'name': name })
-
-    else:
-        return render(request, 'restaurant/contact.html')
-
-
 def table_detail(request, id, slug):
+    '''
+        A view to display an individual table
+        with a form to reserve it if user is logged in
+    '''
     table = get_object_or_404(Table, id=id, slug=slug)
     table_images = TableImage.objects.filter(table=table)
     form = ReservationForm()
@@ -69,6 +62,10 @@ def table_detail(request, id, slug):
 
 @login_required(login_url='account/signin')
 def reservation_list(request):
+    '''
+        This view displays a list of reservation
+        done by a logged in user if any.
+    '''
     user = request.user
     profile = get_object_or_404(Profile, user=user)
     reservations = Reservation.objects.filter(customer=user)
@@ -78,6 +75,10 @@ def reservation_list(request):
 
 @login_required(login_url='account/signin')
 def reservation_edit(request, id):
+    '''
+        This view edits/update an individual reservation
+        of a logged in user.
+    '''
     r = get_object_or_404(Reservation, id=id)
     table_images = TableImage.objects.filter(table=r.table)
     form = ReservationForm(instance=r)
@@ -85,7 +86,6 @@ def reservation_edit(request, id):
     if now() > r.reserve_end:
         messages.error(request, 'Your reservation has expired.')
         return redirect('restaurant:reservations')
-
     if request.method == 'POST':
         form = ReservationForm(request.POST, instance=r)
         if form.is_valid():
@@ -100,20 +100,30 @@ def reservation_edit(request, id):
 
 @login_required(login_url='account/signin')
 def reservation_delete(request, id):
+    '''
+        This view enables a logged in user to delete 
+        his/her reservation.
+    '''
     r = get_object_or_404(Reservation, id=id)
     r.delete()
     messages.success(request, f'You have successfully deleted your reservation of {r.table.title }.')
     return redirect('account:profile')
 
 
-@login_required(login_url='account/signin')
 def review_list(request):
-    tables = Table.objects.all()
-    context = {'tables': tables}
+    '''
+        This view displays all the reviews made by users
+    '''
+    reviews = Review.objects.all()
+    context = {'reviews': reviews}
     return render(request, 'restaurant/review_list.html', context)
 
-# @login_required(login_url='account/signin')
+#@login_required(login_url='account/signin')
 def review_table(request, id, slug):
+    '''
+        This view enables a logged in user to
+        give a review of a table
+    '''
     form = ReviewForm()
     table = get_object_or_404(Table, id=id, slug=slug)
     reviews = table.table_review.all()
@@ -134,4 +144,29 @@ def review_table(request, id, slug):
 
 
 def login_user(request):
+    '''
+        This view enables users to sign in 
+        to view pages allowed only for logged in users.
+    '''
     return render(request, 'restaurant/login_user.html')
+
+
+def food_list(request):
+    '''
+        This view displays the food menu items.
+    '''
+    desserts = Food.objects.filter(food_type='dessert')
+    foods = Food.objects.filter(food_type='main')
+    context = {'desserts': desserts, 'foods': foods}
+    return render(request, 'restaurant/food_list.html', context)
+
+
+def drink_list(request):
+    '''
+        This view displays the drink menu items.
+    '''
+    wines = Drink.objects.filter(drink_type='wines')
+    beers = Drink.objects.filter(drink_type='beers')
+    cocktails = Drink.objects.filter(drink_type='cocktails')
+    context = {'wines': wines, 'beers': beers, 'cocktails': cocktails}
+    return render(request, 'restaurant/drink_list.html', context)

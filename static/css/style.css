@@ -72,6 +72,7 @@ h3 {
     display: inline-block;
     vertical-align: middle;
 }
+
 .sft {
     color: #342408;
     border: 1px solid #cda45e;
@@ -91,13 +92,52 @@ h3 {
 .kn {
     display: flex;
 }
+.hr {
+    border: 2px solid #cda45e!important;
+}
+.container-carousel {
+    width:100%;
+    margin: 50px auto;
+    min-height: 12%;
+    background-color: transparent;
+    overflow: hidden;
+}
+.container-carousel .card-container {
+    height: 250px;
+    width: 250px;
+    flex-shrink: 0;
+    padding-right: 15px;
+    box-sizing: border-box;
+}
+.container-carousel .card-container .card {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    transition: transfrom 0.3s;
+}
+.container-carousel .testimony {
+    display: flex;
+}
+
 .ad {
     padding: 10px 24px;
     justify-content: left;
 }
-/* a.btn {
-    text-align: center;
-} */
+
+.menu-item {
+    position: relative!important;
+    margin-bottom: 30px!important;
+    display: flex!important;
+    align-items: center!important;
+}
+.menu-item p {
+    position: relative!important;
+    margin-left: 30px;
+}
+.menu-text {
+    width: calc(100% - 100px)!important;
+}
 .mk-top {
     padding-top: 10px;
     padding-bottom: 0px;

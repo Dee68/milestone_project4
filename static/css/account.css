@@ -1,5 +1,8 @@
 body {
-    background-color: #2a2a2c;
+    background-color: #2a2a2c!important;
+}
+.rm {
+    text-decoration: none!important;
 }
 .title-lead {
     text-align: center;
@@ -9,7 +12,7 @@ body {
     text-align: center;
 }
 .logout {
-    border: 2px solid #cac1c1;
+    border: 2px solid #c5ab50;
     background-color: #2a2a2c;
     box-shadow: 15px 10px 10px rgba(198, 172, 82, 0.5); 
     

@@ -1,5 +1,6 @@
-from django.urls import path
+from django.urls import path, reverse_lazy
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import views as auth_views
 from .import views
 
 app_name = 'account'
@@ -7,6 +8,7 @@ app_name = 'account'
 urlpatterns = [
     path('', views.profile_page, name='profile'),
     path('update-profile/', views.profile_update, name='update-profile'),
+    path('change-password/', views.update_password, name='change-password'),
     path('register', views.register, name='register'),
     path('signin', views.signin, name='signin'),
     path('logout', views.logout_page, name='logout'),

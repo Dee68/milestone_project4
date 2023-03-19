@@ -79,14 +79,14 @@ class Review(models.Model):
 
 
 FOOD_TYPE = (
-    ('snacks','Snacks'),
-    ('main','Main'),
-    ('desert','Desert')
+    ('snacks', 'Snacks'),
+    ('main', 'Main'),
+    ('dessert', 'Dessert')
 )
 DRINK_TYPE = (
-    ('wines','Wines'),
-    ('beers','Beers'),
-    ('cocktails','Cocktails')
+    ('wines', 'Wines'),
+    ('beers', 'Beers'),
+    ('cocktails', 'Cocktails')
 )
 
 
