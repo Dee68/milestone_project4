@@ -211,12 +211,12 @@ table.table-bordered th {
     left: 0;
     width: 100%;
 }
-.page-header {
-  background: linear-gradient(rgba(51, 33, 29, 0.9), rgba(51, 33, 29, 0.9)), url('https://res.cloudinary.com/dyrp3aqdq/image/upload/v1679059638/bg_px9kdy.webp');
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+.pageheader {
+    background: linear-gradient(rgba(51, 33, 29, 0.9), rgba(51, 33, 29, 0.9)), url('/static/images/bg.webp');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 .btn-square, .btn-sm-square, .btn-lg-square {
     padding-left: 0;
     padding-right: 0;

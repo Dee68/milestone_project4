@@ -76,3 +76,49 @@ class Review(models.Model):
 
     def __str__(self):
         return f'{self.author.username} reviewed {self.table.title}'
+
+
+FOOD_TYPE = (
+    ('snacks','Snacks'),
+    ('main','Main'),
+    ('desert','Desert')
+)
+DRINK_TYPE = (
+    ('wines','Wines'),
+    ('beers','Beers'),
+    ('cocktails','Cocktails')
+)
+
+
+class Food(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=255)
+    food_type = models.CharField(max_length=7, choices=FOOD_TYPE, default='snacks')
+    price = models.DecimalField(decimal_places=2, max_digits=10)
+    image = models.ImageField(upload_to='foods/', blank=True)
+
+    def image_tag(self):
+        if self.image:
+            return mark_safe('<img src="%s" height="50" width="50">' %self.image.url)
+        return "No image found"
+    image_tag.short_description = 'Image'
+
+    def __str__(self):
+        return str(self.name)
+
+
+class Drink(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=255)
+    drink_type = models.CharField(max_length=9, choices=DRINK_TYPE, default='wines')
+    price = models.DecimalField(decimal_places=2, max_digits=10)
+    image = models.ImageField(upload_to='drinks/', blank=True)
+
+    def image_tag(self):
+        if self.image:
+            return mark_safe('<img src="%s" height="50" width="50">' %self.image.url)
+        return "No image found"
+    image_tag.short_description = 'Image'
+
+    def __str__(self):
+        return str(self.name)
