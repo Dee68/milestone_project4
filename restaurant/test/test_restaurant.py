@@ -16,7 +16,7 @@ class BaseTest(TestCase):
         self.home_url = reverse('restaurant:home')
         self.reservation_url = reverse('restaurant:reservations')
         self.table_to_reserve_url = reverse('restaurant:table-detail', args=[1,'title'])
-        self.table_to_review_url = reverse('restaurant:table-review', args=[1,'title'])
+        self.table_review_url = reverse('restaurant:table-review', args=['title'])
         self.reservation_to_edit = reverse('restaurant:reservation-edit', args=[1])
         self.reservation_delete = reverse('restaurant:reservation-delete', args=[1])
         self.register_url = reverse('account:register')
@@ -83,6 +83,7 @@ class BaseTest(TestCase):
             'is_available': True,
             'description': 'Some text goes here ...'
         }
+        # self.table_to_review_url = reverse('restaurant:table-review' self.table['slug'])
         self.table_without_image = {
            'id': 2,
             'title': 'table',
@@ -123,6 +124,12 @@ class BaseTest(TestCase):
             'drink_type':'wine',
             'price':12.00,
             'image':''
+        }
+        self.review_correct_input = {
+            'content': 'some text ...'
+        }
+        self.review_invalid_input = {
+            'content': ''
         }
         return super().setUp()
      
@@ -301,6 +308,35 @@ class ReviewTest(BaseTest):
         review = Review.objects.create(table=user_table, author=author, content='some text...')
         review.save()
         self.assertEqual(str(review), f'{review.author} reviewed {review.table.title}')
+
+    def test_show_create_review_page(self):
+        user_table = Table.objects.create(**self.table)
+        author = User.objects.create_user(username='testme', email='noreply@gmail.com', password='password')
+        response = self.client.get(self.table_review_url)
+        self.assertTemplateUsed(response,'restaurant/table_review.html')
+        self.assertEqual(response.status_code, 200)
+
+    def test_create_review_with_correct_input(self):
+        self.client.post(self.register_url, self.user, format='text/html')
+        username = self.user['username']
+        password = self.user['password1']
+        self.user_login = {'username':username, 'password': password}
+        self.client.post(self.login_url, self.user_login)
+        user_table = Table.objects.create(**self.table)
+        user_table.save()
+        response = self.client.post(self.table_review_url, self.review_correct_input, format='text/html')
+        self.assertRedirects(response, self.home_url)
+
+    def test_create_review_with_invalid_input(self):
+        self.client.post(self.register_url, self.user, format='text/html')
+        username = self.user['username']
+        password = self.user['password1']
+        self.user_login = {'username':username, 'password': password}
+        self.client.post(self.login_url, self.user_login)
+        user_table = Table.objects.create(**self.table)
+        user_table.save()
+        response = self.client.post(self.table_review_url, self.review_invalid_input, format='text/html')
+        self.assertRedirects(response.status_code, 302)
 
 
 class FoodTest(BaseTest):

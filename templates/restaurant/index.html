@@ -31,7 +31,7 @@
                       <a href="{{ table.get_absolute_url }}" class="btn btn-block btn-outline-dark cfm kn ad mr-5">Book</a>
                     </div>
                     <div class="col-md-4 mt-1">
-                      <a href="{% url 'restaurant:table-review' table.id table.slug %}" class="btn btn-block btn-outline-dark cfm kn ad mr-5">Detail</a>
+                      <a href="{{ table.get_table_review }}" class="btn btn-block btn-outline-dark cfm kn ad mr-5">Detail</a>
                     </div>
                     <div class="col-md-2">
                     </div>

@@ -32,6 +32,9 @@ class Table(models.Model):
     def get_absolute_url(self, *args, **kwargs):
         return reverse('restaurant:table-detail', args=[self.id, self.slug])
 
+    def get_table_review(self, *args):
+        return reverse('restaurant:table-review', args=[self.slug])
+
     @property
     def number_of_reviews(self):
         return Review.objects.filter(table_review=self).count()

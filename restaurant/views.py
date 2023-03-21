@@ -119,15 +119,14 @@ def review_list(request):
     return render(request, 'restaurant/review_list.html', context)
 
 
-def review_table(request, id, slug):
+def review_table(request, slug):
     '''
         This view enables a logged in user to
         give a review of a table
     '''
     form = ReviewForm()
-    table = get_object_or_404(Table, id=id, slug=slug)
-    reviews = table.table_review.all()
-    context = {'table': table, 'reviews': reviews, 'form': form}
+    table = get_object_or_404(Table, slug=slug)
+    context = {'table': table,'form': form}
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
