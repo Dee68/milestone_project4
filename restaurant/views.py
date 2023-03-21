@@ -118,7 +118,7 @@ def review_list(request):
     context = {'reviews': reviews}
     return render(request, 'restaurant/review_list.html', context)
 
-#@login_required(login_url='account/signin')
+
 def review_table(request, id, slug):
     '''
         This view enables a logged in user to

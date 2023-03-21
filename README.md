@@ -1,108 +1,219 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Bongo Restaurant - Restaurant Management System
+- [INTRODUCTION](#introduction)
+- [USER EXPERIENCE UX](#user-experience-ux)
+  * [USER STORIES](#user-stories)
+- [SCOPE](#scope)
+- [STRUCTURE](#structure)
+- [FLOWCHART](#flowchart)
+- [FEATURES](#features)
+  + [EXISTING FEATURES](#existing-features)
+  + [FUTURE FEATURES](#future-features)
+- [LANGUAGES USED](#languages-used)
+- [TECHNOLOGIES USED](#technologies-used)
+- [DATA STORAGE](#data-sorage)
+- [BUGS OR ERRORS](#bugs-or-errors)
+- [UNFIXED BUGS](#unfixed-bugs)
+- [TESTING](#testing)
+- [MANUAL TESTING](#manual-testing)
+- [DEPLOYMENT](#deployment)
+- [CREDITS](#credits)
+- [ACKNOWLEDGEMENTS](#acknowledgements)
 
-Welcome Dee68,
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## INTRODUCTION
+The Bongo restaurant is a fictional restaurant that manages the reservation of tables in the restaurant online.The restaurant works 24/7 and lots of exotic foods and drinks. 
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+![alt-text](assets/images/readme/start.png)
 
-## Gitpod Reminders
+[The live project can be viewed here](https://bongo-man.herokuapp.com/)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
 
-`python3 -m http.server`
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+## USER EXPERIENCE UX
+### USER STORIES
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+As a general user, I want to:
+1. Easily navigate through the application
+2. Be able to understand the purpose of the application
+3. See the correctness of the validation of my input values
+4. Be able to lodge money and withdraw money as an atm.
+5. Be able to create an account easily.
 
-A blue button should appear to click: _Make Public_,
+During the design, tests were carried out to try out visuals and initial features before establishing the final project repository.
+## SCOPE
+The project scope follows the minimal viable features approach for the initial project. However the scope is such that interactive features to enhance the user experience will be added in the future.
+For the implementation of the ATM banking system I have planned the following features:
+- Data from spreadsheet that contains the user's account and transactions to be displayed to the user in tables.
+- Account creation starts from the beginning of the program if the user has no account.
+- User account will be validated, if correct an option screen will be displayed to the user otherwise user will be referred back to create an account.
+- The deposit option enables the user to add money to his/her account on passing the validation of the input data. The value of the amount, status, and date time is inserted into the transaction spreadsheet table.
+- The withdraw option like the deposit option enables the user to remove money from his/her account if the amount input is valid. The amount requested by the user, status, and date time are inserted into the transactions spreadsheet table.
+- The program displays warnings in all stages if input values are not given in the correct format.
+- On-demand, a transaction table is displayed to the account holder if any, showing all his/her transactions with date time, amount, and status with reasons if the status is a failure.
 
-Another blue button should appear to click: _Open Browser_.
+## STRUCTURE
+The user experience design is explicit, with features positioned conventionally. Navigation starts from the welcome message and intuitively exits the user if he wishes to.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
 
-To log into the Heroku toolbelt CLI:
+### FLOWCHART
+The Flowchart for my program was created using [LucidChart](https://www.lucidchart.com/pages/landing?utm_source=google&utm_medium=cpc&utm_campaign=_chart_en_tier1_mixed_search_brand_exact_&km_CPC_CampaignId=1490375427&km_CPC_AdGroupID=55688909257&km_CPC_Keyword=lucidchart&km_CPC_MatchType=e&km_CPC_ExtensionID=&km_CPC_Network=g&km_CPC_AdPosition=&km_CPC_Creative=442433236001&km_CPC_TargetID=aud-809923745462:kwd-33511936169&km_CPC_Country=20483&km_CPC_Device=c&km_CPC_placement=&km_CPC_target=&gclid=CjwKCAiA2rOeBhAsEiwA2Pl7Q5KsmhzrrvhWJy2CYebbpJzHxt99Tj-XuCHr2wL0hH5yf4c1nGYkMhoCLYgQAvD_BwE) and it visually represents how the system works.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+![alt-text](assets/images/readme/flowchart.png)
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## FEATURES
+### EXISTING FEATURES
+The program has a feature that will ease the work of bank workers by not taking the pains of registering every customer. Also, remove the hassle of customers creating accounts in banks.
+For simulating a real-life experience, the system is linked to a <b>Google Spreedsheet</b> that can be accessed [here](https://docs.google.com/spreadsheets/d/19-2VbDweehojeCg4YcLQOBKUNskHD-2ef7-phK18IgQ/edit?usp=sharing).
 
-------
+- When the user launches the programm a welcome image is displayed with a question, if the user has an account or not.
 
-## Release History
+![alt-text](assets/images/readme/start.png)
+- Any input error by the user is caught and the corresponding message is displayed.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+![alt-text](assets/images/readme/start_err.png)
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+- A no answer from the user will prompt the user to create an account.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+![alt-text](assets/images/readme/account.png)
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+![alt-text](assets/images/readme/create_err1.png)
+- A yes answer implies the user has an account and the programm will prompt the user for validation of his/credentials thrice.
+If the user is unable to give correct credentials the programm returns back to start welcome question state.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+![alt-text](assets/images/readme/acc_valid_err.png)
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+- If a user successfully logs in to the system, the option menu is displayed to the user.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+![alt-text](assets/images/readme/options.png)
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+- If the user chooses option 3, his/her account details are displayed in a table for the user.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+![alt-text](assets/images/readme/account_details.png)
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+- If the user chooses option 4, his/her transactions are shown on a table with the date time the transactions where made and there status.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+![alt-text](assets/images/readme/transaction.png)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+- If the user chooses option 1, he/she will be promted to enter the amount in figures to deposit. The transaction will be inserted to the transaction table.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+![alt-text](assets/images/readme/depo_er.png)
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+- If the user chooses option 2, he/she will be prompted to enter the amount in figures, all errors are caught by the programm and the transaction is inserted into the transaction table.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+![alt-text](assets/images/readme/withd_er.png)
 
-------
+- If there is an input error from the user, the programm also checks the balance of the user if there are sufficient funds and if everything is ok the user is then allowed to withdraw funds consequently with a success message.
 
-## FAQ about the uptime script
+![alt-text](assets/images/readme/withd_suc.png)
 
-**Why have you added this script?**
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+## DATA STORAGE
 
-**How will this affect me?**
+The data used in this project is stored in google sheet through the google api cloud platform
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+![alt-text](assets/images/readme/accsheet.png)
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+![alt-text](assets/images/readme/transheet.png)
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
 
-**So….?**
+### FUTURE FEATURES
+- Implement a more modern and secure way to save user's credentials
+- Enable user's to do payment of utilities(water,gas, internet, telephone, etc)
+- Implement an email message sent to customers about their current account weekly.
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+### LANGUAGES USED
+- [Python](https://www.python.org/)
 
-**Can I opt out?**
+### TECHNOLOGIES USED
+Git was used for version control.
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+[Gitpod](https://github.com/Code-Institute-Org/python-essentials-template) was used as the IDE
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+[Lucidchart](https://www.lucidchart.com/pages/landing?utm_source=google&utm_medium=cpc&utm_campaign=_chart_en_tier1_mixed_search_brand_exact_&km_CPC_CampaignId=1490375427&km_CPC_AdGroupID=55688909257&km_CPC_Keyword=lucidchart&km_CPC_MatchType=e&km_CPC_ExtensionID=&km_CPC_Network=g&km_CPC_AdPosition=&km_CPC_Creative=442433236001&km_CPC_TargetID=aud-809923745462:kwd-33511936169&km_CPC_Country=20483&km_CPC_Device=c&km_CPC_placement=&km_CPC_target=&gclid=CjwKCAiA2rOeBhAsEiwA2Pl7Q5KsmhzrrvhWJy2CYebbpJzHxt99Tj-XuCHr2wL0hH5yf4c1nGYkMhoCLYgQAvD_BwE) was used for the flowchart.
 
-**Anything more?**
+[pep8](https://pep8ci.herokuapp.com/) was used to validate the python code.
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+[Heroku](https://id.heroku.com/) was used to deploy the project.
 
----
+### BUGS OR ERRORS
+The following bug was found and squashed:
 
-Happy coding!
+During the development process, the desire to give a good user experience was placed as the priority as a result, the code to achieve that aim was refactored several times. Finally, this was achieved, by introducing the function (do_options) and validating each user input in the (create_user) function.
+
+
+### UNFIXED BUGS
+There are no known outstanding bugs.
+
+
+### TESTING
+
+All the python files where tested in  [pep8](https://pep8ci.herokuapp.com/)
+
+
+### MANUAL TESTING
+Various users tested the atm application. Feedback was overall positive from all users.
+
+The following functioned as intended:
+
+- Account creation of user works correctly and inserts user credentials to google spreadsheet.
+- Validation of user if prompted for credentials
+- Shows a menu of options to a logged-in user
+- The deposit function gives corresponding feedback depending on the user's input.
+- Like the deposit function, the withdraw function also gives the corresponding feedback to the user depending on the input.
+- On-demand users logged in can get details of their account or their transaction in a table.
+
+
+The following were also tested and function correctly:
+- Every input of users is validated, and the corresponding error/success message is displayed.
+- The google spreadsheet is updated on every successful creation of an account.
+- On every deposit or withdraw function call, the google spreadsheet is updated.
+- The purpose of the application can be seen as the ease to create a user account.
+
+
+## DEPLOYMENT
+- This site was deployed by completing the following steps:
+1. Log in to [Heroku](https://id.heroku.com/) or create an account
+2. On the main page click the button labelled New in the top right corner and from the drop-down menu   select Create New App
+3. You must enter a unique app name
+4. Next select your region
+5. Click on the Create App button
+6. The next page is the project’s Deploy Tab. Click on the Settings Tab and scroll down to Config Vars
+7. Click Reveal Config Vars and enter port into the Key box and 8000 into the Value box and click the Add button
+8. Click Reveal Config Vars again and enter CREDS into the Key box and the Google credentials into the Value box
+9. Next, scroll down to the Buildpack section click Add Buildpack select python and click Save Changes
+10. Repeat step 9 to add node.js. o, Note: The Buildpacks must be in the correct order. If not click and drag them to move into the correct order
+11. Scroll to the top of the page and choose the Deploy tab
+12. Select Github as the deployment method
+13. Confirm you want to connect to GitHub
+14. Search for the repository name and click the connect button
+15. Scroll to the bottom of the deploy page and select the preferred deployment type
+16. Click either Enable Automatic Deploys for automatic deployment when you push updates to GitHUB
+
+### FORKING 
+Fork this project by following the steps:
+1. Open [GitHub](https://github.com/)
+2. Click on the project to be forked
+3. Find the Fork button at the top right of the page
+4. Once you click the button the fork will be in your repository
+
+### CLONING
+Clone this project by following the steps:
+1. Open [GitHub](https://github.com/)
+2. On the [repository](https://github.com/Dee68/milestone_project3) click the Code green button, right above the code window
+3. You will be provided with three options to choose from, HTTPS, SSH, or GitHub CLI, click the clipboard icon in order to copy the URL
+4. In your IDE open Git Bash
+5. Enter the command git clone followed by the copied URL
+6. The project is cloned.
+
+## CREDITS
+- The code for linking to the Google Spreadsheet and manipulating it was taken and adapted from the Code Institute Love Sandwiches tutorial
+- The welcome message on the start of the programm was adapted from [ASCII Art generator](https://fsymbols.com/generators/carty/)
+- The word_wrap function for animating the text was adapted from [Animated text tutorial](https://www.youtube.com/watch?v=2h8e0tXHfk0)
+- The bank card and bank note images from [emoji](https://getemoji.com/)
+
+
+## ACKNOWLEDGEMENTS
+- My mentor Jack Wachira for his extraordinary insight, constructive criticism, encouragement, and continuous vital feedback.
+- My code institute facilitator Irene Neveile for keeping up with my schedules.
+- Friends and colleagues that helped in testing the application.

@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django.urls import reverse
+from django.utils.safestring import mark_safe
 from django.contrib.messages import get_messages
 from django.contrib.auth.models import User
 from account.models import Profile
@@ -13,6 +14,12 @@ class BaseTest(TestCase):
         self.confirm_url = reverse('account:confirmation')
         self.profile_url = reverse('account:profile')
         self.update_profile_url = reverse('account:update-profile')
+        self.profile = {
+            'gender': 'male',
+            'bio': 'some text',
+            'address': 'abc 123',
+            'avatar': ''
+        }
         self.user = {
             'username':'username',
             'email':'noreply@gmail.com',
@@ -164,6 +171,17 @@ class ProfileTest(BaseTest):
         self.assertEqual(str(user), 'testme')
         pr = Profile.objects.get(user=user)
         self.assertEqual(str(pr), f"{user.username[0].upper()+ user.username[1:]}'s Profile")
+        self.assertEqual(pr.image_tag(), 'No image found')
+
+
+    # def test_should_show_profile_image(self):
+    #     user = User.objects.create_user(username='testme', email='noreply@gmail.com', password='password')
+    #     user.set_password('password')
+    #     user.save()
+    #     # pr = Profile.objects.get(user=user)
+    #     pr = Profile.objects.update(user=user, gender='male',bio='some text', address='123 abc', avatar='image')
+    #     self.assertEqual(pr.image_tag(), mark_safe('<img src="%s" height="50" width="50">' %pr.avatar.url) )
+
 
     def test_user_open_profile(self):
         self.client.post(self.register_url, self.user, format='text/html')
@@ -196,10 +214,11 @@ class ProfileTest(BaseTest):
                     'bio':'something...', 
                     'gender':'male',
                     'address':'234 uver street',
-                    'avatar':''
+                    'avatar':'image'
                     }
         response = self.client.post(self.update_profile_url, self.logged_in_user, format='text/html')
         self.assertRedirects(response, reverse('account:profile'))
+    
 
     def test_update_user_profile_invalid_input(self):
         self.client.post(self.register_url, self.user, format='text/html')

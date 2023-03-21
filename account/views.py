@@ -153,7 +153,7 @@ def validate_email(request):
         return JsonResponse({'email_error': err_str1}, status=400)
 
 
-@login_required(login_url='account/signin')
+@login_required(login_url='/account/signin')
 def profile_page(request):
     '''
         This view displays the profile of
@@ -165,7 +165,7 @@ def profile_page(request):
     return render(request, 'account/index.html', context)
 
 
-@login_required(login_url='account/signin')
+@login_required(login_url='/account/signin')
 def profile_update(request):
     '''
         This view enables user to update
@@ -189,14 +189,3 @@ def profile_update(request):
         profile_form = UserProfileForm(post_data, request.FILES, instance=request.user.profile)
         context = {'user_form': user_form, 'profile_form': profile_form, 'user_profile': user_profile}
         return render(request, 'account/update_profile.html', context)
-
-
-@login_required(login_url='account/signin')
-def update_password(request):
-    '''
-        This view renders a form to enable a logged in user to
-        change his/her password.
-    '''
-    form = ChangePasswordForm(user=request.user)
-    context = {'form': form}
-    return render(request, 'account/update_password.html', context)

@@ -5,7 +5,8 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from django.contrib.messages import get_messages
 from django.contrib.auth.models import User
 from django.utils.timezone import now
-from restaurant.models import Table, Reservation, TableImage
+from django.utils.safestring import mark_safe 
+from restaurant.models import Table, Reservation, TableImage, Food, Drink, Review
 from datetime import datetime
 import pytz
 
@@ -24,6 +25,10 @@ class BaseTest(TestCase):
         self.confirm_url = reverse('account:confirmation')
         self.profile_url = reverse('account:profile')
         self.update_profile_url = reverse('account:update-profile')
+        self.food_list_url = reverse('restaurant:foods')
+        self.drink_list_url = reverse('restaurant:drinks')
+        self.review_list_url = reverse('restaurant:reviews')
+        self.login_user_url = reverse('restaurant:login-user')
         self.empty_reservation_input = {
             'reserve_start': '',
             'reserve_end': ''
@@ -78,6 +83,47 @@ class BaseTest(TestCase):
             'is_available': True,
             'description': 'Some text goes here ...'
         }
+        self.table_without_image = {
+           'id': 2,
+            'title': 'table',
+            'table_type': 'basic',
+            'number': 101,
+            'capacity': 4,
+            'cost': 100.00,
+            'slug': 'title',
+            'image':'',
+            'is_available': True,
+            'description': 'Some text goes here ...' 
+        }
+        self.food = {
+            'name':'name',
+            'description':'description',
+            'food_type':'dessert',
+            'price':12.00,
+            'image':'image'
+        }
+        self.food_without_image = {
+            'name':'name',
+            'description':'description',
+            'food_type':'dessert',
+            'price':12.00,
+            'image':''
+        }
+        self.drink = {
+            'name':'name',
+            'description':'description',
+            'drink_type':'wine',
+            'price':12.00,
+            'image':'image'
+        }
+
+        self.drink_without_image = {
+            'name':'name',
+            'description':'description',
+            'drink_type':'wine',
+            'price':12.00,
+            'image':''
+        }
         return super().setUp()
      
 
@@ -98,10 +144,25 @@ class TableTest(BaseTest):
         table_image.save()
         self.assertEqual(str(table_image), user_table.title)
 
+    def test_should_show_image(self):
+        user_table = Table.objects.create(**self.table)
+        user_table.save()
+        self.assertEqual(user_table.image_tag(),  mark_safe('<img src="%s" height="50" width="50">' %user_table.image.url))
+
+    def test_should_show_no_image(self):
+        table = Table.objects.create(**self.table_without_image)
+        table.save()
+        self.assertEqual(table.image_tag(), 'No image found')
+
     def test_should_go_to_detail_page(self):
         user_table = Table.objects.create(**self.table)
         user_table.save()
         response = self.client.get(user_table.get_absolute_url())
+        self.assertEqual(response.status_code, 200)
+
+    def test_show_login_user_page(self):
+        response = self.client.get(self.login_user_url)
+        self.assertTemplateUsed(response, 'restaurant/login_user.html')
         self.assertEqual(response.status_code, 200)
 
 
@@ -110,7 +171,7 @@ class ReservationTest(BaseTest):
         self.client.post(self.register_url, self.user, format='text/html')
         username = self.user['username']
         password = self.user['password1']
-        self.user_login = {'username':username, 'password': password}
+        self.user_login = {'username': username, 'password': password}
         self.client.post(self.login_url, self.user_login)
         user_table = Table.objects.create(**self.table)
         user_table.save()
@@ -214,6 +275,7 @@ class ReservationTest(BaseTest):
         response = self.client.post(self.reservation_to_edit, self.empty_reservation_input)
         self.assertEqual(response.status_code, 302)
 
+
     def test_can_delete_a_reservation(self):
         self.client.post(self.register_url, self.user, format='text/html')
         username = self.user['username']
@@ -227,13 +289,59 @@ class ReservationTest(BaseTest):
         self.assertEqual(response.status_code, 302)
 
 
-# class ReviewTest(BaseTest):
-#     def test_show_review_page(self):
-#         self.client.post(self.register_url, self.user, format='text/html')
-#         username = self.user['username']
-#         password = self.user['password1']
-#         self.user_login = {'username':username, 'password': password}
-#         self.client.post(self.login_url, self.user_login)
-#         response = self.client.get(self.table_to_review_url)
-#         self.assertTemplateUsed(response, 'restaurant/table_review.html')
-#         self.assertEqual(response.status_code, 200)
+class ReviewTest(BaseTest):
+    def test_show_review_list_page(self):
+        response = self.client.get(self.review_list_url)
+        self.assertTemplateUsed(response, 'restaurant/review_list.html')
+        self.assertEqual(response.status_code, 200)
+
+    def test_should_create_review(self):
+        user_table = Table.objects.create(**self.table)
+        author = User.objects.create_user(username='testme', email='noreply@gmail.com', password='password')
+        review = Review.objects.create(table=user_table, author=author, content='some text...')
+        review.save()
+        self.assertEqual(str(review), f'{review.author} reviewed {review.table.title}')
+
+
+class FoodTest(BaseTest):
+    def test_show_food_list_page(self):
+        response = self.client.get(self.food_list_url)
+        self.assertTemplateUsed(response, 'restaurant/food_list.html')
+        self.assertEqual(response.status_code, 200)
+
+    def test_should_create_food(self):
+        user_food = Food.objects.create(**self.food)
+        user_food.save()
+        self.assertEqual(str(user_food), f"{self.food['name']}")
+
+    def test_should_show_image(self):
+        user_food = Food.objects.create(**self.food)
+        user_food.save()
+        self.assertEqual(user_food.image_tag(),  mark_safe('<img src="%s" height="50" width="50">' %user_food.image.url))
+
+    def test_should_show_no_image(self):
+        food = Food.objects.create(**self.food_without_image)
+        food.save()
+        self.assertEqual(food.image_tag(), 'No image found')
+
+
+class DrinkTest(BaseTest):
+    def test_show_food_list_page(self):
+        response = self.client.get(self.drink_list_url)
+        self.assertTemplateUsed(response, 'restaurant/drink_list.html')
+        self.assertEqual(response.status_code, 200)
+
+    def test_should_create_drink(self):
+        user_drink = Drink.objects.create(**self.drink)
+        user_drink.save()
+        self.assertEqual(str(user_drink), f"{self.drink['name']}")
+
+    def test_should_show_image(self):
+        user_drink = Drink.objects.create(**self.drink)
+        user_drink.save()
+        self.assertEqual(user_drink.image_tag(),  mark_safe('<img src="%s" height="50" width="50">' %user_drink.image.url))
+
+    def test_should_show_no_image(self):
+        drink = Drink.objects.create(**self.drink_without_image)
+        drink.save()
+        self.assertEqual(drink.image_tag(), 'No image found')

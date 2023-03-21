@@ -8,7 +8,6 @@ app_name = 'account'
 urlpatterns = [
     path('', views.profile_page, name='profile'),
     path('update-profile/', views.profile_update, name='update-profile'),
-    path('change-password/', views.update_password, name='change-password'),
     path('register', views.register, name='register'),
     path('signin', views.signin, name='signin'),
     path('logout', views.logout_page, name='logout'),
