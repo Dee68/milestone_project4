@@ -35,9 +35,9 @@ class Table(models.Model):
     def get_table_review(self, *args):
         return reverse('restaurant:table-review', args=[self.slug])
 
-    @property
-    def number_of_reviews(self):
-        return Review.objects.filter(table_review=self).count()
+    # @property
+    # def number_of_reviews(self):
+    #     return Review.objects.filter(table_review=self).count()
 
     def __str__(self):
         return f'Table number {self.number} with a capacity of {self.capacity}'
