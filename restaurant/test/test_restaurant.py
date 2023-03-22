@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.contrib.messages import get_messages
 from django.contrib.auth.models import User
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils.timezone import now
 from django.utils.safestring import mark_safe 
 from restaurant.models import Table, Reservation, TableImage, Food, Drink, Review
@@ -147,6 +148,12 @@ class TableTest(BaseTest):
         response = self.client.get(self.home_url)
         self.assertTemplateUsed(response, 'restaurant/index.html')
         self.assertEqual(response.status_code, 200)
+
+    def test_pagination_is_three(self):
+        response = self.client.get(self.home_url, {'query': '', 'page': 999})
+        self.assertEquals(response.context['tables'].number, 1)
+        
+        
 
     def test_should_create_table(self):
         user_table = Table.objects.create(**self.table)
@@ -303,7 +310,6 @@ class ReservationTest(BaseTest):
         response = self.client.post(self.reservation_to_edit, self.empty_reservation_input)
         self.assertEqual(response.status_code, 302)
 
-
     def test_can_delete_a_reservation(self):
         self.client.post(self.register_url, self.user, format='text/html')
         username = self.user['username']
@@ -358,6 +364,10 @@ class ReviewTest(BaseTest):
         user_table.save()
         response = self.client.post(self.table_review_url, self.review_invalid_input, format='text/html')
         self.assertEqual(response.status_code, 302)
+
+    def test_pagination_review_is_three(self):
+        response = self.client.get(self.review_list_url, {'query': '', 'page': 999})
+        self.assertEquals(response.context['reviews'].number, 1)
 
 
 class FoodTest(BaseTest):
