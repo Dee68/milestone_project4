@@ -1963,7 +1963,7 @@
     line-height: 1.5;
   }
   
-  .form-control-plaintext {
+  /* .form-control-plaintext {
     display: block;
     width: 100%;
     padding: 0.375rem 0;
@@ -1994,8 +1994,8 @@
     font-size: 1.25rem;
     line-height: 1.5;
   }
-  
-  select.form-control[size], select.form-control[multiple] {
+   */
+  /* select.form-control[size], select.form-control[multiple] {
     height: auto;
   }
   
@@ -2318,7 +2318,7 @@
       margin-bottom: 0;
     }
   }
-  
+   */
   .btn {
     display: inline-block;
     font-weight: 400;
