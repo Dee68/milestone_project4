@@ -121,6 +121,13 @@ class RegisterTest(BaseTest):
         response = self.client.post(self.register_url, self.user_with_taken_name, format='text/html')
         self.assertEqual(response.status_code, 409)
 
+    # def test_can_validate_username_ajax(self):
+    #     requests.content_type = 'application/json'
+    #     expected_resolution = 'Sorry username already in use, choose another.'
+    #     self.client._encode_json(expected_resolution, 'application/json')
+    #     response = self.client.post('account/validate-username/', **{'HTTP_X_REQUESTED_WITH': 'XMLHttpRequest'}, content_type='application/json')
+    #     self.assertEqual(response.json(), {'resolution': expected_resolution})
+
 
 class LoginTest(BaseTest):
     def test_show_login_page(self):
@@ -161,7 +168,7 @@ class LoginTest(BaseTest):
         self.assertRedirects(response, reverse('restaurant:home'))
         response = self.client.post(self.confirm_url,{'no':'no'})
         self.assertRedirects(response, reverse('restaurant:home'))
-              
+
 
 class ProfileTest(BaseTest):
     def test_should_create_user_profile(self):
@@ -172,16 +179,6 @@ class ProfileTest(BaseTest):
         pr = Profile.objects.get(user=user)
         self.assertEqual(str(pr), f"{user.username[0].upper()+ user.username[1:]}'s Profile")
         self.assertEqual(pr.image_tag(), 'No image found')
-
-
-    # def test_should_show_profile_image(self):
-    #     user = User.objects.create_user(username='testme', email='noreply@gmail.com', password='password')
-    #     user.set_password('password')
-    #     user.save()
-    #     # pr = Profile.objects.get(user=user)
-    #     pr = Profile.objects.update(user=user, gender='male',bio='some text', address='123 abc', avatar='image')
-    #     self.assertEqual(pr.image_tag(), mark_safe('<img src="%s" height="50" width="50">' %pr.avatar.url) )
-
 
     def test_user_open_profile(self):
         self.client.post(self.register_url, self.user, format='text/html')
@@ -218,7 +215,6 @@ class ProfileTest(BaseTest):
                     }
         response = self.client.post(self.update_profile_url, self.logged_in_user, format='text/html')
         self.assertRedirects(response, reverse('account:profile'))
-    
 
     def test_update_user_profile_invalid_input(self):
         self.client.post(self.register_url, self.user, format='text/html')
@@ -237,4 +233,3 @@ class ProfileTest(BaseTest):
                     }
         response = self.client.post(self.update_profile_url, self.logged_in_user, format='text/html')
         self.assertEqual(response.status_code, 400)
-

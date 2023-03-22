@@ -41,6 +41,15 @@ class BaseTest(TestCase):
             'reserve_start': rr_s.strftime('%m/%d/%Y %I:%M %p') ,
             'reserve_end': rr_end.strftime('%m/%d/%Y %I:%M %p')
         }
+        r_start = '03/22/2023 06:00 PM'
+        r_end = '03/21/2023 07:30 PM'
+        rr_s = datetime.strptime(r_start, '%m/%d/%Y %I:%M %p').replace(tzinfo=pytz.utc)
+        rr_end = datetime.strptime(r_end, '%m/%d/%Y %I:%M %p').replace(tzinfo=pytz.utc)
+        self.past_reserve_end_input = {
+            'reserve_start': rr_s.strftime('%m/%d/%Y %I:%M %p') ,
+            'reserve_end': rr_end.strftime('%m/%d/%Y %I:%M %p')
+        }
+
         rc_s = '07/10/2023 05:00 PM'
         rc_end = '07/10/2023 11:00 PM'
         rcc_s = datetime.strptime(rc_s, '%m/%d/%Y %I:%M %p').replace(tzinfo=pytz.utc)
@@ -83,7 +92,6 @@ class BaseTest(TestCase):
             'is_available': True,
             'description': 'Some text goes here ...'
         }
-        # self.table_to_review_url = reverse('restaurant:table-review' self.table['slug'])
         self.table_without_image = {
            'id': 2,
             'title': 'table',
@@ -221,6 +229,19 @@ class ReservationTest(BaseTest):
         response = self.client.post(self.table_to_reserve_url, self.past_reservation_input)
         self.assertEqual(response.status_code, 302)
 
+    def test_can_not_edit_from_past_reserve_end(self):
+        self.client.post(self.register_url, self.user, format='text/html')
+        username = self.user['username']
+        password = self.user['password1']
+        self.user_login = {'username':username, 'password': password}
+        self.client.post(self.login_url, self.user_login)
+        user_table = Table.objects.create(**self.table)
+        user_table.save()
+        self.client.post(self.table_to_reserve_url, self.correct_reservation_input, format='text/html')
+        response = self.client.post(self.reservation_to_edit, self.past_reserve_end_input)
+        self.assertRedirects(response, self.reservation_url)
+        self.assertEqual(response.status_code, 302)
+
     def test_can_create_reservation_with_correct_input(self):
         self.client.post(self.register_url, self.user, format='text/html')
         username = self.user['username']
@@ -336,7 +357,7 @@ class ReviewTest(BaseTest):
         user_table = Table.objects.create(**self.table)
         user_table.save()
         response = self.client.post(self.table_review_url, self.review_invalid_input, format='text/html')
-        self.assertRedirects(response.status_code, 302)
+        self.assertEqual(response.status_code, 302)
 
 
 class FoodTest(BaseTest):

@@ -126,12 +126,12 @@ def validate_username(request):
     err_str2 = 'Sorry username already in use, choose another.'
     username = data['username']
     if not str(username).isalnum():
-        return JsonResponse({'username_error': err_str}, status=400)
+        return JsonResponse({'username_error': err_str}, status=400, content_type='application/json')
     if len(data['username']) <= 1 or len(data['username']) >= 9:
-        return JsonResponse({'username_error': err_str1}, status=406)
+        return JsonResponse({'username_error': err_str1}, status=406, content_type='application/json')
     if User.objects.filter(username=username).exists():
-        return JsonResponse({'username_error': err_str2}, status=409)
-    return JsonResponse({'username_valid': True}, status=200)
+        return JsonResponse({'username_error': err_str2}, status=409, content_type='application/json')
+    return JsonResponse({'username_valid': True}, status=200, content_type='application/json')
 
 
 def validate_email(request):

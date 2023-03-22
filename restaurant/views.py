@@ -85,7 +85,7 @@ def reservation_edit(request, id):
     context = {'r': r, 'table_images': table_images, 'form': form}
     if now() > r.reserve_end:
         messages.error(request, 'Your reservation has expired.')
-        return redirect('restaurant:reservations')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     if request.method == 'POST':
         form = ReservationForm(request.POST, instance=r)
         if form.is_valid():
