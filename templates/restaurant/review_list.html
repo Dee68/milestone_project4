@@ -13,27 +13,62 @@
     </div>
     <div class="col-md-3"></div>
 </div>
-<div class="container-carousel">
-    <div class="testimony">
-        {% for review in reviews %}
-        <div class="card-container">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row mt-5">
-                        <div class="col-md-5">
-                            <img src="{{ review.author.profile.avatar.url }}" alt="Avatar" style="width: 100px;height: 100px;">
-                        </div>
-                        <div class="col-md-7">
-                            <h5 class="ml-3">{{ review.author.username | title }}</h5>
-                            <br>
-                            <p class="ml-3">{{ review.content }}</p>
-                        </div>
-                    </div>
-                </div>
+
+<div class="row g-4 mt-5">
+{% for review in reviews %}
+<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+    <div class="service-item rounded" href="">
+        <div class="service-icon bg-transparent border rounded p-1">
+            <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
+                <img src="{{ review.author.profile.avatar.url }}" alt="Avatar" style="width: 100px;height: 100px;" class="ml-4 rounded">
             </div>
         </div>
-        {% endfor %}
+        <h5 class="mb-3">{{ review.author | title }}</h5>
+        <p class="text-body mb-0">{{ review.content }}</p>
     </div>
 </div>
- 
+{% if forloop.counter|divisibleby:3 %}
+</div>
+<div class="row g-4 mt-5">
+    {% endif %}
+    {% endfor %}
+</div>
+{% if reviews.has_other_pages %}
+<nav aria-label="..." class="mt-5">
+  <ul class="pagination justify-content-center">
+    {% if reviews.has_previous %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ reviews.previous_page_number }}" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+    {% else %}
+      <li class="page-item disabled">
+          <span class="page-link" aria-hidden="true">&laquo;</span>
+      </li>
+    {% endif %}
+
+    {% for p in reviews.paginator.page_range %}
+      {% if reviews.number == p %}
+        <li class="page-item"><a class="page-link" style="color: red;" href="#">{{ p }}</a></li>
+      {% else %}
+        <li class="page-item"><a class="page-link" href="?page={{ p }}">{{ p }}</a></li>
+      {% endif %}
+    {% endfor %}
+
+    {% if reviews.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ reviews.next_page_number }}" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    {% else %}
+      <li class="page-item disabled">
+        <span class="page-link" aria-hidden="true">&raquo;</span>
+      </li>
+    {% endif %}
+</ul>
+</nav>
+{% endif %}
+</div>
 {% endblock %}

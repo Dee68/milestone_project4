@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect, get_object_or_404, redirect
 from .models import Table, TableImage, Reservation, Review, Food, Drink
 from django.contrib import messages
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
 from .forms import ReservationForm, ReviewForm
 from account.models import Profile
@@ -15,6 +16,14 @@ def restaurant(request):
         gets all the tables in the restaurant
     '''
     tables = Table.objects.all()
+    page = request.GET.get('page', 1)
+    paginator = Paginator(tables, 3)
+    try:
+        tables = paginator.page(page)
+    except PageNotAnInteger:
+        tables = paginator.page(1)
+    except EmptyPage:
+        tables = paginator.page(paginator.num_pages)
     context = {'tables': tables}
     return render(request, 'restaurant/index.html', context)
 
@@ -115,6 +124,14 @@ def review_list(request):
         This view displays all the reviews made by users
     '''
     reviews = Review.objects.all()
+    page = request.GET.get('page', 1)
+    paginator = Paginator(reviews, 3)
+    try:
+        reviews = paginator.page(page)
+    except PageNotAnInteger:
+        reviews = paginator.page(1)
+    except EmptyPage:
+        reviews = paginator.page(paginator.num_pages)
     context = {'reviews': reviews}
     return render(request, 'restaurant/review_list.html', context)
 
@@ -157,6 +174,7 @@ def food_list(request):
     '''
     desserts = Food.objects.filter(food_type='dessert')
     foods = Food.objects.filter(food_type='main')
+    
     context = {'desserts': desserts, 'foods': foods}
     return render(request, 'restaurant/food_list.html', context)
 

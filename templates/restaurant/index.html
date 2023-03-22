@@ -18,8 +18,11 @@
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
   {% for table in tables %}
         <div class="col mb-3">
+          
           <div class="card grow shadow-sm">
+            <small class="position-absolute start-0 top-50 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">${{ table.cost }}</small>
             <img src="{{ table.image.url}}" alt="{{ table.title }} table">
+            
             <div class="card-body">
               <p class="card-text">{{ table.description }}</p>
               <div class="d-flex justify-content-between align-items-center">
@@ -51,6 +54,43 @@
   {% endfor %}
 </div>
 </div>
+{% if tables.has_other_pages %}
+    <nav aria-label="..." class="mt-5">
+      <ul class="pagination justify-content-center">
+        {% if tables.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ allfoods.previous_page_number }}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+        {% else %}
+          <li class="page-item disabled">
+              <span class="page-link" aria-hidden="true">&laquo;</span>
+          </li>
+        {% endif %}
+
+        {% for p in tables.paginator.page_range %}
+          {% if tables.number == p %}
+            <li class="page-item"><a class="page-link" style="color: red;" href="#">{{ p }}</a></li>
+          {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{ p }}">{{ p }}</a></li>
+          {% endif %}
+        {% endfor %}
+
+        {% if tables.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ allfoods.next_page_number }}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        {% else %}
+          <li class="page-item disabled">
+            <span class="page-link" aria-hidden="true">&raquo;</span>
+          </li>
+        {% endif %}
+    </ul>
+    </nav>
+  {% endif %}
 </div>
 
 {% endblock %}
