@@ -19,7 +19,7 @@
   {% for table in tables %}
         <div class="col mb-3">
           <div class="card grow shadow-sm">
-            <img src="{{ table.image.url}}" alt="caribean-food">
+            <img src="{{ table.image.url}}" alt="{{ table.title }} table">
             <div class="card-body">
               <p class="card-text">{{ table.description }}</p>
               <div class="d-flex justify-content-between align-items-center">

@@ -81,11 +81,12 @@ h3 {
     background-color: #cda45e;
 }
 .cfm {
-    color: #cda45e!important;
+    color: #292F36!important;
     border: 2px solid #cda45e;
+    background-color: #f1efec;
 }
 .cfm:hover {
-    color: #fff;
+    color: #fff!important;
     background-color: rgba(51,33,29,0.9);
     border: 2px solid #cda45e!important;
 }

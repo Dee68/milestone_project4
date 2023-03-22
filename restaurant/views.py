@@ -126,7 +126,8 @@ def review_table(request, slug):
     '''
     form = ReviewForm()
     table = get_object_or_404(Table, slug=slug)
-    context = {'table': table,'form': form}
+    reviews = Review.objects.filter(table=table)
+    context = {'table': table,'form': form, 'reviews':reviews}
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
