@@ -48,16 +48,16 @@
                     
                     <div class="row mb-3 pb-3">
                         <div class="row">
-                            <div class="col-md-3"><label for="content" class="ci">User:</label></div>
+                            <div class="col-md-3"><label for="author" class="ci">User:</label></div>
                             <div class="col-md-9 mb-3">
-                             <input type="text" id="username" name="username" class="form-control" value="{{ request.user.username}}">
+                             <input type="text" id="author" name="author" class="form-control" value="{{ request.user.username}}">
                             </div>
                       
                         </div>
                             <div class="row">
                                 <div class="col-md-3"><label for="content" class="ci">Content:</label></div>
                                 <div class="col-md-9 mb-3">
-                                 <textarea name="content" id="" cols="15" rows="5" class="form-control"></textarea>
+                                 <textarea name="content" id="content" cols="15" rows="5" class="form-control"></textarea>
                                 </div>
                           
                             </div>

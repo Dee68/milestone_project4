@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponseRedirect, get_object_or_404, redirect
-from .models import Table, TableImage, Reservation, Review, Food, Drink
+from .models import Table, Reservation, Review, Food, Drink
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
@@ -34,9 +34,8 @@ def table_detail(request, id, slug):
         with a form to reserve it if user is logged in
     '''
     table = get_object_or_404(Table, id=id, slug=slug)
-    table_images = TableImage.objects.filter(table=table)
     form = ReservationForm()
-    context = {'table': table, 'table_images': table_images, 'form': form}
+    context = {'table': table, 'form': form}
     if request.method == 'POST':
         form = ReservationForm(request.POST)
         customer = request.user
@@ -89,9 +88,9 @@ def reservation_edit(request, id):
         of a logged in user.
     '''
     r = get_object_or_404(Reservation, id=id)
-    table_images = TableImage.objects.filter(table=r.table)
+    # table_images = TableImage.objects.filter(table=r.table)
     form = ReservationForm(instance=r)
-    context = {'r': r, 'table_images': table_images, 'form': form}
+    context = {'r': r, 'form': form}
     if now() > r.reserve_end:
         messages.error(request, 'Your reservation has expired.')
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

@@ -9,49 +9,7 @@
         <div class="card mb-3">
             <img class="card-img img-fluid" src="{{ table.image.url }}" alt="Card image cap" id="product-detail">
         </div>
-        <div class="row">
-            <!--Start Controls-->
-            <div class="col-1 align-self-center">
-                <a href="#multi-item-example" role="button" data-bs-slide="prev">
-                    <i class="text-dark fas fa-chevron-left"></i>
-                    <span class="sr-only">Previous</span>
-                </a>
-            </div>
-            <!--End Controls-->
-            <!--Start Carousel Wrapper-->
-            <div id="multi-item-example" class="col-10 carousel slide carousel-multi-item pointer-event" data-bs-ride="carousel">
-                <!--Start Slides-->
-                <div class="carousel-inner product-links-wap" role="listbox">
-
-                    <!--First slide-->
-                    <div class="carousel-item active">
-                        <div class="row">
-                            {% for t_img in table_images %}
-                            <div class="col-4"> 
-                                <a href="#">
-                                    <img class="card-img img-fluid" src="{{ t_img.images.url }}" alt="Product Image 1">
-                                </a>
-                            </div>
-                            {% endfor %}
-                        </div>
-                        
-                    </div>
-                    
-
-                  
-                </div>
-                <!--End Slides-->
-            </div>
-            <!--End Carousel Wrapper-->
-            <!--Start Controls-->
-            <div class="col-1 align-self-center">
-                <a href="#multi-item-example" role="button" data-bs-slide="next">
-                    <i class="text-dark fas fa-chevron-right"></i>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-            <!--End Controls-->
-        </div>
+        
     </div>
     <div class="col-lg-7 mt-5">
         <div class="card">
@@ -84,7 +42,9 @@
                     
                     <div class="row mb-3 pb-3">
                             <div class="row">
-                                <div class="col-md-3">Start:</div>
+                                <div class="col-md-3">
+                                    <label for="reserve_start">Start:</label>
+                                </div>
                                 <div class="col-md-9">
                                 <div class="input-group date mb-3" id="datetimepicker1" data-target-input="nearest">
                                 
@@ -95,7 +55,9 @@
                                 </div>
                                 </div>         
                             <div class="row">
-                                <div class="col-md-3">End:</div>
+                                <div class="col-md-3">
+                                    <label for="reserve_end">End:</label>
+                                </div>
                                     <div class="col-md-9">
                                         <div class="input-group date mb-3" id="datetimepicker2" data-target-input="nearest">
                                             <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2" name="reserve_end" id="id_reserve_end"/>

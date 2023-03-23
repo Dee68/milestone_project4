@@ -39,14 +39,6 @@ class Table(models.Model):
         return f'Table number {self.number} with a capacity of {self.capacity}'
 
 
-class TableImage(models.Model):
-    table = models.ForeignKey(Table, on_delete=models.CASCADE)
-    images = models.ImageField(upload_to='tables/')
-
-    def __str__(self):
-        return self.table.title
-
-
 class Reservation(models.Model):
     customer = models.ForeignKey(to=User, on_delete=models.CASCADE)
     table = models.ForeignKey(to=Table, on_delete=models.CASCADE)

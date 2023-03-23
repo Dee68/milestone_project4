@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Table, TableImage, Reservation, Review, Food, Drink
+from .models import Table, Reservation, Review, Food, Drink
 
 
 class TableAdmin(admin.ModelAdmin):
@@ -10,7 +10,6 @@ class TableAdmin(admin.ModelAdmin):
 
 admin.site.register(Table, TableAdmin)
 admin.site.register(Reservation)
-admin.site.register(TableImage)
 admin.site.register(Review)
 admin.site.register(Food)
 admin.site.register(Drink)
