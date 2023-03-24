@@ -14,18 +14,26 @@ class Table(models.Model):
         ('vip', 'vip'),
     )
     title = models.CharField(max_length=100)
-    table_type = models.CharField(max_length=5, choices=TABLE_TYPE, default='basic')
+    table_type = models.CharField(
+             max_length=5,
+             choices=TABLE_TYPE,
+             default='basic'
+             )
     number = models.IntegerField()
     capacity = models.IntegerField(default=1)
     cost = models.DecimalField(decimal_places=2, max_digits=10, default=100.00)
     is_available = models.BooleanField(default=True)
     slug = models.SlugField(unique=True)
     image = models.ImageField(blank=True, upload_to="tables/")
-    description = models.TextField(default='Book a table and  have taste of this exotic meal.')
+    description = models.TextField(
+              default='Book a table and  have taste of this exotic meal.'
+              )
 
     def image_tag(self):
         if self.image:
-            return mark_safe('<img src="%s" height="50" width="50">' %self.image.url)
+            return mark_safe(
+                '<img src="%s" height="50" width="50">' % self.image.url
+                )
         return "No image found"
     image_tag.short_description = 'Image'
 
@@ -59,7 +67,11 @@ class Reservation(models.Model):
 
 
 class Review(models.Model):
-    table = models.ForeignKey(Table, on_delete=models.CASCADE, related_name='table_review')
+    table = models.ForeignKey(
+        Table,
+        on_delete=models.CASCADE,
+        related_name='table_review'
+        )
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True)
@@ -84,13 +96,19 @@ DRINK_TYPE = (
 class Food(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=255)
-    food_type = models.CharField(max_length=7, choices=FOOD_TYPE, default='snacks')
+    food_type = models.CharField(
+            max_length=7,
+            choices=FOOD_TYPE,
+            default='snacks'
+            )
     price = models.DecimalField(decimal_places=2, max_digits=10)
     image = models.ImageField(upload_to='foods/', blank=True)
 
     def image_tag(self):
         if self.image:
-            return mark_safe('<img src="%s" height="50" width="50">' %self.image.url)
+            return mark_safe(
+                '<img src="%s" height="50" width="50">' % self.image.url
+                )
         return "No image found"
     image_tag.short_description = 'Image'
 
@@ -101,13 +119,19 @@ class Food(models.Model):
 class Drink(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=255)
-    drink_type = models.CharField(max_length=9, choices=DRINK_TYPE, default='wines')
+    drink_type = models.CharField(
+             max_length=9,
+             choices=DRINK_TYPE,
+             default='wines'
+             )
     price = models.DecimalField(decimal_places=2, max_digits=10)
     image = models.ImageField(upload_to='drinks/', blank=True)
 
     def image_tag(self):
         if self.image:
-            return mark_safe('<img src="%s" height="50" width="50">' %self.image.url)
+            return mark_safe(
+                '<img src="%s" height="50" width="50">' % self.image.url
+                )
         return "No image found"
     image_tag.short_description = 'Image'
 

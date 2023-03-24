@@ -113,8 +113,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 if DEBUG:
-     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-     DEFAULT_FROM_EMAIL = 'info@gmail.com'
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    DEFAULT_FROM_EMAIL = 'info@gmail.com'
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_HOST = 'smtp.gmail.com'

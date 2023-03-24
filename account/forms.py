@@ -1,7 +1,11 @@
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from .models import Profile
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
+from django.contrib.auth.forms import (
+                                        UserCreationForm,
+                                        UserChangeForm,
+                                        PasswordChangeForm
+                                        )
 from django.forms import widgets
 from django import forms
 
@@ -33,14 +37,30 @@ class UserProfileForm(forms.ModelForm):
 class ChangePasswordForm(PasswordChangeForm):
     class Meta:
         model = User
-        fields = ['old_password', 'new_password1', 'new_password2'] 
+        fields = ['old_password', 'new_password1', 'new_password2']
         labels = {
             'old_password': 'Old Password',
             'new_password1': 'New Password',
             'new_password2': 'Confirm Password'
         }
         widgets = {
-            'old_password': forms.PasswordInput(attrs={'class': 'form-control', 'autocomplete':True,'required': 'required'}),
-            'new_password1': forms.PasswordInput(attrs={'class': 'form-control', 'required': 'required'}),
-            'new_password2': forms.PasswordInput(attrs={'class': 'form-control', 'required':'required'})
-        }   
+            'old_password': forms.PasswordInput(
+                    attrs={
+                        'class': 'form-control',
+                        'autocomplete': True,
+                        'required': 'required'
+                        }
+                        ),
+            'new_password1': forms.PasswordInput(
+                    attrs={
+                        'class': 'form-control',
+                        'required': 'required'
+                        }
+                        ),
+            'new_password2': forms.PasswordInput(
+                    attrs={
+                        'class': 'form-control',
+                        'required': 'required'
+                        }
+                        )
+        }

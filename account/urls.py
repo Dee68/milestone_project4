@@ -1,4 +1,4 @@
-from django.urls import path, reverse_lazy
+from django.urls import path
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import views as auth_views
 from .import views
@@ -11,7 +11,11 @@ urlpatterns = [
     path('register', views.register, name='register'),
     path('signin', views.signin, name='signin'),
     path('logout', views.logout_page, name='logout'),
-    path('validate-username', csrf_exempt(views.validate_username), name='validate-username'),
-    path('validate-email', csrf_exempt(views.validate_email), name='validate-email'),
+    path(
+        'validate-username',
+        csrf_exempt(views.validate_username), name='validate-username'),
+    path(
+        'validate-email',
+        csrf_exempt(views.validate_email), name='validate-email'),
     path('confirmation', views.confirm_page, name='confirmation'),
 ]

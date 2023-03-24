@@ -7,7 +7,12 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse, reverse_lazy
 from .models import Profile
-from .forms import RegisterForm, UserProfileForm, UserUpdateForm, ChangePasswordForm
+from .forms import (
+                    RegisterForm,
+                    UserProfileForm,
+                    UserUpdateForm,
+                    ChangePasswordForm
+                    )
 import re
 
 import json
@@ -33,30 +38,78 @@ def register(request):
         context = {'reg_form': reg_form, 'field_vals': field_vals}
         if len(username) == 0 or len(password1) == 0:
             messages.error(request, 'all fields are required.')
-            return render(request, 'account/register.html', context, status=400)
+            return render(
+                        request,
+                        'account/register.html',
+                        context,
+                        status=400
+                        )
         if len(username) < 2 or len(username) > 8:
-            messages.error(request, 'username must be between 2 or 8 characters.')
-            return render(request, 'account/register.html', context, status=406)
+            messages.error(
+                request,
+                'username must be between 2 or 8 characters.'
+                )
+            return render(
+                        request,
+                        'account/register.html',
+                        context,
+                        status=406
+                        )
         if not username.isalnum():
-            messages.error(request, 'Only alpha numeric characters allowed.')
-            return render(request, 'account/register.html', context, status=400)
+            messages.error(
+                        request,
+                        'Only alpha numeric characters allowed.'
+                        )
+            return render(
+                        request,
+                        'account/register.html',
+                        context,
+                        status=400
+                        )
         if password1 != password2:
             messages.error(request, 'Passwords do not match.')
-            return render(request, 'account/register.html', context, status=404)
+            return render(
+                        request,
+                        'account/register.html',
+                        context,
+                        status=404
+                        )
         if User.objects.filter(username=username).exists():
             messages.error(request, 'Email already taken, choose another.')
-            return render(request, 'account/register.html', context, status=409)
+            return render(
+                        request,
+                        'account/register.html',
+                        context,
+                        status=409
+                        )
         if not (re.search(regex, email)):
             messages.error(request, 'Email is invalid.')
-            return render(request, 'account/register.html', context, status=400)
+            return render(
+                        request,
+                        'account/register.html',
+                        context,
+                        status=400
+                        )
         if User.objects.filter(email=email).exists():
             messages.error(request, 'Email already taken, choose another.')
-            return render(request, 'account/register.html', context, status=409)  
-        user = User.objects.create_user(username=username, email=email, password=password1)
+            return render(
+                        request,
+                        'account/register.html',
+                        context,
+                        status=409
+                        )
+        user = User.objects.create_user(
+                                        username=username,
+                                        email=email,
+                                        password=password1
+                                        )
         user.set_password(password1)
         user.save()
         login(request, user)
-        messages.success(request, f'Account successfully created, you can now log in.')
+        messages.success(
+            request,
+            f'Account successfully created, you can now log in.'
+            )
         return redirect('account:signin')
     return render(request, 'account/register.html', context)
 
@@ -77,16 +130,29 @@ def signin(request):
             user = authenticate(username=username, password=password)
             if user:
                 login(request, user)
-                messages.success(request, mark_safe('Welcome ' + user.username))
+                messages.success(
+                    request,
+                    mark_safe('Welcome ' + user.username)
+                    )
                 return redirect('restaurant:home')
             elif not user and not context['has_error']:
                 messages.error(request, 'Invalid credentials,try again.')
                 context['has_error'] = True
-                return render(request, 'account/signin.html', context, status=401)
+                return render(
+                    request,
+                    'account/signin.html',
+                    context,
+                    status=401
+                    )
         else:
             messages.error(request, 'All fields are required.')
             context['has_error'] = True
-            return render(request, 'account/signin.html', context, status=401)
+            return render(
+                        request,
+                        'account/signin.html',
+                        context,
+                        status=401
+                        )
     return render(request, 'account/signin.html')
 
 
@@ -126,12 +192,28 @@ def validate_username(request):
     err_str2 = 'Sorry username already in use, choose another.'
     username = data['username']
     if not str(username).isalnum():
-        return JsonResponse({'username_error': err_str}, status=400, content_type='application/json')
+        return JsonResponse(
+            {'username_error': err_str},
+            status=400,
+            content_type='application/json'
+            )
     if len(data['username']) <= 1 or len(data['username']) >= 9:
-        return JsonResponse({'username_error': err_str1}, status=406, content_type='application/json')
+        return JsonResponse(
+            {'username_error': err_str1},
+            status=406,
+            content_type='application/json'
+            )
     if User.objects.filter(username=username).exists():
-        return JsonResponse({'username_error': err_str2}, status=409, content_type='application/json')
-    return JsonResponse({'username_valid': True}, status=200, content_type='application/json')
+        return JsonResponse(
+            {'username_error': err_str2},
+            status=409,
+            content_type='application/json'
+            )
+    return JsonResponse(
+        {'username_valid': True},
+        status=200,
+        content_type='application/json'
+        )
 
 
 def validate_email(request):
@@ -175,17 +257,38 @@ def profile_update(request):
     post_data = request.POST
     if request.method == 'POST':
         user_form = UserUpdateForm(post_data, instance=request.user)
-        profile_form = UserProfileForm(post_data, request.FILES, instance=request.user.profile)
-        context = {'user_form': user_form, 'profile_form': profile_form, 'user_profile': user_profile}
+        profile_form = UserProfileForm(
+                                        post_data,
+                                        request.FILES,
+                                        instance=request.user.profile
+                                        )
+        context = {
+             'user_form': user_form,
+             'profile_form': profile_form,
+             'user_profile': user_profile
+             }
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
             messages.success(request, 'Your profile has been updated.')
-            return redirect('account:profile')      
+            return redirect('account:profile')
         messages.error(request, 'Something went wrong.')
-        return render(request, 'account/update_profile.html', context, status=400)
+        return render(
+            request,
+            'account/update_profile.html',
+            context,
+            status=400
+            )
     else:
         user_form = UserUpdateForm(instance=request.user)
-        profile_form = UserProfileForm(post_data, request.FILES, instance=request.user.profile)
-        context = {'user_form': user_form, 'profile_form': profile_form, 'user_profile': user_profile}
+        profile_form = UserProfileForm(
+                                        post_data,
+                                        request.FILES,
+                                        instance=request.user.profile
+                                        )
+        context = {
+                   'user_form': user_form,
+                   'profile_form': profile_form,
+                   'user_profile': user_profile
+                   }
         return render(request, 'account/update_profile.html', context)

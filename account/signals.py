@@ -12,5 +12,5 @@ def create_profile(sender, instance, created, **kwargs):
 
 @receiver(post_save, sender=User)
 def update_profile(sender, instance, created, **kwargs):
-    if created == False:
+    if not created:
         instance.profile.save()
