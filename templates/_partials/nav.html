@@ -10,7 +10,7 @@
           <a href="{% url 'restaurant:home' %}" class="navbar-brand px-lg-4 m-0">
               <h1 class="m-0 display-4 text-uppercase text-white">Bongo</h1>
           </a>
-          <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+          <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
@@ -18,7 +18,7 @@
                   <a href="{% url 'restaurant:home' %}" class="nav-item nav-link active">Home</a>
                   <a href="{% url 'restaurant:reviews' %}" class="nav-item nav-link">Reviews</a>
                   <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="true">Menu</a>
                       <ul class="dropdown-menu text-capitalize" aria-labelledby="dropdown01">
                         
                         <li>
@@ -28,11 +28,12 @@
                         
                       </ul>
                   </div>
+                 
                   {% if user.id is not None %}
                  
                   <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Hi, {{ request.user }}</a>
-                      <ul class="dropdown-menu text-capitalize" aria-labelledby="dropdown01">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-bs-toggle="dropdown" aria-expanded="false">Hi, {{ request.user }}</a>
+                      <ul class="dropdown-menu text-capitalize" aria-labelledby="dropdown02">
                         <li class="nav-item">
                           <span style="margin-left: 15px;">
                             <img src="{% if user.profile.avatar %}{{ user.profile.avatar.url }}{% else %}{% static 'images/userimage.png' %}{% endif %}" style="height:30px; border-radius:30%;">
@@ -55,3 +56,4 @@
       </nav>
   </div>
   <!-- Navbar End -->
+  

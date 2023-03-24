@@ -416,13 +416,14 @@ class ReservationTest(BaseTest):
         self.user_login = {'username': username, 'password': password}
         self.client.post(self.login_url, self.user_login)
         user_table = Table.objects.create(**self.table)
-        user_table.save()
+        user_table.save() 
         self.client.post(
                          self.table_to_reserve_url,
                          self.correct_reservation_input
                          )
         response = self.client.delete(self.reservation_delete)
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'restaurant/confirm_delete.html')
 
 
 class ReviewTest(BaseTest):

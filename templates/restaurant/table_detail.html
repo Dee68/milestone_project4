@@ -14,12 +14,12 @@
     <div class="col-lg-7 mt-5">
         <div class="card">
             <div class="card-body">
-                <h1 class="h2">{{ table.title }}</h1>
+                <h2 class="h2">{{ table.title }}</h2>
                 <p class="h3 py-2">${{ table.cost }}</p>
                 
                 <ul class="list-inline">
                     <li class="list-inline-item">
-                        <h6>Capacity: {{ table.capacity }}</h6>
+                        <h3>Capacity: {{ table.capacity }}</h3>
                     </li>
                     <li class="list-inline-item">
                         <p class="text-muted"><strong>people</strong></p>
@@ -27,15 +27,7 @@
                 </ul>
 
                 <h6>Description:</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse. Donec condimentum elementum convallis. Nunc sed orci a diam ultrices aliquet interdum quis nulla.</p>
-                <ul class="list-inline">
-                    <li class="list-inline-item">
-                        <h6>Avaliable Color :</h6>
-                    </li>
-                    <li class="list-inline-item">
-                        <p class="text-muted"><strong>White / Black</strong></p>
-                    </li>
-                </ul>
+                <p>{{ table.description|safe }}</p>
                 {% include '_partials/messages.html' %}
                 <form action="" method="POST">
                     {% csrf_token %}
@@ -43,7 +35,7 @@
                     <div class="row mb-3 pb-3">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <label for="reserve_start">Start:</label>
+                                    <label for="id_reserve_start">Start:</label>
                                 </div>
                                 <div class="col-md-9">
                                 <div class="input-group date mb-3" id="datetimepicker1" data-target-input="nearest">
@@ -56,7 +48,7 @@
                                 </div>         
                             <div class="row">
                                 <div class="col-md-3">
-                                    <label for="reserve_end">End:</label>
+                                    <label for="Id_reserve_end">End:</label>
                                 </div>
                                     <div class="col-md-9">
                                         <div class="input-group date mb-3" id="datetimepicker2" data-target-input="nearest">

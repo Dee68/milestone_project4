@@ -10,31 +10,18 @@
             <img class="card-img img-fluid" src="{{ table.image.url }}" alt="Card image cap" id="product-detail">
         </div>
         {% if reviews %}
-        <div class="row">
-            <div class="col-lg-6-offset-lg-3">
-                Review{{ reviews.count|pluralize}}
+        <div class="row mt-3">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                
+                <p class="highlight">Review{{ reviews.count|pluralize}} 
                 <span class="badge badge-dark ml-2">{{ reviews.count }}</span>
+                </p>
+               
             </div>
-            {% for review in reviews %}
-            <div class="col-lg-6 offset-lg-3 mt-2">
-                <div class="card p-2">
-                    <div class="row">
-                      <div class="col-12">
-                        <img src="{{ review.author.profile.avatar.url }}" style="height:80px; width:80px; border-radius:50%;" alt="userimage">
-                        <strong>{{ review.author.username }}</strong> said
-                      </div>
-                      <div class="col-12">
-                        <p class="m-1 mt-3">{{ review.content }}</p>
-                        <p class="text-right text-muted"><small>{{ review.date_created.date }}</small></p>
-                      </div>
-                    </div>
-                  </div>
-            </div>
-            {% endfor %}
-
+            <div class="col-lg-3"></div>
         </div>
         {% endif %}
-       
     </div>
     <div class="col-lg-7 mt-5">
         <div class="card">
@@ -80,5 +67,28 @@
         </div>
     </div>
 </div>
+{% if reviews %}
+<div class="row g-4 mt-5">
+    {% for review in reviews %}
+    <div class="col-lg-4 col-md-12 wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+        <div class="service-item rounded" href="">
+            <div class="service-icon bg-transparent">
+                <div class="d-flex align-items-center justify-content-center">
+                    <img src="{{ review.author.profile.avatar.url }}" alt="Avatar" style="height:80px; width:80px; border-radius:50%;" alt="userimage">
+                </div>
+            </div>
+            <h5 class="mb-3">{{ review.author | title }}</h5>
+            <p class="text-body mb-0">{{ review.content|safe }}</p>
+            <p class="text-right text-muted"><small>{{ review.date_created.date }}</small></p>
+        </div>
+    </div>
+    {% if forloop.counter|divisibleby:3 %}
+    </div>
+    <div class="row g-4 mt-5">
+        {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}
+
 
 {% endblock %}
