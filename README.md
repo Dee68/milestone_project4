@@ -1,219 +1,102 @@
 # Bongo Restaurant - Restaurant Management System
-- [INTRODUCTION](#introduction)
-- [USER EXPERIENCE UX](#user-experience-ux)
-  * [USER STORIES](#user-stories)
-- [SCOPE](#scope)
-- [STRUCTURE](#structure)
-- [FLOWCHART](#flowchart)
-- [FEATURES](#features)
-  + [EXISTING FEATURES](#existing-features)
-  + [FUTURE FEATURES](#future-features)
-- [LANGUAGES USED](#languages-used)
-- [TECHNOLOGIES USED](#technologies-used)
-- [DATA STORAGE](#data-sorage)
-- [BUGS OR ERRORS](#bugs-or-errors)
-- [UNFIXED BUGS](#unfixed-bugs)
-- [TESTING](#testing)
-- [MANUAL TESTING](#manual-testing)
-- [DEPLOYMENT](#deployment)
-- [CREDITS](#credits)
-- [ACKNOWLEDGEMENTS](#acknowledgements)
 
-
-## INTRODUCTION
-The Bongo restaurant is a fictional restaurant that manages the reservation of tables in the restaurant online.The restaurant works 24/7 and lots of exotic foods and drinks. 
-
-![alt-text](assets/images/readme/start.png)
+**Developer: Dimie Egberipou**
 
 [The live project can be viewed here](https://bongo-man.herokuapp.com/)
 
+## Table of Contents
 
+  - [About](#about)
+  - [User Goals](#user-goals)
+  - [Site Owner Goals](#site-owner-goals)
+  - [User Experience](#user-experience)
+  - [User Stories](#user-stories)
+  - [Design](#design)
+    - [Colours](#colours)
+    - [Fonts](#fonts)
+    - [Structure](#structure)
+      - [Website pages](#website-pages)
+      - [Database](#database)
+    - [Wireframes](#wireframes)
+  - [Technologies Used](#technologies-used)
+  - [Features](#features)
+  - [Validation](#validation)
+  - [Testing](#testing)
+    - [Manual testing](#manual-testing)
+    - [Automated testing](#automated-testing)
+    - [Tests on various devices](#tests-on-various-devices)
+    - [Browser compatibility](#browser-compatibility)
+  - [Bugs](#bugs)
+  - [Heroku Deployment](#heroku-deployment)
+  - [Credits](#credits)
+  - [Acknowledgements](#acknowledgements)
 
+### About
 
-## USER EXPERIENCE UX
-### USER STORIES
+The Bongo Restaurant is a fictional business where users can create an account, update their profiles reserve a table and view the food and drinks menu.
+<hr>
 
-As a general user, I want to:
-1. Easily navigate through the application
-2. Be able to understand the purpose of the application
-3. See the correctness of the validation of my input values
-4. Be able to lodge money and withdraw money as an atm.
-5. Be able to create an account easily.
+### User Goals
 
-During the design, tests were carried out to try out visuals and initial features before establishing the final project repository.
-## SCOPE
-The project scope follows the minimal viable features approach for the initial project. However the scope is such that interactive features to enhance the user experience will be added in the future.
-For the implementation of the ATM banking system I have planned the following features:
-- Data from spreadsheet that contains the user's account and transactions to be displayed to the user in tables.
-- Account creation starts from the beginning of the program if the user has no account.
-- User account will be validated, if correct an option screen will be displayed to the user otherwise user will be referred back to create an account.
-- The deposit option enables the user to add money to his/her account on passing the validation of the input data. The value of the amount, status, and date time is inserted into the transaction spreadsheet table.
-- The withdraw option like the deposit option enables the user to remove money from his/her account if the amount input is valid. The amount requested by the user, status, and date time are inserted into the transactions spreadsheet table.
-- The program displays warnings in all stages if input values are not given in the correct format.
-- On-demand, a transaction table is displayed to the account holder if any, showing all his/her transactions with date time, amount, and status with reasons if the status is a failure.
+- To create a table reservation
+- To be able to view edit and delete reservation
+- To view the food and drink menus
 
-## STRUCTURE
-The user experience design is explicit, with features positioned conventionally. Navigation starts from the welcome message and intuitively exits the user if he wishes to.
+### Site Owner Goals
 
+- To provide a solution to allow users to reserve a table online
+- To attract more business with a well crafted site
+- Provide a modern application with an easy navigation
+- Fully responsive and accessible
+<hr>
 
-### FLOWCHART
-The Flowchart for my program was created using [LucidChart](https://www.lucidchart.com/pages/landing?utm_source=google&utm_medium=cpc&utm_campaign=_chart_en_tier1_mixed_search_brand_exact_&km_CPC_CampaignId=1490375427&km_CPC_AdGroupID=55688909257&km_CPC_Keyword=lucidchart&km_CPC_MatchType=e&km_CPC_ExtensionID=&km_CPC_Network=g&km_CPC_AdPosition=&km_CPC_Creative=442433236001&km_CPC_TargetID=aud-809923745462:kwd-33511936169&km_CPC_Country=20483&km_CPC_Device=c&km_CPC_placement=&km_CPC_target=&gclid=CjwKCAiA2rOeBhAsEiwA2Pl7Q5KsmhzrrvhWJy2CYebbpJzHxt99Tj-XuCHr2wL0hH5yf4c1nGYkMhoCLYgQAvD_BwE) and it visually represents how the system works.
+## User Experience
 
-![alt-text](assets/images/readme/flowchart.png)
+### Target Audience
+- Users that wish to reserve a table for a meal or a party with family and friends
+- Past and new customers for the business
+- Tourists visiting the area that are looking for a meal or a drink or both
+- Fans visiting the area for a sports event or a music concert
+- People employed in the area to eat and drink after work
 
-## FEATURES
-### EXISTING FEATURES
-The program has a feature that will ease the work of bank workers by not taking the pains of registering every customer. Also, remove the hassle of customers creating accounts in banks.
-For simulating a real-life experience, the system is linked to a <b>Google Spreedsheet</b> that can be accessed [here](https://docs.google.com/spreadsheets/d/19-2VbDweehojeCg4YcLQOBKUNskHD-2ef7-phK18IgQ/edit?usp=sharing).
+### User Requirements and Expectations
 
-- When the user launches the programm a welcome image is displayed with a question, if the user has an account or not.
+- Fully responsive
+- Accessible
+- A welcoming design
+- Social media
+- Accessibility
 
-![alt-text](assets/images/readme/start.png)
-- Any input error by the user is caught and the corresponding message is displayed.
+##### Back to [top](#table-of-contents)<hr>
 
-![alt-text](assets/images/readme/start_err.png)
+## User Stories
 
-- A no answer from the user will prompt the user to create an account.
+### Users
 
-![alt-text](assets/images/readme/account.png)
+1.	As a User I can navigate across the site so that I can move to each feature of the site easily (Must have)
+2.	As a User I can use a navbar, footer, and social icons so that I can navigate the site, access menus, and access socials (Must have)
+3.	As a User I can create a booking by selecting a date and time so that I can reserve my table (Must have)
+4.	As a User I can update my booking so that I can choose another available time and date (Must have)
+5.	As a User I can delete my booking so that I can cancel my table reservation (Must have)
+6.	As a user I can view my booking so that I can remind myself of the date and time I have booked (Must have)
+7. As a User I can I am notified so that I know my action of creation, edit, or deletion of a booking has been successful (Must have)
+8. As a User I can register as prompted so that I can make a booking if I wish reserve a table (Must have)
+9. As a User I can register to create an account so that my details are stored for faster booking in future (Must have)
+10. As a User I can have a profile so that I can change my username and info about myself(Must have)
+11. As a user I can login so that I can book a table (Must have)
+12. As a user I can see my login status so that I know if I am logged in or not (Must have)
+13. As a User I can view the list of reviews made by customers of various tables (Must have)
+14. As a user I can login so that I can give a review (Must have)
+15. As a User I can view the food and drink menu so that I can decide wether to eat at the business (Must have)
+16. As a User I can not book a date in the past so that my booking is valid (Must have)
 
-![alt-text](assets/images/readme/create_err1.png)
-- A yes answer implies the user has an account and the programm will prompt the user for validation of his/credentials thrice.
-If the user is unable to give correct credentials the programm returns back to start welcome question state.
+17. As a User I can not book a table already booked so that my booking is valid and not double booked (Must have)
 
-![alt-text](assets/images/readme/acc_valid_err.png)
-
-- If a user successfully logs in to the system, the option menu is displayed to the user.
-
-![alt-text](assets/images/readme/options.png)
-
-- If the user chooses option 3, his/her account details are displayed in a table for the user.
-
-![alt-text](assets/images/readme/account_details.png)
-
-- If the user chooses option 4, his/her transactions are shown on a table with the date time the transactions where made and there status.
-
-![alt-text](assets/images/readme/transaction.png)
-
-- If the user chooses option 1, he/she will be promted to enter the amount in figures to deposit. The transaction will be inserted to the transaction table.
-
-![alt-text](assets/images/readme/depo_er.png)
-
-- If the user chooses option 2, he/she will be prompted to enter the amount in figures, all errors are caught by the programm and the transaction is inserted into the transaction table.
-
-![alt-text](assets/images/readme/withd_er.png)
-
-- If there is an input error from the user, the programm also checks the balance of the user if there are sufficient funds and if everything is ok the user is then allowed to withdraw funds consequently with a success message.
-
-![alt-text](assets/images/readme/withd_suc.png)
-
-
-## DATA STORAGE
-
-The data used in this project is stored in google sheet through the google api cloud platform
-
-![alt-text](assets/images/readme/accsheet.png)
-
-![alt-text](assets/images/readme/transheet.png)
-
-
-### FUTURE FEATURES
-- Implement a more modern and secure way to save user's credentials
-- Enable user's to do payment of utilities(water,gas, internet, telephone, etc)
-- Implement an email message sent to customers about their current account weekly.
-
-### LANGUAGES USED
-- [Python](https://www.python.org/)
-
-### TECHNOLOGIES USED
-Git was used for version control.
-
-[Gitpod](https://github.com/Code-Institute-Org/python-essentials-template) was used as the IDE
-
-[Lucidchart](https://www.lucidchart.com/pages/landing?utm_source=google&utm_medium=cpc&utm_campaign=_chart_en_tier1_mixed_search_brand_exact_&km_CPC_CampaignId=1490375427&km_CPC_AdGroupID=55688909257&km_CPC_Keyword=lucidchart&km_CPC_MatchType=e&km_CPC_ExtensionID=&km_CPC_Network=g&km_CPC_AdPosition=&km_CPC_Creative=442433236001&km_CPC_TargetID=aud-809923745462:kwd-33511936169&km_CPC_Country=20483&km_CPC_Device=c&km_CPC_placement=&km_CPC_target=&gclid=CjwKCAiA2rOeBhAsEiwA2Pl7Q5KsmhzrrvhWJy2CYebbpJzHxt99Tj-XuCHr2wL0hH5yf4c1nGYkMhoCLYgQAvD_BwE) was used for the flowchart.
-
-[pep8](https://pep8ci.herokuapp.com/) was used to validate the python code.
-
-[Heroku](https://id.heroku.com/) was used to deploy the project.
-
-### BUGS OR ERRORS
-The following bug was found and squashed:
-
-During the development process, the desire to give a good user experience was placed as the priority as a result, the code to achieve that aim was refactored several times. Finally, this was achieved, by introducing the function (do_options) and validating each user input in the (create_user) function.
-
-
-### UNFIXED BUGS
-There are no known outstanding bugs.
-
-
-### TESTING
-
-All the python files where tested in  [pep8](https://pep8ci.herokuapp.com/)
-
-
-### MANUAL TESTING
-Various users tested the atm application. Feedback was overall positive from all users.
-
-The following functioned as intended:
-
-- Account creation of user works correctly and inserts user credentials to google spreadsheet.
-- Validation of user if prompted for credentials
-- Shows a menu of options to a logged-in user
-- The deposit function gives corresponding feedback depending on the user's input.
-- Like the deposit function, the withdraw function also gives the corresponding feedback to the user depending on the input.
-- On-demand users logged in can get details of their account or their transaction in a table.
-
-
-The following were also tested and function correctly:
-- Every input of users is validated, and the corresponding error/success message is displayed.
-- The google spreadsheet is updated on every successful creation of an account.
-- On every deposit or withdraw function call, the google spreadsheet is updated.
-- The purpose of the application can be seen as the ease to create a user account.
-
-
-## DEPLOYMENT
-- This site was deployed by completing the following steps:
-1. Log in to [Heroku](https://id.heroku.com/) or create an account
-2. On the main page click the button labelled New in the top right corner and from the drop-down menu   select Create New App
-3. You must enter a unique app name
-4. Next select your region
-5. Click on the Create App button
-6. The next page is the project’s Deploy Tab. Click on the Settings Tab and scroll down to Config Vars
-7. Click Reveal Config Vars and enter port into the Key box and 8000 into the Value box and click the Add button
-8. Click Reveal Config Vars again and enter CREDS into the Key box and the Google credentials into the Value box
-9. Next, scroll down to the Buildpack section click Add Buildpack select python and click Save Changes
-10. Repeat step 9 to add node.js. o, Note: The Buildpacks must be in the correct order. If not click and drag them to move into the correct order
-11. Scroll to the top of the page and choose the Deploy tab
-12. Select Github as the deployment method
-13. Confirm you want to connect to GitHub
-14. Search for the repository name and click the connect button
-15. Scroll to the bottom of the deploy page and select the preferred deployment type
-16. Click either Enable Automatic Deploys for automatic deployment when you push updates to GitHUB
-
-### FORKING 
-Fork this project by following the steps:
-1. Open [GitHub](https://github.com/)
-2. Click on the project to be forked
-3. Find the Fork button at the top right of the page
-4. Once you click the button the fork will be in your repository
-
-### CLONING
-Clone this project by following the steps:
-1. Open [GitHub](https://github.com/)
-2. On the [repository](https://github.com/Dee68/milestone_project3) click the Code green button, right above the code window
-3. You will be provided with three options to choose from, HTTPS, SSH, or GitHub CLI, click the clipboard icon in order to copy the URL
-4. In your IDE open Git Bash
-5. Enter the command git clone followed by the copied URL
-6. The project is cloned.
-
-## CREDITS
-- The code for linking to the Google Spreadsheet and manipulating it was taken and adapted from the Code Institute Love Sandwiches tutorial
-- The welcome message on the start of the programm was adapted from [ASCII Art generator](https://fsymbols.com/generators/carty/)
-- The word_wrap function for animating the text was adapted from [Animated text tutorial](https://www.youtube.com/watch?v=2h8e0tXHfk0)
-- The bank card and bank note images from [emoji](https://getemoji.com/)
-
-
-## ACKNOWLEDGEMENTS
-- My mentor Jack Wachira for his extraordinary insight, constructive criticism, encouragement, and continuous vital feedback.
-- My code institute facilitator Irene Neveile for keeping up with my schedules.
-- Friends and colleagues that helped in testing the application.
+### Admin / Authorised User
+9.	As an Admin / Authorised User I can log in so that I can access the back end of the site (Must have)
+<!-- 10.	As an Admin / Authorised User I can manually add a booking so that I can book a table if someone phones, or emails the business (Should have) -->
+11. As an Admin / Authorised User I can accept or reject bookings so that we avoid double bookings (Must have)
+12. As an Admin I can login to add or remove items from the food and drink menu so that we can add more food and drinks or remove them (Must have)
+13.	As a Admin I can create, read, update and delete food and drinks items from the database so that we can add, remove, rename and view all our food and drinks items (Must have)
+20. As an Admin / Authorised User I can search through bookings and menus so that I can find the information I am looking for	 (Should have)
+21. As an Admin / Authorised User I can filter bookings by date so that I can see what bookings we have for a particular day (Should have)

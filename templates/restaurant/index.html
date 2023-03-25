@@ -40,6 +40,7 @@
   {% endfor %}
 </div>
 </div>
+<!-- pagination -->
 {% if tables.has_other_pages %}
     <nav aria-label="..." class="mt-5">
       <ul class="pagination justify-content-center">
@@ -57,7 +58,7 @@
 
         {% for p in tables.paginator.page_range %}
           {% if tables.number == p %}
-            <li class="page-item"><a class="page-link" style="color: red;" href="#">{{ p }}</a></li>
+            <li class="page-item"><a class="page-link" href="#">{{ p }}</a></li>
           {% else %}
             <li class="page-item"><a class="page-link" href="?page={{ p }}">{{ p }}</a></li>
           {% endif %}

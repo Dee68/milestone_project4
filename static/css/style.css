@@ -219,7 +219,9 @@ table.table-bordered th {
     display: flex!important;
     border: 0 none!important;
 }
-
+.page-link {
+    color: #342408!important;
+}
 .contact .info i {
     font-size: 20px;
     float: left;

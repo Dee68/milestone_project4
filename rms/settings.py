@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+    'rangefilter',
     'account.apps.AccountConfig',
     'restaurant',
 ]
