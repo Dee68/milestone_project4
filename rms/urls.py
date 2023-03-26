@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 
+admin.site.index_title = 'Bongo Restaurant Administraion'
+
 urlpatterns = [
     path('', include('restaurant.urls', namespace='restaurant')),
     path('admin/', admin.site.urls),

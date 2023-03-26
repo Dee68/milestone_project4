@@ -14,6 +14,7 @@ class BaseTest(TestCase):
         self.confirm_url = reverse('account:confirmation')
         self.profile_url = reverse('account:profile')
         self.update_profile_url = reverse('account:update-profile')
+        self.home_url = reverse('restaurant:home')
         self.profile = {
             'gender': 'male',
             'bio': 'some text',
@@ -93,7 +94,7 @@ class RegisterTest(BaseTest):
                                     self.user,
                                     format='text/html'
                                     )
-        self.assertRedirects(response, self.login_url)
+        self.assertRedirects(response, self.home_url)
 
     def test_can_not_register_user_with_empty_username(self):
         response = self.client.post(

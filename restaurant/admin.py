@@ -23,8 +23,9 @@ class ReservationAdmin(admin.ModelAdmin):
         'reserve_start',
         'reserve_end')
 
-    search_fields = ['customer']
+    search_fields = ('customer__username',)
     list_filter = (('reserve_start', DateRangeFilter),)
+
 
 admin.site.register(Table, TableAdmin)
 admin.site.register(Reservation, ReservationAdmin)

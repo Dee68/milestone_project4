@@ -1,6 +1,6 @@
 {% extends 'base_auth.html' %}
 
-{% block title %}Login Required{% endblock %}
+{% block title %}Bongo | Restaurant-Login Required{% endblock %}
 
 
 {% block content %}
@@ -9,9 +9,10 @@
     <div class="col-md-6 mt-5">
         <div class="card logout">
             <div class="card-body">
-              <h2 class="card-title title-lead">You need to login to view this page.</h2>
-              <div class="d-md-flex">
+              <h2 class="card-title title-lead">Login to perform this action.</h2>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
               <a href="{% url 'account:signin' %}" class=" btn btn-outline-primary cfm">Login</a>
+              <a href="{% url 'restaurant:home' %}" class=" btn btn-outline-primary cfm">Home</a>
               </div>
             
             </div>

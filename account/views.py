@@ -110,7 +110,7 @@ def register(request):
             request,
             f'Account successfully created, you can now log in.'
             )
-        return redirect('account:signin')
+        return redirect('restaurant:home')
     return render(request, 'account/register.html', context)
 
 

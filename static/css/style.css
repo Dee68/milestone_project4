@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap');
 body {
     background-color: #FFFBF2;
 }
@@ -188,10 +189,12 @@ h3 {
 .signup, .lgn {
     color: #fff;
     font-size: 140%;
-    border: 1px solid #cda45e;
-    background-color: #cda45e!important;
+    border: 1px solid #6a470a;
+    background-color: #342408!important;
 }
-
+.signup:hover, .lgn:hover {
+    border: 1px solid #342408;
+}
 .bi, .bi > a {
     color: #cda45e!important;
 }
@@ -203,6 +206,9 @@ h3 {
 }
 .text-white {
     color: #fff!important;
+}
+a.text-white {
+    text-decoration: none!important;
 }
 .input-group-text {
     color: #cda45e!important;
@@ -218,6 +224,9 @@ table.table-bordered th {
     background-color: transparent!important;
     display: flex!important;
     border: 0 none!important;
+}
+.one {
+    color: #342408;
 }
 .page-link {
     color: #342408!important;
