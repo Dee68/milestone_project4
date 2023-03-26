@@ -28,9 +28,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['bongo-man.herokuapp.com', 'localhost']
+
+CSRF_TRUSTED_ORIGINS = ['https://8000-dee68-milestoneproject-1iijjf1t0n6.ws-eu90.gitpod.io/', 'https://www.heroku.com/']
 
 
 # Application definition
@@ -48,6 +50,8 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'restaurant',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

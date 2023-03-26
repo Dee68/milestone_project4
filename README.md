@@ -636,7 +636,7 @@ Performance, best practices and SEO was tested using Lighthouse.
 | Click on the 'Book' link in the navigation bar | Reservations page will load| Works as expected |
 | Click on the 'Book' link in the navigation bar | Reservations page will load| Works as expected |
 | Click on the 'Contact Us' link in the navigation bar | Contact us page will load| Works as expected |
-| Click on the 'My Bookings' link in the navigation bar | Booking list page will load| Works as expected |
+| Click on the 'reservation' link in the navigation bar | reservation list page will load| Works as expected |
 | Click on the 'Logout' link in the navigation bar | Logout page will load| Works as expected |
 
 <details><summary></summary>
@@ -825,6 +825,10 @@ Performance, best practices and SEO was tested using Lighthouse.
 <img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/coverage-bar-and-grill.PNG">
 </details>
 
+<details><summary>Account, Coverage</summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/account_coverage.PNG">
+</details>
+
 <details><summary>Bookings App, test_models.py</summary>
 <img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/unittest-bookings-test-models.PNG">
 </details>
@@ -886,7 +890,7 @@ The following devices were used to test my site:
 | Foods not listing by type, starters, manins and desserts | I needed to fix the database loop for the food items to specify the food type had to be a starter to display in the starter section of the menu, and the same for mains and desserts |
 | Drinks not listing by type, wines, beers and cocktails | I needed to fix the database loop for the drinks item to specify the drink type had to be a wine to display in the wine section of the menu, and the same for beers and cocktails |
 | Card links not working on home page for book a table, food menu and drinks menu | The links were not set within urls.py so just needed to be wired up to load each relevant page |
-| Booking form accepting phone number that are too short | I used Django PhoneNumberField to ensure only valid phone formats were accepted |
+| Search field in admin using username returning error:Related field got invalid lookup:icontains | I changed the search_fields tuple to 'customer__username |
 
 ##### Back to [top](#table-of-contents)<hr>
 ### Heroku Deployment
@@ -900,7 +904,7 @@ This application has been deployed from Github using Heroku. Here's how:
 <img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-01.PNG">
 </details>
 
-2. Create an app, give it a name for such as ci-pp4-the-diplomat, and select a region
+2. Create an app, give it a name for such as bongo, and select a region
 <details>
 <img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-02.PNG">
 <img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-03.PNG">
@@ -940,7 +944,7 @@ I store mine in env.py
 <img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-09.PNG">
 </details>
 
-7. Add localhost, and ci-pp4-the-diplomat.herokuapp.com to the ALLOWED_HOSTS variable in settings.py
+7. Add localhost, and bongo-man.herokuapp.com to the ALLOWED_HOSTS variable in settings.py
 
 8. Run "python3 manage.py showmigrations" to check the status of the migrations
 
