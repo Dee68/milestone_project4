@@ -229,7 +229,7 @@ class ProfileTest(BaseTest):
         self.user_login = {'username': username, 'password': password}
         self.client.post(self.login_url, self.user_login)
         response = self.client.get(self.profile_url)
-        self.assertTemplateUsed(response, 'account/index.html')  
+        self.assertTemplateUsed(response, 'account/index.html')
 
     def test_update_user_profile(self):
         self.client.post(self.register_url, self.user, format='text/html')

@@ -512,80 +512,60 @@ JSHint JS Validation Service
 PEP8 Validation wsa done by using Code Institute CI Python Linter
 
 <details><summary>Tool used: Pycodestyle</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/pep8-validation-pycodestyle.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/python_linter.png">
 </details>
 
 <hr><summary>Accont App</summary><hr>
 <details><summary>Admin.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/pep8-validation-pycodestyle-bar-and-grill-admin.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/account_admin.png">
 </details>
 
 <details><summary>models.py</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/account_models.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/account_models.png">
 </details>
 
 <details><summary>urls.py</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/account_urls.png"">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/account_urls.png"">
 </details>
 
 <details><summary>views.py</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/account_views.png"">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/account_views.png"">
 </details>
 
 <details><summary>signal.py</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/account_signals.png"">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/account_signals.png"">
 </details>
 
 <details><summary>forms.py</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/account_forms.png"">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/account_forms.png"">
 </details>
 
-<details><summary>test_models.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/pep8-validation-pycodestyle-bar-and-grill-test-models.PNG">
+<details><summary>Account Tests</summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/account_test.png">
 </details>
 
-<details><summary>test_views.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/pep8-validation-pycodestyle-bar-and-grill-test-views.PNG">
-</details>
-
-<details><summary>test_urls.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/pep8-validation-pycodestyle-bar-and-grill-test-urls.PNG">
-</details>
-
-
-<hr><summary>Bookings</summary><hr>
+<hr><summary>Restaurant</summary><hr>
 
 <details><summary>Admin.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/pep8-validation-pycodestyle-bookings-admin.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/restaurant_admin.png">
 </details>
 
 <details><summary>models.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/pep8-validation-pycodestyle-bookings-models.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/restaurant_models.png">
 </details>
 
 <details><summary>urls.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/pep8-validation-pycodestyle-bookings-urls.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/restaurant_urls.png">
 </details>
 
 <details><summary>views.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/pep8-validation-pycodestyle-bookings-views.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/restaurant_views.png">
 </details>
 
-<details><summary>test_models.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/pep8-validation-pycodestyle-bookings-test-models.PNG">
+<details><summary>Restaurant Tests</summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/restaurant_test.png">
 </details>
 
-<details><summary>test_views.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/pep8-validation-pycodestyle-bookings-test-views.PNG">
-</details>
-
-<details><summary>test_urls.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/pep8-validation-pycodestyle-bookings-test-urls.PNG">
-</details>
-
-<details><summary>forms.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/pep8-validation-pycodestyle-bookings-forms.PNG">
-</details>
 
 <hr><summary>Home</summary><hr>
 
@@ -643,14 +623,10 @@ Performance, best practices and SEO was tested using Lighthouse.
 | Click on the 'Home' link in the navigation bar | Homepage will load| Works as expected |
 | Click on the 'Register' link in the navigation bar | Sign up page will load| Works as expected |
 | Click on the 'Login' link in the navigation bar | Login page will load| Works as expected |
-| Click on the 'Menus' link in the navigation bar, select 'Food Menu' | Food menu page will load| Works as expected |
-| Click on the 'Menus' link in the navigation bar, select 'Drinks Menu' | Drinks menu page will load| Works as expected |
-| Click on the 'Menus' link in the navigation bar, select 'Drinks Menu' | Drinks menu page will load| Works as expected |
-| Click on the 'Blog' link in the navigation bar | Blog page will load| Works as expected |
-| Click on the 'Book' link in the navigation bar | Reservations page will load| Works as expected |
-| Click on the 'Book' link in the navigation bar | Reservations page will load| Works as expected |
-| Click on the 'Contact Us' link in the navigation bar | Contact us page will load| Works as expected |
-| Click on the 'reservation' link in the navigation bar | reservation list page will load| Works as expected |
+| Click on the 'Menu' link in the navigation bar, select 'Foods' | Food menu page will load| Works as expected |
+| Click on the 'Menu' link in the navigation bar, select 'Drinks' | Drinks menu page will load| Works as expected |
+| Click on the 'Reservation' link in the navigation bar | Reservations page will load| Works as expected |
+| Click on the 'Reviews' link in the navigation bar | Reviews page will load| Works as expected |
 | Click on the 'Logout' link in the navigation bar | Logout page will load| Works as expected |
 
 <details><summary></summary>
@@ -686,7 +662,7 @@ Performance, best practices and SEO was tested using Lighthouse.
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
-| Click on the 'Book' link in the navigation bar | Find the booking form on the reservations page | Works as expected |
+| Click on the 'Book' link button on the home page | Find the booking form on the reservations page | Works as expected |
 
 <details><summary></summary>
 <img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/user-story-testing-05.PNG">
@@ -710,21 +686,21 @@ Performance, best practices and SEO was tested using Lighthouse.
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
-| From 'My Bookings' click 'Cancel' on booking to be cancelled| Find the cancel booking prompt loaded  | Works as expected |
+| From 'Reservations' click 'Delete' on booking to be cancelled| Find the Delete confirm page loaded  | Works as expected |
 
 <details><summary></summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/user-story-testing-18.PNG">
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/user-story-testing-17.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/reservation_delete.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/confirm_delete.png">
 
 </details>
 8. As a user I can view my booking so that I can remind myself of the date and time I have booked
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
-| Click on the 'My Bookings' link in the navigation bar | Booking list will display all bookings made| Works as expected |
+| Click on the 'Reservations' link in the navigation bar | Reservation list will display all bookings made| Works as expected |
 
 <details><summary></summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/user-story-testing-19.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/reservation_list.png">
 
 </details>
 
@@ -746,16 +722,16 @@ Performance, best practices and SEO was tested using Lighthouse.
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
 | Visit the admin page https://ci-pp4-the-diplomat.herokuapp.com/admin/login/?next=/admin/ | Enter admin login credentials, gain access to back end | Works as expected |
-| Click on the Food Items on the left panel, select a Add Food Item | Add food form is displayed | Works as expected |
-| Click on the Drink Items on the left panel, select a Add Drink Item | Add drink form is displayed | Works as expected |
-| See test 13 | See test 13 | Works as expected |
+| Click on the Foods on the left panel, select a Add Food | Add food form is displayed | Works as expected |
+| Click on the Drinks on the left panel, select a Add Drink | Add drink form is displayed | Works as expected |
+
 
 
 <details><summary></summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/user-story-testing-35.PNG">
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/user-story-testing-35b.PNG">
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/user-story-testing-36.PNG">
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/user-story-testing-36b.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/foods.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/add_food.png">
+<!-- <img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/user-story-testing-36.PNG">
+<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/user-story-testing-36b.PNG"> -->
 
 
 
@@ -766,11 +742,11 @@ Performance, best practices and SEO was tested using Lighthouse.
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
 | Visit the admin page https://bongo-man.herokuapp.com/admin/login/?next=/admin/ | Enter admin login credentials, gain access to back end | Works as expected |
-| Click on the Food Items / Drink Items on the left panel, select an item by id | Item Form is displayed allowing, editing and deletion, see test 12 for creation |Works as expected |
+| Click on the Foods / Drinks on the left panel, select an item by id | Item Form is displayed allowing, editing and deletion  |Works as expected |
 
 
 <details><summary></summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/user-story-testing-37.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/edit_delete.png">
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/user-story-testing-38.PNG">
 
 
@@ -780,14 +756,14 @@ Performance, best practices and SEO was tested using Lighthouse.
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
-| From the reservations page, create a booking | A message will be displayed upon completion, Javascript makes it disappear after 3 seconds | Works as expected |
-| From the bookings list page, edit a booking | A message will be displayed upon completion, Javascript makes it disappear after 3 seconds | Works as expected |
-| From the bookings list page, cancel a booking | A message will be displayed upon completion, Javascript makes it disappear after 3 seconds | Works as expected |
+| From the reservations page, create a reservation | A message will be displayed upon completion, Javascript makes it disappear after 3 seconds | Works as expected |
+| From the reservations list page, edit a reservation | A message will be displayed upon completion, Javascript makes it disappear after 3 seconds | Works as expected |
+| From the reservations list page, delete a booking | A message will be displayed upon completion, Javascript makes it disappear after 3 seconds | Works as expected |
 
 <details><summary></summary>
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/user-story-testing-20.PNG">
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/user-story-testing-21.PNG">
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/user-story-testing-22.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/reserve_delete_info.png">
 
 </details>
 
@@ -800,11 +776,11 @@ Performance, best practices and SEO was tested using Lighthouse.
 
 
 <details><summary></summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/user-story-testing-09.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/login_profile.png">
 
 </details>
 
-21. As an Admin / Authorised User I can filter bookings by date so that I can see what bookings we have for a particular day
+21. As an Admin / Authorised User I can filter reservations by date so that I can see what reservations we have for a particular day
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
@@ -823,7 +799,7 @@ Performance, best practices and SEO was tested using Lighthouse.
 - Coverage was also usesd to generate a report
 
 
-<details><summary>Bar & Grill App, test_models.py</summary>
+<!-- <details><summary>Bar & Grill App, test_models.py</summary>
 <img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/unittest-bar-and-grill-test-models.PNG">
 </details>
 
@@ -833,7 +809,7 @@ Performance, best practices and SEO was tested using Lighthouse.
 
 <details><summary>Bar & Grill App, test_urls.py</summary>
 <img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/unittest-bar-and-grill-test-urls.PNG">
-</details>
+</details> -->
 
 <details><summary>Rms, Coverage</summary>
 <img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/coverage-bar-and-grill.PNG">

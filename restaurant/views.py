@@ -74,7 +74,7 @@ def table_detail(request, id, slug):
                                             table=table,
                                             reserve_start__gte=r_start,
                                             reserve_end__lte=r_end
-                                            ).exists() 
+                                            ).exists()
         if case_1 or case_2 or case_3:
             messages.warning(
                 request,
@@ -86,7 +86,7 @@ def table_detail(request, id, slug):
                 request,
                 'You can not book from past,please check your inputs.'
                 )
-            return HttpResponseRedirect(request.META.get('HTTP_REFERER')) 
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
         else:
             reservation = Reservation.objects.create(
                customer=customer,
@@ -157,7 +157,7 @@ def reservation_delete(request, id):
         r.delete()
         messages.success(
                     request,
-                    f'You have successfully deleted your reservation of {r.table.title }.'
+                    f'Successfully deleted your booking of {r.table.title }.'
                     )
         return redirect('account:profile')
     return render(request, 'restaurant/confirm_delete.html')
