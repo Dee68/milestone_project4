@@ -443,35 +443,35 @@ The Review Model contains the following:
 
 The W3C Markup Validation Service
 <details><summary>Home</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validation/html_home.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/html_home.png">
 </details>
 
 <details><summary>Register</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validation/html_register.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/html_register.png">
 </details>
 
 <details><summary>Login</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validation/html_login.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/html_login.png">
 </details>
 
 <details><summary>Logout</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validation/html_confirm_logout.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/html_confirm_logout.png">
 </details>
 
 <details><summary>Reservations</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validation/html_reservations.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/html_reservation.png">
 </details>
 
 <details><summary>Edit Reservation</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/validation-html-edit-booking.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/html_reservation_edit.png">
 </details>
 
 <details><summary>Delete Reservation</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validation/html_confirm_delete.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/html_confirm_delete.png">
 </details>
 
 <details><summary>Foods</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validation/html_food.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/html_food.png">
 </details>
 
 <details><summary>Drinks</summary>
@@ -481,21 +481,21 @@ The W3C Markup Validation Service
 
 
 <details><summary>Reviews</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validation/html_review_list.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/html_review_list.png">
 </details>
 
 <details><summary>Review</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validation/html_review.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/docs/validations/html_review.png">
 </details>
 
 
 
 <details><summary>Profile</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validation/html_profile.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/html_profile.png">
 </details>
 
 <details><summary>Profile Update</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validation/html_profile_update.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/html_profile_update.png">
 </details>
 
 ### CSS Validation
@@ -519,7 +519,7 @@ PEP8 Validation was done by using Code Institute CI Python Linter
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/python_linter.png">
 </details>
 
-<hr><summary>Accont App</summary><hr>
+<hr><summary>Account App</summary><hr>
 <details><summary>Admin.py</summary>
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/account_admin.png">
 </details>
