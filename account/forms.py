@@ -1,6 +1,8 @@
+# Imports
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# 3rd party:
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
-from .models import Profile
 from django.contrib.auth.forms import (
                                         UserCreationForm,
                                         UserChangeForm,
@@ -8,6 +10,10 @@ from django.contrib.auth.forms import (
                                         )
 from django.forms import widgets
 from django import forms
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Internal:
+from .models import Profile
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 class RegisterForm(UserCreationForm):

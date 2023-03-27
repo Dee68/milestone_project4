@@ -15,46 +15,48 @@
               <hr>
               {% include '_partials/messages.html' %}
                 
-             <div class="row mt-5">
-              <div class="col-md-6 pl-5">
-                <img src="{% if user.profile.avatar %}{{ user.profile.avatar.url }}{% else %}{% static 'images/userimage.png' %}{% endif %}" style="height:80px; width:80px; border-radius:50%;" alt="userimage">
-              </div>
-            <br>
-              <div class="col-md-6 pr-5 pt-3">
-                <a href="{% url 'account:update-profile' %}" class="btn btn-outline-success btn-block cfm">Update Profile</a>
-              </div>
-             </div>
-             <br>
+                <div class="row mt-5">
+                  <div class="col-md-6 pl-5">
+                    <img src="{% if user.profile.avatar %}{{ user.profile.avatar.url }}{% else %}{% static 'images/userimage.png' %}{% endif %}" style="height:80px; width:80px; border-radius:50%;" alt="userimage">
+                  </div>
+                  <br>
+                  <div class="col-md-6 pr-5 pt-3">
+                    <a href="{% url 'account:update-profile' %}" class="btn btn-outline-success btn-block cfm">Update Profile</a>
+                  </div>
+                </div>
+                  <br>
                
               
-              <div class="row mt-5 mb-5 d-grid">
-                  <div class="row mb-3 ctr">
-                    <div class="col-md-3">
-                      <label class="form-label sp-teller">Name:</label>
+                <div class="row mt-5 mb-5 d-grid">
+                    <div class="row mb-3 ctr">
+                      <div class="col-md-3">
+                        <label class="form-label sp-teller">Name:</label>
+                      </div>
+                      <div class="col-md-9">
+                        <div class="form-control ml-4">
+                          {{ user.username }}
+                        </div>
+                        <br>
+                      </div>
                     </div>
-                    <div class="col-md-9">
-                    <div class="form-control ml-4">
-                      {{ user.username }}
+                    <div class="row mb-3 ctr">
+                      <div class="col-md-3">
+                        <label class="form-label sp-teller">Email:</label>
+                      </div>
+                      <div class="col-md-9">
+                        <div class="form-control ml-4">
+                          {{ user.email }}
+                        </div>
+                        <br>
+                      </div>
                     </div>
-                    <br>
-                  </div>
-
-                  <div class="row mb-3 ctr">
-                    <div class="col-md-3">
-                      <label class="form-label sp-teller">Email:</label>
-                    </div>
-                    <div class="col-md-9">
-                    <div class="form-control ml-4">
-                      {{ user.email }}
-                    </div>
-                    <br>
-                  </div>
+                </div>
                 <div class="row mb-3">
                   <div class="col-md-3">
                     <label class="form-label sp-teller" for="bio">Bio:</label>
                   </div>
                   <div class="col-md-9">
-                    <textarea name="bio" id="bio" class="form-control ml-4" cols="30" rows="10">
+                    <textarea name="bio" id="bio" class="form-control ml-2" cols="25" rows="10">
                       {% if user_profile.bio == '' %}Write something about yourself...{% else %}{{user_profile.bio}}{% endif %}
                     </textarea>
                   </div>
@@ -66,11 +68,8 @@
                   </div>
                 </div>
               
-              </div>
-                     
-              
             </div>
-          </div>
+        </div>
     </div>
     <div class="col-md-3"></div>
 </div>

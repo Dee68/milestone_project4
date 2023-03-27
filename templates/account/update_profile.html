@@ -16,7 +16,7 @@
               {% include '_partials/messages.html' %}
                             
               <div class="row mb-5 gx-5">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form method="POST" enctype="multipart/form-data">
                   {% csrf_token %}
                   <div class="row mb-3">
                     <div class="col-md-3">
@@ -31,7 +31,7 @@
                       <label class="form-label sp-teller">Email:</label>
                     </div>
                     <div class="col-md-9">
-                    <input type="email" class="form-control" name="email" aria-label="User email" value="{{ user.email }}">
+                     <input type="email" class="form-control" name="email" aria-label="User email" value="{{ user.email }}">
                     </div>
                   </div>
                   <div class="row mb-3">
@@ -39,7 +39,7 @@
                       <label class="form-label sp-teller">First Name:</label>
                     </div>
                     <div class="col-md-9">
-                    <input type="text" class="form-control" name="first_name" aria-label="First name" value="{{ user_profile.user.first_name}}">
+                     <input type="text" class="form-control" name="first_name" aria-label="First name" value="{{ user_profile.user.first_name}}">
                     </div>
                   </div>
                 <div class="row mb-3">
@@ -47,7 +47,7 @@
                     <label class="form-label sp-teller">Last Name:</label>
                   </div>
                   <div class="col-md-9">
-                  <input type="text" class="form-control" name="last_name" aria-label="Last name" value="{{ user_profile.user.last_name}}">
+                   <input type="text" class="form-control" name="last_name" aria-label="Last name" value="{{ user_profile.user.last_name}}">
                   </div>
                 </div>
                 <div class="row mb-3">
@@ -65,17 +65,17 @@
                     </div>
                     <div class="col-md-9">
                       <p class="sp-teller">{{ user_profile.avatar }}</p>
-                    <input type="file" class="form-control" name="avatar">
+                    <input type="file" class="form-control" name="avatar" id="avatar">
                     </div>
                 </div>
                 <div class="row mb-3">
                   <div class="col-md-3">
-                    <label for="" class="form-label sp-teller" for="select gender">
+                    <label for="gender" class="form-label sp-teller">
                       Gender
                     </label>
                   </div>
                   <div class="col-md-9">
-                    <select class="form-select" aria-label="Default select gender" name="gender">
+                    <select class="form-select form-control" aria-label="Default select gender" name="gender" id="gender">
                       <option selected>Male</option>
                       <option value="male">Male</option>
                       <option value="female">Female</option>

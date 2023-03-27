@@ -443,23 +443,23 @@ The Review Model contains the following:
 
 The W3C Markup Validation Service
 <details><summary>Home</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/validation-html-index.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validation/html_home.png">
 </details>
 
 <details><summary>Register</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/validation-html-register.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validation/html_register.png">
 </details>
 
 <details><summary>Login</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/validation-html-login.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validation/html_login.png">
 </details>
 
 <details><summary>Logout</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/validation-html-logout.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validation/html_confirm_logout.png">
 </details>
 
 <details><summary>Reservations</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/validation-html-booking-list.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validation/html_reservations.png">
 </details>
 
 <details><summary>Edit Reservation</summary>
@@ -467,31 +467,35 @@ The W3C Markup Validation Service
 </details>
 
 <details><summary>Delete Reservation</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/validation-html-cancel-booking.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validation/html_confirm_delete.png">
 </details>
 
 <details><summary>Foods</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/validation-html-food-menu.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validation/html_food.png">
 </details>
 
 <details><summary>Drinks</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/validation-html-drinks-menu.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validation/html_drink.png">
 </details>
 
 
 
 <details><summary>Reviews</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/validation-html-blog-expanded.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validation/html_review_list.png">
 </details>
 
 <details><summary>Review</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/validation-html-blog-expanded.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validation/html_review.png">
 </details>
 
 
 
-<details><summary>Confirmed</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/validation-html-confirmed.PNG">
+<details><summary>Profile</summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validation/html_profile.png">
+</details>
+
+<details><summary>Profile Update</summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validation/html_profile_update.png">
 </details>
 
 ### CSS Validation
@@ -509,7 +513,7 @@ JSHint JS Validation Service
 </details><hr>
 
 ### PEP8 Validation
-PEP8 Validation wsa done by using Code Institute CI Python Linter
+PEP8 Validation was done by using Code Institute CI Python Linter
 
 <details><summary>Tool used: Pycodestyle</summary>
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/python_linter.png">
