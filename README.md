@@ -54,6 +54,7 @@ The Bongo Restaurant is a fictional business where users can create an account, 
 ### Target Audience
 - Users that wish to reserve a table for a meal or a party with family and friends
 - Past and new customers for the business
+- Organize a wedding party reception
 - Tourists visiting the area that are looking for a meal or a drink or both
 - Fans visiting the area for a sports event or a music concert
 - People employed in the area to eat and drink after work
@@ -95,7 +96,7 @@ The Bongo Restaurant is a fictional business where users can create an account, 
 
 19. As an Admin I can login to add or remove items from the food and drink menu so that we can add more food and drinks or remove them also add and remove tables (Must have)
 20.	As a Admin I can create, read, update and delete table,food and drinks items from the database so that we can add, remove, rename and view all our tables, food and drinks items (Must have)
-21. As an Admin / Authorised User I can search through bookings and menus so that I can find the information I am looking for	 (Should have)
+21. As an Admin / Authorised User I can search through bookings so that I can find the information I am looking for	 (Should have)
 22. As an Admin / Authorised User I can filter bookings by date so that I can see what bookings we have for a particular day (Should have)
 
 ### Site Owner  
@@ -180,16 +181,16 @@ The Profile Model contains the following:
 - user (OneToOne Field)
 
 
-##### FoodItem Model
-The FoodItem Model contains the following:
+##### Food Model
+The Food Model contains the following:
 - name
 - food_type
 - description
 - price
 - image
 
-##### DrinkItem Model
-The DrinkItem Model contains the following:
+##### Drink Model
+The Drink Model contains the following:
 - name
 - drink_type
 - description
@@ -235,7 +236,7 @@ The Review Model contains the following:
 
 ### Libraries & Tools
 
-- [Am I Responsive](http://ami.responsivedesign.is/)
+<!-- - [Am I Responsive](http://ami.responsivedesign.is/) -->
 - [Bootstrap v4.2](https://getbootstrap.com/)
 - [Bootstrap v5.2](https://getbootstrap.com/)
 - [Cloudinary](https://cloudinary.com/)
@@ -254,7 +255,7 @@ The Review Model contains the following:
   - [WC3 Validator](https://validator.w3.org/)
   - [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/)
   - [JShint](https://jshint.com/)
-  - [Pycodestyle(PEP8)](https://pypi.org/project/pycodestyle/)
+  - [Pycodestyle(PEP8)](https://pep8ci.herokuapp.com)
   - [Lighthouse](https://developers.google.com/web/tools/lighthouse/)
   - [Wave Validator](https://wave.webaim.org/)
 
@@ -267,7 +268,7 @@ The Review Model contains the following:
 
 <details><summary>See feature images</summary>
 
-![Home page](docs/features/feature-homepage.PNG)
+![Home page](docs/features/home.png)
 </details>
 
 ### Brand & Navigation
@@ -278,9 +279,9 @@ The Review Model contains the following:
 
 <details><summary>See feature images</summary>
 
-![Footer](docs/features/feature-logo-navbar.PNG)
-![Footer](docs/features/feature-logo-navbar-login.PNG)
-![Footer](docs/features/feature-logo-navbar-hamburger.PNG)
+![Footer](docs/features/footer.png)
+![Footer](docs/features/brand_navigation.png)
+![Footer](docs/features/hamburger_navigation.png)
 </details>
 
 ### Footer
@@ -289,7 +290,7 @@ The Review Model contains the following:
 
 <details><summary>See feature images</summary>
 
-![Footer](docs/features/feature-footer.PNG)
+![Footer](docs/features/footer.png)
 </details>
 
 
@@ -300,7 +301,10 @@ The Review Model contains the following:
 
 <details><summary>See feature images</summary>
 
-![Register](docs/features/feature-register.PNG)
+![Register](docs/features/register.png)
+![Register1](docs/features/email_ajax1.png)
+![Register2](docs/features/email_ajax2.png)
+![Register4](docs/features/email_ajax3.png)
 </details>
 
 ### Profile
@@ -308,7 +312,8 @@ The Review Model contains the following:
 
 <details><summary>See feature images</summary>
 
-![Profile](docs/features/feature-profile.PNG)
+![Profile](docs/features/profile.png)
+![Profile_update](docs/features/profile_update.png)
 </details>
 
 ### Login
@@ -316,7 +321,7 @@ The Review Model contains the following:
 
 <details><summary>See feature images</summary>
 
-![Login](docs/features/feature-login.PNG)
+![Login](docs/features/login.png)
 ![Login](docs/features/feature-login2.PNG)
 </details>
 
@@ -327,7 +332,7 @@ The Review Model contains the following:
 
 <details><summary>See feature images</summary>
 
-![Logout](docs/features/feature-logout.PNG)
+![Logout](docs/features/confirm_action.png)
 </details>
 
 ### Book
@@ -336,9 +341,9 @@ The Review Model contains the following:
 
 <details><summary>See feature images</summary>
 
-![Book](docs/features/feature-book-table.PNG)
-![Book](docs/features/feature-book-table2.PNG)
-![Book](docs/features/feature-book-table3.PNG)
+![Book](docs/features/book_past.png)
+![Book](docs/features/book_without_data.png)
+![Book](docs/features/book_time_frame.png)
 </details>
 
 ### Reservations
@@ -348,7 +353,7 @@ The Review Model contains the following:
 
 <details><summary>See feature images</summary>
 
-![Reservations](docs/features/feature-my-bookings.PNG)
+![Reservations](docs/features/reservation_list.png)
 </details>
 
 
@@ -356,7 +361,7 @@ The Review Model contains the following:
 - Allows the user to edit their reservation to another date time
 <details><summary>See feature images</summary>
 
-![Edit Reservation](docs/features/feature-edit-booking.PNG)
+![Edit Reservation](docs/features/reservation_edit.png)
 
 </details>
 
@@ -366,7 +371,7 @@ The Review Model contains the following:
   
 <details><summary>See feature images</summary>
 
-![Delete Reservation](docs/features/feature-cancel-booking.PNG)
+![Delete Reservation](docs/features/confirm_delete.png)
 </details>
 
 ### Reviews
@@ -374,7 +379,7 @@ The Review Model contains the following:
   
 <details><summary>See feature images</summary>
 
-![Reviews](docs/features/feature-reviews.PNG)
+![Reviews](docs/features/review_list.png)
 </details>
 
 ### Review
@@ -383,7 +388,8 @@ The Review Model contains the following:
   
 <details><summary>See feature images</summary>
 
-![Reviews](docs/features/feature-review.PNG)
+![Reviews](docs/features/review_form.png)
+![Reviews](docs/features/empty_review.png)
 </details>
 
 
@@ -395,7 +401,7 @@ The Review Model contains the following:
   
 <details><summary>See feature images</summary>
 
-![Food](docs/features/feature-food-menu.PNG)
+![Food](docs/features/food_menu.png)
 </details>
 
 
@@ -407,17 +413,17 @@ The Review Model contains the following:
   
 <details><summary>See feature images</summary>
 
-![Drinks](docs/features/feature-drinks-menu.PNG)
+![Drinks](docs/features/drink_menu.png)
 </details>
 
 ### Social Media Links
-- A logo and link is used for each social media displayed
+- A link is used for each social media displayed
 - All links open in a new tab to ensure user is not directed away from the business
 - Displayed on all pages
   
 <details><summary>See feature images</summary>
 
-![Social Media Links](docs/features/feature-social-links.PNG)
+![Social Media Links](docs/features/social.png)
 </details>
 
 
@@ -427,7 +433,7 @@ The Review Model contains the following:
   
 <details><summary>See feature images</summary>
 
-![Pagination](docs/features/feature-pagination.PNG)
+![Pagination](docs/features/pagination.png)
 </details>
 
 
@@ -499,31 +505,39 @@ The W3C Jigsaw CSS Validation Service
 JSHint JS Validation Service
 
 <details><summary>Script.js</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/validation-js.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/jshint.png">
 </details><hr>
 
 ### PEP8 Validation
-PEP8 Validation Service was used to check the code for PEP8 requirements via Pycodestyle as PEP8online was down
+PEP8 Validation wsa done by using Code Institute CI Python Linter
 
 <details><summary>Tool used: Pycodestyle</summary>
 <img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/pep8-validation-pycodestyle.PNG">
 </details>
 
-<hr><summary>Rms</summary><hr>
+<hr><summary>Accont App</summary><hr>
 <details><summary>Admin.py</summary>
 <img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/pep8-validation-pycodestyle-bar-and-grill-admin.PNG">
 </details>
 
 <details><summary>models.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/pep8-validation-pycodestyle-bar-and-grill-models.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/account_models.png">
 </details>
 
 <details><summary>urls.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/pep8-validation-pycodestyle-bar-and-grill-urls.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/account_urls.png"">
 </details>
 
 <details><summary>views.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/pep8-validation-pycodestyle-bar-and-grill-views.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/account_views.png"">
+</details>
+
+<details><summary>signal.py</summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/account_signals.png"">
+</details>
+
+<details><summary>forms.py</summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/account_forms.png"">
 </details>
 
 <details><summary>test_models.py</summary>
@@ -826,11 +840,11 @@ Performance, best practices and SEO was tested using Lighthouse.
 </details>
 
 <details><summary>Account, Coverage</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/account_coverage.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/account_coverage.png">
 </details>
 
-<details><summary>Bookings App, test_models.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/unittest-bookings-test-models.PNG">
+<details><summary>Restaurant app, Coverage</summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/restaurant_coverage.png">
 </details>
 
 <details><summary>Bookings App, test_views.py</summary>
@@ -847,7 +861,7 @@ Performance, best practices and SEO was tested using Lighthouse.
 
 ### Device Testing & Browser compatibility
 
-The site uses to test on various real world devices was [BrowserStack](https://ci-pp4-the-diplomat.herokuapp.com/)  
+The site uses to test on various real world devices was [BrowserStack](https://bongo-man.herokuapp.com/)  
 
 This allowed me to test on real devices and not just device emulators.
 
