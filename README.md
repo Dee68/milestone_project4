@@ -72,32 +72,39 @@ The Bongo Restaurant is a fictional business where users can create an account, 
 
 ### Users
 
-1.	As a User I can navigate across the site so that I can move to each feature of the site easily (Must have)
-2.	As a User I can use a navbar, footer, and social icons so that I can navigate the site, access menus, and access socials (Must have)
-3.	As a User I can create a booking by selecting a date and time so that I can reserve my table (Must have)
-4.	As a User I can update my booking so that I can choose another available time and date (Must have)
-5.	As a User I can delete my booking so that I can cancel my table reservation (Must have)
-6.	As a user I can view my booking so that I can remind myself of the date and time I have booked (Must have)
-7. As a User I can I am notified so that I know my action of creation, edit, or deletion of a booking has been successful (Must have)
-8. As a User I can register as prompted so that I can make a booking if I wish reserve a table (Must have)
-9. As a User I can register to create an account so that my details are stored for faster booking in future (Must have)
-10. As a User I can have a profile so that I can change my username and info about myself(Must have)
-11. As a user I can login so that I can book a table (Must have)
-12. As a user I can see my login status so that I know if I am logged in or not (Must have)
-13. As a User I can view the list of reviews made by customers of various tables (Must have)
-14. As a user I can login so that I can give a review (Must have)
-15. As a User I can view the food and drink menu so that I can decide wether to eat at the business (Must have)
-16. As a User I can not book a date in the past so that my booking is valid (Must have)
+1.  As a Site User I can create an account so that I can have the benefits of the system user(Must have)
+2.  As a Site User I can have a profile so that I can upload my avatar(Must have)
+3.  As a Site User I can log into the system so that I can book a table(Must have)
+4.  As a Site User I can know if my input values a valid so that I do not mistakenly input errors(Must have)
+5.  As a Site user I can Reserve a Table in advance so that have a dinner or lunch with friends and family(Must have)
+6.  As a Site User I can Update my reservations so that I can keep up to my routine(Must have)
+7.  As a Site User I can Delete my reservations so that I can free my self from inconveniences(Must have)
+8.  As a Site User I can give a review of a table so that the restaurant will know its performance(Must have)
+9.	As a User I can navigate across the site so that I can move to each feature of the site easily (Must have)
+10.	As a User I can use a navbar, footer, and social icons so that I can navigate the site, access menus, and access socials (Must have)
+11.	As a User I can create a booking by selecting a date and time so that I can reserve my table (Must have)
+12.	As a User I can update my booking so that I can choose another available time and date (Must have)
+13.	As a User I can delete my booking so that I can cancel my table reservation (Must have)
+14. As a User I can view my booking so that I can remind myself of the date and time I have booked(Must have)
+17. As a User I can get notified so that I know my action of creation, edit, or deletion of a booking has been successful (Must have)
+18. As a User I can see my login status so that I know if I am logged in or not(Must have)
 
-17. As a User I can not book a table already booked so that my booking is valid and not double booked (Must have)
 
+<!-- 23. As a User I can have a profile so that I can change my username and info about myself(Must have) -->
+
+<!-- 13. As a User I can view the list of reviews made by customers of various tables (Must have) -->
+<!-- 14. As a user I can login so that I can give a review (Must have) -->
+
+21. As a User I can not book a date in the past so that my booking is valid (Must have)
+
+22. As a User I can not book a table already booked so that my booking is valid and not double booked (Must have)
+20. As a User I can view the food and drink menu so that I can decide wether to eat at the business (Must have)
 ### Admin / Authorised User
-18.	As an Admin / Authorised User I can log in so that I can access the back end of the site (Must have)
-
-19. As an Admin I can login to add or remove items from the food and drink menu so that we can add more food and drinks or remove them also add and remove tables (Must have)
-20.	As a Admin I can create, read, update and delete table,food and drinks items from the database so that we can add, remove, rename and view all our tables, food and drinks items (Must have)
-21. As an Admin / Authorised User I can search through bookings so that I can find the information I am looking for	 (Should have)
-22. As an Admin / Authorised User I can filter bookings by date so that I can see what bookings we have for a particular day (Should have)
+15.	As an Admin / Authorised User I can log in so that I can access the back end of the site (Must have)
+25. As an Admin I can login to add or remove items from the food and drink menu so that we can add more food and drinks or remove them also add and remove tables (Must have)
+16.	As a Admin I can create, read, update and delete table,food and drinks items from the database so that we can add, remove, rename and view all our tables, food and drinks items (Must have)
+<!-- 21. As an Admin / Authorised User I can search through bookings so that I can find the information I am looking for	 (Should have) -->
+19. As an Admin / Authorised User I can filter bookings by date so that I can see what bookings we have for a particular day (Should have)
 
 ### Site Owner  
 23. As a Site Owner I can provide a fully responsive site for my customers so that they have a good user experience (Must have)
@@ -107,7 +114,7 @@ The Bongo Restaurant is a fictional business where users can create an account, 
 
 <details><summary>User Stories</summary>
 
-![User stories](https://raw.githubusercontent.com/dee68/milestone_project4/main/docs/features/user-stories.PNG)
+![User stories](https://raw.githubusercontent.com/dee68/milestone_project4/main/docs/features/user_stories.png)
 
 </details>
 
@@ -121,7 +128,7 @@ Dark themes are popular so I wanted to keep the site on a dark theme and not ove
 
 The colors I wanted to stay close to  [Coolors.co](https://coolors.co/)
 <details><summary>See colour pallet</summary>
-<img src="docs/coolors.png">
+<img src="docs/coloour_pallete.png">
 </details>
 
 ### Fonts
@@ -249,6 +256,7 @@ The Review Model contains the following:
 - [Heroku Platform](https://id.heroku.com/login)
 - [jQuery](https://jquery.com)
 - [Postgres](https://www.postgresql.org/)
+- [Pillow](https://pypi.org/project/Pillow/)
 - [django-admin-rangefilter](https://pypi.org/project/django-admin-rangefilter/)
 - [django-shortcuts](https://pypi.org/project/django-shortcuts/)
 - Validation:
@@ -589,7 +597,7 @@ Performance, best practices and SEO was tested using Lighthouse.
 
 #### Desktop
 <details><summary>Home</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/lighthouse_home.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/lighhouse_home.png">
 </details>
 
 <details><summary>Register</summary>
@@ -730,7 +738,7 @@ Performance, best practices and SEO was tested using Lighthouse.
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
-| Visit the admin page https://ci-pp4-the-diplomat.herokuapp.com/admin/login/?next=/admin/ | Enter admin login credentials, gain access to back end | Works as expected |
+| Visit the admin page https://bongo-man.herokuapp.com/admin/login/?next=/admin/ | Enter admin login credentials, gain access to back end | Works as expected |
 
 
 <details><summary></summary>
@@ -759,7 +767,7 @@ Performance, best practices and SEO was tested using Lighthouse.
 
 </details>
 
-13. As a Admin I can create, read, update and delete food and drinks items from the database so that we can add, remove, rename and view all our food and drinks items
+16. As a Admin I can create, read, update and delete food and drinks items from the database so that we can add, remove, rename and view all our food and drinks items
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
@@ -774,7 +782,7 @@ Performance, best practices and SEO was tested using Lighthouse.
 
 </details>
 
-14. As a User I can I am notified so that I know my action of creation, edit, or deletion of a booking has been successful
+17. As a User I can I am notified so that I know my action of creation, edit, or deletion of a booking has been successful
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
@@ -802,7 +810,7 @@ Performance, best practices and SEO was tested using Lighthouse.
 
 </details>
 
-21. As an Admin / Authorised User I can filter reservations by date so that I can see what reservations we have for a particular day
+19. As an Admin / Authorised User I can filter reservations by date so that I can see what reservations we have for a particular day
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
@@ -907,80 +915,71 @@ The following devices were used to test my site:
 ##### Back to [top](#table-of-contents)<hr>
 ### Heroku Deployment
 
-[Official Page](https://devcenter.heroku.com/articles/git) (Ctrl + click)
+[Official Page](https://devcenter.heroku.com/articles/github-integration) (Ctrl + click)
 
 This application has been deployed from Github using Heroku. Here's how:
 
 1. Create an account at heroku.com
 <details>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-01.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/heroku/heroku_deployment.png">
 </details>
 
 2. Create an app, give it a name for such as bongo, and select a region
 <details>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-02.PNG">
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-03.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/heroku/heroku_deployment1.png">
 </details>
 
-3. Under resources search for postgres, and add a Postgres database to the app
+3. Click the settings link and reveal the config variables
 <details>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-04.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/heroku/heroku_settings.png">
 </details>
-Heroku Postgres
 
-1. Note the DATABASE_URL, this can be set as an environment variable in Heroku and your local deployment(env.py)
+4. Add the values to config varaiables as shown
 <details>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-18.PNG">
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-17.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/heroku/heroku_config.png">
 </details>
-2. Install the plugins dj-database-url and psycopg2-binary.
 
-3. Run pip3 freeze > requirements.txt so both are added to the requirements.txt file
+5. Run pip3 freeze > requirements.txt so both are added to the requirements.txt file
 <details>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-05.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/heroku/heroku_freeze.png">
 </details>
 
-4. Create a Procfile with the text: web: gunicorn the_diplomat.wsgi
+6. Create a Procfile with the text: web: gunicorn rms.wsgi
 <details>
 <img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-06.PNG">
 </details>
-5. In the settings.py ensure the connection is to the Heroku postgres database, no indentation if you are not using a seperate test database.
+
+7. In the settings.py ensure the connection is to the Heroku postgres database, no indentation if you are not using a seperate test database.
 I store mine in env.py
 <details>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-07.PNG">
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-08.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/heroku/heroku_env.png">
 </details>
 
-6. Ensure debug is set to false in the settings.py file
+8. Ensure debug is set to false in the settings.py file
 <details>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-09.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/heroku/heroku_deploy.png">
 </details>
 
-7. Add localhost, and bongo-man.herokuapp.com to the ALLOWED_HOSTS variable in settings.py
+9. Add localhost, and bongo-man.herokuapp.com to the ALLOWED_HOSTS variable in settings.py
 
-8. Run "python3 manage.py showmigrations" to check the status of the migrations
+10. Run "python3 manage.py showmigrations" to check the status of the migrations
 
-9. Run "python3 manage.py migrate" to migrate the database
+11. Run "python3 manage.py migrate" to migrate the database
 
-10. Run "python3 manage.py createsuperuser" to create a super/admin user
+12. Run "python3 manage.py createsuperuser" to create a super/admin user
 
-13. Install gunicorn and add it to the requirements.txt file using the command pip3 freeze > requirements.txt
+14. Install gunicorn and add it to the requirements.txt file using the command pip3 freeze > requirements.txt
 
-14. Disable collectstatic in Heroku before any code is pushed using the command heroku config:set DISABLE_COLLECTSTATIC=1 -a ci-pp4-the-diplomat
+15. Disable collectstatic in Heroku before any code is pushed by setting the variable DISABLE_COLLECTSTATIC to 1
+
 <details>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-19.PNG">
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-10.PNG">
-</details>
-
-15. Ensure the following environment variables are set in Heroku
-<details>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-11.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/heroku/heroku_collectstatic.png">
 </details>
 
 16. Connect the app to GitHub, and enable automatic deploys from main if you wish
 <details>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-13.PNG">
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-14.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project/main/docs/heroku/heroku_github.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/heroku/heroku_auto.png">
 </details>
 
 17. Click deploy to deploy your application to Heroku for the first time
@@ -1023,5 +1022,6 @@ Bootstrap dark navigation theme was used alongside boostrap classes and carousel
 
 ### Special thanks to the following:
 - Code Institute
-- My Mentor Jack Wachira
-- 
+- My mentor for his extraordinary insight and useful feedbacks.
+- Our coordinator Irene from Code Institute for keeping up with us on our daily schedules in the classroom.
+- Friends and collegues that helped in testing the application.
