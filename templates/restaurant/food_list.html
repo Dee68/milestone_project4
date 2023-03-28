@@ -21,8 +21,9 @@
     </div>
     <div class="col-md-3"></div>
 </div>
-
+{% if desserts %}
 <div class="row mt-5">
+    
     <div class="col-lg-7 col-md-12">
         <h3 class="ci mt-3 mb-3" style="text-align: center;">Dessert</h3>
         {% for dessert in desserts %}
@@ -37,15 +38,21 @@
         </div>
        {% endfor %}
     </div>
+    
+    
     <div class="col-lg-5 d-none d-lg-block">
         <img src="{% static 'images/dessert.webp' %}" alt="Dessert Image">
     </div>
+   
 </div>
 <hr class="hr">
+{% endif %}
+{% if foods %}
 <div class="row mt-5">
     <div class="col-lg-7 col-md-12">
         <h3 class="ci mt-3 mb-3" style="text-align: center;">Main</h3>
         {% for food in foods %}
+        {% if food.food_type == 'main' %}
         <div class="menu-item">
             <div class="menu-img">
                 <img src="{{ food.image.url }}" alt="Image" style="width: 100px;height: 100px;border-radius: 10px;">
@@ -55,12 +62,44 @@
                 <p>{{ food.description }}</p>
             </div>
         </div>
+        {% endif %}
        {% endfor %}
     </div>
+    
     <div class="col-lg-5 d-none d-lg-block">
         <img src="{% static 'images/main.webp' %}" alt="food Image">
     </div>
+    
 </div>
 <hr class="hr">
+{% endif %}
+{% if snacks %}
+<div class="row mt-5">
+    <div class="col-lg-7 col-md-12">
+        
+        <h3 class="ci mt-3 mb-3" style="text-align: center;">Snacks</h3>
+        {% for food in foods %}
+        {% if food.food_type == 'snacks' %}
+        <div class="menu-item">
+            <div class="menu-img">
+                <img src="{{ food.image.url }}" alt="Image" style="width: 100px;height: 100px;border-radius: 10px;">
+            </div>
+            <div class="menu-text">
+                <h3><span>{{ food.name }}</span>  <strong>${{ food.price }}</strong></h3>
+                <p>{{ food.description }}</p>
+            </div>
+        </div>
+        {% endif %}
+       {% endfor %}
+       <h3>No snacks currently</h3>
+    </div>
+    {% if 'snacks' in foods.food_type %}
+    <div class="col-lg-5 d-none d-lg-block">
+        <img src="{% static 'images/snacks.webp' %}" alt="food Image">
+    </div>
+    {% endif %}
+</div>
+<hr class="hr">
+{% endif %}
 
 {% endblock %}

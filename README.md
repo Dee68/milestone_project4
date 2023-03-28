@@ -695,8 +695,8 @@ Performance, best practices and SEO was tested using Lighthouse.
 | Click on the 'Book' link button on the home page | Find the booking form on the reservations page | Works as expected |
 
 <details><summary></summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/user-story-testing-05.PNG">
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/user-story-testing-14.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/reserve.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/reservation.png">
 
 </details>
 
@@ -707,8 +707,8 @@ Performance, best practices and SEO was tested using Lighthouse.
 | From 'My Bookings' click 'Edit' on booking to be edited| Find the edit booking form loaded  | Works as expected |
 
 <details><summary></summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/user-story-testing-15.PNG">
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/user-story-testing-16.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/user.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/user-story-testing.png">
 
 </details>
 
@@ -742,8 +742,8 @@ Performance, best practices and SEO was tested using Lighthouse.
 
 
 <details><summary></summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/user-story-testing-25.PNG">
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/user-story-testing-26.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/user-story-testing-25.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/user-story-testing-26.png">
 
 
 </details>
@@ -751,7 +751,7 @@ Performance, best practices and SEO was tested using Lighthouse.
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
-| Visit the admin page https://ci-pp4-the-diplomat.herokuapp.com/admin/login/?next=/admin/ | Enter admin login credentials, gain access to back end | Works as expected |
+| Visit the admin page https://bongo-man.herokuapp.com/admin/login/?next=/admin/ | Enter admin login credentials, gain access to back end | Works as expected |
 | Click on the Foods on the left panel, select a Add Food | Add food form is displayed | Works as expected |
 | Click on the Drinks on the left panel, select a Add Drink | Add drink form is displayed | Works as expected |
 
@@ -819,7 +819,7 @@ Performance, best practices and SEO was tested using Lighthouse.
 
 
 <details><summary></summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/user-story-testing-31.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/user-story-testing-31.png">
 
 </details>
 
@@ -829,20 +829,8 @@ Performance, best practices and SEO was tested using Lighthouse.
 - Coverage was also usesd to generate a report
 
 
-<!-- <details><summary>Bar & Grill App, test_models.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/unittest-bar-and-grill-test-models.PNG">
-</details>
-
-<details><summary>Bar & Grill App, test_views.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/unittest-bar-and-grill-test-views.PNG">
-</details>
-
-<details><summary>Bar & Grill App, test_urls.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/unittest-bar-and-grill-test-urls.PNG">
-</details> -->
-
 <details><summary>Rms, Coverage</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/coverage-bar-and-grill.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/rms_coverage.png">
 </details>
 
 <details><summary>Account, Coverage</summary>
@@ -853,17 +841,6 @@ Performance, best practices and SEO was tested using Lighthouse.
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/restaurant_coverage.png">
 </details>
 
-<details><summary>Bookings App, test_views.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/unittest-bookings-test-views.PNG">
-</details>
-
-<details><summary>Bookings App, test_urls.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/unittest-bookings-test-urls.PNG">
-</details>
-
-<details><summary>Bookings App, Coverage</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/coverage-bookings.PNG">
-</details>
 
 ### Device Testing & Browser compatibility
 
@@ -946,7 +923,7 @@ This application has been deployed from Github using Heroku. Here's how:
 
 6. Create a Procfile with the text: web: gunicorn rms.wsgi
 <details>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/heroku/heroku-deployment-06.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/heroku/heroku_procfile.png">
 </details>
 
 7. In the settings.py ensure the connection is to the Heroku postgres database, no indentation if you are not using a seperate test database.

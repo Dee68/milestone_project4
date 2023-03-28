@@ -43,6 +43,9 @@ class Table(models.Model):
     def get_table_review(self, *args):
         return reverse('restaurant:table-review', args=[self.slug])
 
+    class Meta:
+        ordering = ['-id']
+
     def __str__(self):
         return f'Table number {self.number} with a capacity of {self.capacity}'
 
@@ -76,6 +79,9 @@ class Review(models.Model):
     content = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-date_created']
 
     def __str__(self):
         return f'{self.author.username} reviewed {self.table.title}'

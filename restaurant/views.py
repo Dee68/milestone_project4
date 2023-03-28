@@ -222,7 +222,8 @@ def food_list(request):
     '''
     desserts = Food.objects.filter(food_type='dessert')
     foods = Food.objects.filter(food_type='main')
-    context = {'desserts': desserts, 'foods': foods}
+    snacks = Food.objects.filter(food_type='snacks')
+    context = {'desserts': desserts, 'foods': foods, 'snacks': snacks}
     return render(request, 'restaurant/food_list.html', context)
 
 
