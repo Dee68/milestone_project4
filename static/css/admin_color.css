@@ -19,15 +19,13 @@ div.breadcrumbs {
     color: #c4dce8;
 }
 div.breadcrumbs a.active {
-    color: #c4dce8;
-!important;
-    font-weight: 300;
+    color: #c4dce8!important;;
+    font-weight: 300!important;;
 }
 
 div.breadcrumbs a:focus, div.breadcrumbs a:hover {
-    color: #c4dce8;
-!important;
-    font-weight: 300;
+    color: #c4dce8!important;;
+    font-weight: 300!important;;
 }
 
 .select2-container--admin-autocomplete .select2-results__option--highlighted[aria-selected] {

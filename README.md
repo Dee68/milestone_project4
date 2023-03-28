@@ -475,7 +475,7 @@ The W3C Markup Validation Service
 </details>
 
 <details><summary>Drinks</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validation/html_drink.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/html_drink.png">
 </details>
 
 
@@ -485,7 +485,7 @@ The W3C Markup Validation Service
 </details>
 
 <details><summary>Review</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/docs/validations/html_review.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/html_review.png">
 </details>
 
 
@@ -502,7 +502,15 @@ The W3C Markup Validation Service
 The W3C Jigsaw CSS Validation Service
 
 <details><summary>Style.css</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/validation-css.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/css1_validation.png">
+</details><hr>
+
+<details><summary>Account.css</summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/account_css">
+</details><hr>
+
+<details><summary>Admin.css</summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/admin_color_css.png">
 </details><hr>
 
 ### JavaScript Validation
@@ -510,6 +518,10 @@ JSHint JS Validation Service
 
 <details><summary>Script.js</summary>
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/jshint.png">
+</details><hr>
+
+<details><summary>Alert.js</summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/timer_js.png">
 </details><hr>
 
 ### PEP8 Validation
@@ -548,7 +560,7 @@ PEP8 Validation was done by using Code Institute CI Python Linter
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/account_test.png">
 </details>
 
-<hr><summary>Restaurant</summary><hr>
+<hr><summary>Restaurant App</summary><hr>
 
 <details><summary>Admin.py</summary>
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/restaurant_admin.png">
@@ -571,44 +583,50 @@ PEP8 Validation was done by using Code Institute CI Python Linter
 </details>
 
 
-<hr><summary>Home</summary><hr>
-
-<details><summary>urls.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/pep8-validation-pycodestyle-home-urls.PNG">
-</details>
-
-<details><summary>views.py</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/pep8-validation-pycodestyle-home-views.PNG">
-</details><hr>
-
-
 ### Lighthouse
 
 Performance, best practices and SEO was tested using Lighthouse.
 
 #### Desktop
-<details><summary>Index</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/lighthouse-desktop-index.PNG">
+<details><summary>Home</summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/lighthouse_home.png">
 </details>
 
 <details><summary>Register</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/lighthouse-desktop-signup.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/lighthouse_register.png">
 </details>
 
 <details><summary>Login</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/lighthouse-desktop-login.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/lighthouse_login.png">
 </details>
 
 <details><summary>Logout</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/lighthouse-desktop-logout.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/lighthouse_confirm_logout.png">
 </details>
 
-<details><summary>Food Menu</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/lighthouse-desktop-food-menu.PNG">
+<details><summary>Foods</summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/lighthouse_food.png">
 </details>
 
-<details><summary>Drinks Menu</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/validation/lighthouse-desktop-drinks-menu.PNG">
+<details><summary>Drinks</summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/lighthouse_drink.png">
+</details>
+
+<details><summary>Profile</summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/lighthouse_profile_update.png">
+</details>
+
+<details><summary>Profile Update</summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/lighthouse_update_prof1.png">
+</details>
+
+<details><summary>Reservation</summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/lighthouse_reservation.png">
+</details>
+
+
+<details><summary>Reviews</summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/lighthouse_review.png">
 </details>
 
 
