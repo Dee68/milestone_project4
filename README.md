@@ -34,7 +34,7 @@
 
 ### About
 
-The Bongo Restaurant is a fictional business where users can create an account, update their profiles reserve a table and view the food and drinks menu.
+The Bongo Restaurant is a fictional business where users can create an account, update their profiles reserve a table and view the foods and drinks menu.
 <hr>
 
 ### User Goals
@@ -42,6 +42,7 @@ The Bongo Restaurant is a fictional business where users can create an account, 
 - To create a table reservation
 - To be able to view edit and delete reservation
 - To view the food and drink menus
+- To review a table
 
 ### Site Owner Goals
 
@@ -163,7 +164,7 @@ The footer contains all relevant social media links that the business has so the
   #### Database
 
 - Built with Python and the Django framework with a database of a Postgres for the deployed Heroku version(production)
-- Two database model shows all the fields stored in the database
+- The database model shows all the fields stored in the database
 <details><summary>Show diagram</summary>
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/rms_database.png">
 </details>
@@ -246,14 +247,14 @@ The Review Model contains the following:
 
 ### Libraries & Tools
 
-<!-- - [Am I Responsive](http://ami.responsivedesign.is/) -->
+- [Am I Responsive](http://ami.responsivedesign.is/)
 - [Bootstrap v4.2](https://getbootstrap.com/)
 - [Bootstrap v5.2](https://getbootstrap.com/)
 - [Cloudinary](https://cloudinary.com/)
 - [Favicon.io](https://favicon.io)
 - [Chrome dev tools](https://developers.google.com/web/tools/chrome-devtools/)
 - [Font Awesome](https://fontawesome.com/)
-- [Git](https://git-scm.com/)
+- [Gitpod](https://www.gitpod.io/)
 - [GitHub](https://github.com/)
 - [Google Fonts](https://fonts.google.com/)
 - [Heroku Platform](https://id.heroku.com/login)
@@ -669,17 +670,19 @@ Performance, best practices and SEO was tested using Lighthouse.
 | Click on the 'Logout' link in the navigation bar | Logout page will load| Works as expected |
 
 <details><summary></summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/docs/testing/user-story-testing-08.PNG">
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/docs/testing/user-story-testing-09.PNG">
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/docs/testing/user-story-testing-10.PNG">
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/docs/testing/user-story-testing-08.PNG">
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/docs/testing/user-story-testing-08.PNG">
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/docs/testing/user-story-testing-08.PNG">
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/docs/testing/user-story-testing-08.PNG">
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/docs/testing/user-story-testing-08.PNG">
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/docs/testing/user-story-testing-08.PNG">
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/docs/testing/user-story-testing-08.PNG">
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/docs/testing/user-story-testing-08.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/home.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/signup.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/register.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/login_click.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/login.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/menu1.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/food_menu.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/menu2.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/drink_menu.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/reserve_button.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/reservation_list.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/logout_click.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/confirm_delete.png">
 
 </details>
 
