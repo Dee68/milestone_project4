@@ -559,19 +559,19 @@ PEP8 Validation was done by using Code Institute CI Python Linter
 </details>
 
 <details><summary>urls.py</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/account_urls.png"">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/account_urls.png">
 </details>
 
 <details><summary>views.py</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/account_views.png"">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/account_views.png">
 </details>
 
 <details><summary>signal.py</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/account_signals.png"">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/account_signals.png">
 </details>
 
 <details><summary>forms.py</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/account_forms.png"">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/account_forms.png">
 </details>
 
 <details><summary>Account Tests</summary>
@@ -683,7 +683,6 @@ Performance, best practices and SEO was tested using Lighthouse.
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/reservation_list.png">
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/logout_click.png">
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/confirm_delete.png">
-
 </details>
 
 2. As a User I can use a navbar, footer, and social icons so that I can navigate the site, access menus, and access socials
@@ -695,8 +694,8 @@ Performance, best practices and SEO was tested using Lighthouse.
  | Scroll to footer at bottom of page | find social links | Works as expected |
 
 <details><summary></summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/user-story-testing-11.PNG">
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/user-story-testing-12.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/social.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/social_links.png>
 
 </details>
 
@@ -704,11 +703,11 @@ Performance, best practices and SEO was tested using Lighthouse.
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
-| Click on the 'Book' link button on the home page | Find the booking form on the reservations page | Works as expected |
+| Click on the 'Book' link button on the home page if logged in | Find the booking form on the reservations page | Works as expected |
 
 <details><summary></summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/reserve.png">
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/reservation.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/reserve_button.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/reserve.png">
 
 </details>
 
@@ -719,9 +718,8 @@ Performance, best practices and SEO was tested using Lighthouse.
 | From 'My Bookings' click 'Edit' on booking to be edited| Find the edit booking form loaded  | Works as expected |
 
 <details><summary></summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/user.png">
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/user-story-testing.png">
-
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/reserve_edit.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/reservation_edit.png">
 </details>
 
 7. As a User I can delete my booking so that I can cancel my table reservation
@@ -754,8 +752,8 @@ Performance, best practices and SEO was tested using Lighthouse.
 
 
 <details><summary></summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/user-story-testing-25.png">
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/user-story-testing-26.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/admin_login.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/admin_interface.png">
 
 
 </details>
@@ -772,8 +770,8 @@ Performance, best practices and SEO was tested using Lighthouse.
 <details><summary></summary>
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/foods.png">
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/add_food.png">
-<!-- <img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/user-story-testing-36.PNG">
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/user-story-testing-36b.PNG"> -->
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/drinks.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/add_drink.png">
 
 
 
@@ -788,8 +786,10 @@ Performance, best practices and SEO was tested using Lighthouse.
 
 
 <details><summary></summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/edit_delete.png">
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/user-story-testing-38.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/food_edit.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/food_edit_form.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/drink_edit.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/drink_edit_form.png">
 
 
 </details>
@@ -803,8 +803,8 @@ Performance, best practices and SEO was tested using Lighthouse.
 | From the reservations list page, delete a booking | A message will be displayed upon completion, Javascript makes it disappear after 3 seconds | Works as expected |
 
 <details><summary></summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/user-story-testing-20.PNG">
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/user-story-testing-21.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/booking.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/booked.png">
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/reserve_delete_info.png">
 
 </details>
