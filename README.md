@@ -1,5 +1,7 @@
 # Bongo Restaurant - Restaurant Management System
 
+![Am I Responsive](docs/amirespo.png)
+
 **Developer: Dimie Egberipou**
 
 [The live project can be viewed here](https://bongo-man.herokuapp.com/)
@@ -144,7 +146,7 @@ The site was designed for the user to be familiar with the layout such as a navi
 The footer contains all relevant social media links that the business has so the user can visit any social media site and follow the business there to expand the businesses followers, likes and shares.
 
 - The site consists of the following pages:
-  - Homepage with cards for the user to choose to reserve a table or review it, view the food or drinks menu.
+  - Homepage with cards for the user to choose to reserve a table or review it, view the foods or drinks menu.
   - Food menu has the current list of all available foods from the database sorted by snacks, mains and desserts
   - Drinks menu has the current list of all available drinks from the database sorted by type
   - Reserve page allows registered users to reserve a table of given capacity, date time for start of reservation and date time for end of reservation
@@ -155,6 +157,7 @@ The footer contains all relevant social media links that the business has so the
   - Review allows registered users to make a review
   - Profile allows registered user to view and update their profile details
   - Login / Logout allows users to login to make bookings, view, edit, and delete bookings
+  - Forget password enables registered user to change password
   - Register allows the user to regiser so they can use the booking system
 
   #### Database
@@ -313,6 +316,10 @@ The Review Model contains the following:
 ![Register1](docs/features/email_ajax1.png)
 ![Register2](docs/features/email_ajax2.png)
 ![Register4](docs/features/email_ajax3.png)
+![Register5](docs/features/username1.png)
+![Register6](docs/features/username2.png)
+![Register7](docs/features/username3.png)
+![Register8](docs/features/username4.png)
 </details>
 
 ### Profile
@@ -326,11 +333,13 @@ The Review Model contains the following:
 
 ### Login
 - User can login to create a reservation, view reservations, edit and delete reservations
+- Validates user input and shows corresponding errors
 
 <details><summary>See feature images</summary>
 
 ![Login](docs/features/login.png)
-![Login](docs/features/feature-login2.PNG)
+![Login](docs/features/login_2.png)
+![Login](docs/features/login_3.png)
 </details>
 
 
@@ -514,7 +523,7 @@ The W3C Jigsaw CSS Validation Service
 </details><hr>
 
 <details><summary>Account.css</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/account_css">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/account_css.png">
 </details><hr>
 
 <details><summary>Admin.css</summary>

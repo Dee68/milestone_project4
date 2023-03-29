@@ -28,21 +28,27 @@ class ReservationAdmin(admin.ModelAdmin):
 
 
 class FoodAdmin(admin.ModelAdmin):
-    list_display = ('name','food_type', 'image_tag',)
+    list_display = ('name', 'food_type', 'image_tag',)
     readonly_fields = ['image_tag']
     search_fields = ('name', 'description',)
     list_filter = ['food_type',]
 
 
 class DrinkAdmin(admin.ModelAdmin):
-    list_display = ('name','drink_type', 'image_tag',)
+    list_display = ('name', 'drink_type', 'image_tag',)
     readonly_fields = ['image_tag']
     search_fields = ('name', 'description',)
     list_filter = ['drink_type',]
 
 
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ('table', 'author', 'date_created',)
+    list_filter = ['table',]
+    search_fields = ('author__username',)
+
+
 admin.site.register(Table, TableAdmin)
 admin.site.register(Reservation, ReservationAdmin)
-admin.site.register(Review)
+admin.site.register(Review, ReviewAdmin)
 admin.site.register(Food, FoodAdmin)
 admin.site.register(Drink, DrinkAdmin)
