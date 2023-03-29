@@ -668,6 +668,7 @@ Performance, best practices and SEO was tested using Lighthouse.
 | Click on the 'Reservation' link in the navigation bar | Reservations page will load| Works as expected |
 | Click on the 'Reviews' link in the navigation bar | Reviews page will load| Works as expected |
 | Click on the 'Logout' link in the navigation bar | Logout page will load| Works as expected |
+| Click on the 'Forget password' link in the login form | Password reset page wiil load | works as expected |
 
 <details><summary></summary>
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/home.png">
@@ -683,6 +684,12 @@ Performance, best practices and SEO was tested using Lighthouse.
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/reservation_list.png">
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/logout_click.png">
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/confirm_delete.png">
+
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/forget_passw.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/passw_reset.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/passw_sent.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/email_pass_reset.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/passw_reset_confim.png">
 </details>
 
 2. As a User I can use a navbar, footer, and social icons so that I can navigate the site, access menus, and access socials
@@ -695,7 +702,7 @@ Performance, best practices and SEO was tested using Lighthouse.
 
 <details><summary></summary>
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/social.png">
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/social_links.png>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/social_links.png">
 
 </details>
 
@@ -831,8 +838,8 @@ Performance, best practices and SEO was tested using Lighthouse.
 
 
 <details><summary></summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/user-story-testing-31.png">
-
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/filter_btn.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/filter_res.png">
 </details>
 
 ### Automated testing
@@ -841,16 +848,16 @@ Performance, best practices and SEO was tested using Lighthouse.
 - Coverage was also usesd to generate a report
 
 
-<details><summary>Rms, Coverage</summary>
+<details><summary>Rms Project, Coverage</summary>
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/rms_coverage.png">
 </details>
 
-<details><summary>Account, Coverage</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/account_coverage.png">
+<details><summary>Account App, Coverage</summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/account_coverage.png">
 </details>
 
-<details><summary>Restaurant app, Coverage</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/restaurant_coverage.png">
+<details><summary>Restaurant App, Coverage</summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/restaurant_coverage.png">
 </details>
 
 
