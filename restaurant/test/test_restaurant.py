@@ -15,6 +15,7 @@ import pytz
 class BaseTest(TestCase):
     def setUp(self):
         self.home_url = reverse('restaurant:home')
+        self.error_404_url = '/go'
         self.reservation_url = reverse('restaurant:reservations')
         self.table_to_reserve_url = reverse(
                                             'restaurant:table-detail',
@@ -26,11 +27,11 @@ class BaseTest(TestCase):
                                         )
         self.reservation_to_edit = reverse(
                                             'restaurant:reservation-edit',
-                                            args=[1]
+                                            args=[1, 'username']
                                             )
         self.reservation_delete = reverse(
                                           'restaurant:reservation-delete',
-                                          args=[1]
+                                          args=[1, 'username']
                                           )
         self.register_url = reverse('account:register')
         self.login_url = reverse('account:signin')
@@ -554,3 +555,10 @@ class DrinkTest(BaseTest):
         drink = Drink.objects.create(**self.drink_without_image)
         drink.save()
         self.assertEqual(drink.image_tag(), 'No image found')
+
+
+class RmsTest(BaseTest):
+    def test_show_404_page(self):
+        response = self.client.get(self.error_404_url)
+        self.assertTemplateUsed(response, '404.html')
+        self.assertEqual(response.status_code, 404)

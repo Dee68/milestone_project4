@@ -45,3 +45,5 @@ urlpatterns = [
         name='password_reset_complete'
         ),
 ]
+
+handler404 = "rms.views.page_not_found_view"

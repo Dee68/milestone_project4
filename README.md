@@ -899,14 +899,16 @@ The following devices were used to test my site:
 
 | **Bug** | **Fix** |
 | ------- | ------- |
-| css not loading| the css folder was created in uppercase as CSS, renamed and fixed |
-| While logged in as a user, on edit bookings page, if you changed the url booking number and if the number was a valid booking for another user it would access the booking | Defensive programming to make sure that only bookings made by the user would be visible |
-| Double bookings | Adjusted code to check that the date, time and table were unique together and to give an error to indicate to the user that the booking was unavailable for that date, time and table combination |
-| Food item description not showing on menu | A "p" element was used to encase the jinja code, once removed the food item description was then visible |
-| Foods not listing by type, starters, manins and desserts | I needed to fix the database loop for the food items to specify the food type had to be a starter to display in the starter section of the menu, and the same for mains and desserts |
+| On registering user, profile not created for user| Using django signal fixed it |
+| While logged in as a user, on edit reservation page, if you changed the url reservation number and if the number was a valid reservation for another user it would access the reservation | Defensive programming to make sure that only reservation made by the user can be edited was achieved by adding the username among the parameters to call the reservation edit function |
+| Double bookings | Adjusted code to check that the date, time and table were unique together and to give an error to indicate to the user that the booking was unavailable for that datetime frame for that table |
+| Booking from past | The code was adjusted to compare the current date time with the reservation start date time. |
+| Pagination not working properly in home page | A class meta with an ordering was added to the table model |
+| Pagination not working properly in reviews page | A meta class was added with an ordering property to the review model |
+| Foods not listing by type, snacks, mains and desserts | I needed to fix the database loop for the food items to specify the food type had to be a starter to display in the starter section of the menu, and the same for mains and desserts |
 | Drinks not listing by type, wines, beers and cocktails | I needed to fix the database loop for the drinks item to specify the drink type had to be a wine to display in the wine section of the menu, and the same for beers and cocktails |
 | Card links not working on home page for book a table, food menu and drinks menu | The links were not set within urls.py so just needed to be wired up to load each relevant page |
-| Search field in admin using username returning error:Related field got invalid lookup:icontains | I changed the search_fields tuple to 'customer__username |
+| Search field in admin using username returning error:Related field got invalid lookup:icontains | I changed the search_fields tuple to 'customer__username' |
 
 ##### Back to [top](#table-of-contents)<hr>
 ### Heroku Deployment

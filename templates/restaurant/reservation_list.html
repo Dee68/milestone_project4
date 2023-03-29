@@ -41,8 +41,8 @@
                                     <td class="sorting_1">{{ r.table.title }}</td>
                                     <td>{{ r.reserve_start }}</td>
                                     <td>{{ r.reserve_end }}</td>
-                                    <td><a href="{% url 'restaurant:reservation-edit' r.id %}" class="btn btn-outline sft"><i class="fas fa-edit"></i></a></td>
-                                    <td><a href="{% url 'restaurant:reservation-delete' r.id %}" class="btn btn-outline sft"><i class="fas fa-trash-alt"></i></a></td>
+                                    <td><a href="{% url 'restaurant:reservation-edit' r.id  r.customer %}" class="btn btn-outline sft"><i class="fas fa-edit"></i></a></td>
+                                    <td><a href="{% url 'restaurant:reservation-delete' r.id r.customer %}" class="btn btn-outline sft"><i class="fas fa-trash-alt"></i></a></td>
                                 
                                 </tr>
                             {% endfor %}

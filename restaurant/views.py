@@ -84,7 +84,7 @@ def table_detail(request, id, slug):
         elif now() > r_start or now() > r_end or r_start > r_end:
             messages.error(
                 request,
-                'You can not book from past,please check your inputs.'
+                'You can not book from past, please check your inputs.'
                 )
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
         else:
@@ -117,12 +117,12 @@ def reservation_list(request):
 
 
 @login_required(login_url='account/signin')
-def reservation_edit(request, id):
+def reservation_edit(request, id, customer):
     '''
         This view edits/update an individual reservation
         of a logged in user.
     '''
-    r = get_object_or_404(Reservation, id=id)
+    r = get_object_or_404(Reservation, id=id, customer=request.user)
     form = ReservationForm(instance=r)
     context = {'r': r, 'form': form}
     if now() > r.reserve_end:
@@ -147,12 +147,12 @@ def reservation_edit(request, id):
 
 
 @login_required(login_url='account/signin')
-def reservation_delete(request, id):
+def reservation_delete(request, id, customer):
     '''
         This view displays the confirmation page
         if a user wishes to delete.
     '''
-    r = get_object_or_404(Reservation, id=id)
+    r = get_object_or_404(Reservation, id=id, customer=request.user)
     if request.method == 'POST':
         r.delete()
         messages.success(
