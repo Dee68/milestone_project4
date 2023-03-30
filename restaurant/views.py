@@ -112,6 +112,14 @@ def reservation_list(request):
     user = request.user
     profile = get_object_or_404(Profile, user=user)
     reservations = Reservation.objects.filter(customer=user)
+    page = request.GET.get('page', 1)
+    paginator = Paginator(reservations, 3)
+    try:
+        reservations = paginator.page(page)
+    except PageNotAnInteger:
+        reviews = paginator.page(1)
+    except EmptyPage:
+        reservations = paginator.page(paginator.num_pages)
     context = {'profile': profile, 'reservations': reservations}
     return render(request, 'restaurant/reservation_list.html', context)
 
@@ -173,7 +181,7 @@ def review_list(request):
     try:
         reviews = paginator.page(page)
     except PageNotAnInteger:
-        reviews = paginator.page(1)
+        reviews = paginator.page(1) 
     except EmptyPage:
         reviews = paginator.page(paginator.num_pages)
     context = {'reviews': reviews}

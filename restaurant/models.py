@@ -19,7 +19,7 @@ class Table(models.Model):
              choices=TABLE_TYPE,
              default='basic'
              )
-    number = models.IntegerField()
+    number = models.IntegerField(unique=True)
     capacity = models.IntegerField(default=1)
     cost = models.DecimalField(decimal_places=2, max_digits=10, default=100.00)
     is_available = models.BooleanField(default=True)
@@ -35,7 +35,6 @@ class Table(models.Model):
                 '<img src="%s" height="50" width="50">' % self.image.url
                 )
         return "No image found"
-    image_tag.short_description = 'Image'
 
     def get_absolute_url(self, *args, **kwargs):
         return reverse('restaurant:table-detail', args=[self.id, self.slug])
@@ -65,6 +64,9 @@ class Reservation(models.Model):
     def get_reserve_end(self):
         return self.reserve_end.strftime('%m/%d/%Y %I:%M %p')
 
+    class Meta:
+        ordering = ['-reserved_on']
+
     def __str__(self):
         return f'{self.customer.username} reserved {self.table.title}'
 
@@ -87,19 +89,12 @@ class Review(models.Model):
         return f'{self.author.username} reviewed {self.table.title}'
 
 
-FOOD_TYPE = (
-    ('snacks', 'Snacks'),
-    ('main', 'Main'),
-    ('dessert', 'Dessert')
-)
-DRINK_TYPE = (
-    ('wines', 'Wines'),
-    ('beers', 'Beers'),
-    ('cocktails', 'Cocktails')
-)
-
-
 class Food(models.Model):
+    FOOD_TYPE = (
+        ('snacks', 'Snacks'),
+        ('main', 'Main'),
+        ('dessert', 'Dessert')
+    )
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=255)
     food_type = models.CharField(
@@ -116,13 +111,17 @@ class Food(models.Model):
                 '<img src="%s" height="50" width="50">' % self.image.url
                 )
         return "No image found"
-    image_tag.short_description = 'Image'
 
     def __str__(self):
         return str(self.name)
 
 
 class Drink(models.Model):
+    DRINK_TYPE = (
+        ('wines', 'Wines'),
+        ('beers', 'Beers'),
+        ('cocktails', 'Cocktails')
+    )
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=255)
     drink_type = models.CharField(
@@ -139,7 +138,6 @@ class Drink(models.Model):
                 '<img src="%s" height="50" width="50">' % self.image.url
                 )
         return "No image found"
-    image_tag.short_description = 'Image'
 
     def __str__(self):
         return str(self.name)

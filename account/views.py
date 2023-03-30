@@ -275,7 +275,7 @@ def profile_update(request):
             profile_form.save()
             messages.success(request, 'Your profile has been updated.')
             return redirect('account:profile')
-        messages.error(request, 'Something went wrong.')
+        messages.error(request, 'Please enter values for all fields.')
         return render(
             request,
             'account/update_profile.html',

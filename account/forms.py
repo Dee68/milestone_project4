@@ -23,18 +23,23 @@ class RegisterForm(UserCreationForm):
 
 
 class UserUpdateForm(UserChangeForm):
+    first_name = forms.CharField(required=False)
+    last_name = forms.CharField(required=False)
+
     class Meta:
         model = User
         fields = ['username', 'email', 'first_name', 'last_name']
 
 
-GENDER = (
+class UserProfileForm(forms.ModelForm):
+    GENDER = (
         ('male', 'male'),
         ('female', 'female'),
     )
+    bio = forms.CharField(required=False)
+    address = forms.CharField(required=False)
+    avatar = forms.ImageField(required=False)
 
-
-class UserProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['gender', 'bio', 'avatar', 'address']
