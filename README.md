@@ -731,6 +731,7 @@ Performance, best practices and SEO was tested using Lighthouse.
 | From 'Reservations' click 'Edit' on booking to be edited| Find the edit booking form loaded  | Works as expected |
 
 <details><summary></summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/reserve_button.png">
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/reserve_edit.png">
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/reservation_edit.png">
 </details>
@@ -877,27 +878,27 @@ This allowed me to test on real devices and not just device emulators.
 The following devices were used to test my site:
 
 <details><summary>Samsung Galaxy S22 Ultra</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/device-test-samsung-s22-ultra.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/samsunggalaxy.png">
 </details>
 
-<details><summary>Apple iPhone 13</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/device-test-iphone-13.PNG">
+<details><summary>Apple iPhone 14</summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/ipod14.png">
 </details>
 
 <details><summary>Google Pixel 5</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/device-test-google-pixel-5.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/google_p5.png">
 </details>
 
-<details><summary>Mozilla Firefox (v105 latest)</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/device-test-firefox.PNG">
+<details><summary>Mozilla Firefox (v111 latest)</summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/firefox1.png">
 </details>
 
-<details><summary>Google Chrome (v106 latest)</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/device-test-chrome.PNG">
+<details><summary>Google Chrome (v111 latest)</summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/goog_chr.png">
 </details>
 
 <details><summary>Safari (Monteray v15.3 latest)</summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/device-test-safari-monteray-15.3.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/safari.png">
 </details>
 
 
@@ -1028,5 +1029,5 @@ Bootstrap dark navigation theme was used alongside boostrap classes and carousel
 ### Special thanks to the following:
 - Code Institute
 - My mentor for his extraordinary insight and useful feedbacks.
-- Our coordinator Irene from Code Institute for keeping up with us on our daily schedules in the classroom.
+- Our facilitator Irene from Code Institute for keeping up with us on our daily schedules in the classroom.
 - Friends and collegues that helped in testing the application.
