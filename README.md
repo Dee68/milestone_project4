@@ -106,7 +106,6 @@ The Bongo Restaurant is a fictional business where users can create an account, 
 15.	As an Admin / Authorised User I can log in so that I can access the back end of the site (Must have)
 25. As an Admin I can login to add or remove items from the food and drink menu so that we can add more food and drinks or remove them also add and remove tables (Must have)
 16.	As a Admin I can create, read, update and delete table,food and drinks items from the database so that we can add, remove, rename and view all our tables, food and drinks items (Must have)
-<!-- 21. As an Admin / Authorised User I can search through bookings so that I can find the information I am looking for	 (Should have) -->
 19. As an Admin / Authorised User I can filter bookings by date so that I can see what bookings we have for a particular day (Should have)
 
 ### Site Owner  
@@ -991,7 +990,7 @@ I store mine in env.py
 
 16. Connect the app to GitHub, and enable automatic deploys from main if you wish
 <details>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project/main/docs/heroku/heroku_github.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/heroku/heroku_github.png">
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/heroku/heroku_auto.png">
 </details>
 
