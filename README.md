@@ -647,9 +647,16 @@ Performance, best practices and SEO was tested using Lighthouse.
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/lighthouse_reservation.png">
 </details>
 
-
 <details><summary>Reviews</summary>
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/lighthouse_review.png">
+</details>
+
+
+### Wave Report
+
+Accessibility is tested using this tool
+<details><summary></summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/wave.png">
 </details>
 
 
