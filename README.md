@@ -291,9 +291,9 @@ The Review Model contains the following:
 
 <details><summary>See feature images</summary>
 
-![Footer](docs/features/footer.png)
 ![Footer](docs/features/brand_navigation.png)
 ![Footer](docs/features/hamburger_navigation.png)
+![Footer](docs/features/logged_in.png)
 </details>
 
 ### Footer
@@ -350,6 +350,7 @@ The Review Model contains the following:
 
 <details><summary>See feature images</summary>
 
+![Logout](docs/features/logout_click.png)
 ![Logout](docs/features/confirm_action.png)
 </details>
 
@@ -359,6 +360,7 @@ The Review Model contains the following:
 
 <details><summary>See feature images</summary>
 
+![Book](docs/features/home_book.png)
 ![Book](docs/features/book_past.png)
 ![Book](docs/features/book_without_data.png)
 ![Book](docs/features/book_time_frame.png)
@@ -366,12 +368,13 @@ The Review Model contains the following:
 
 ### Reservations
 - Allows the user to see all their reservations
-- If the booking is older than today it is automatically expired for the user
+- If the booking is older than today it can no longer be updated
 
 
 <details><summary>See feature images</summary>
 
 ![Reservations](docs/features/reservation_list.png)
+![Reservations](docs/features/expired_book.png)
 </details>
 
 
@@ -420,6 +423,7 @@ The Review Model contains the following:
 <details><summary>See feature images</summary>
 
 ![Food](docs/features/food_menu.png)
+![Food](docs/features/foods.png)
 </details>
 
 
@@ -432,6 +436,7 @@ The Review Model contains the following:
 <details><summary>See feature images</summary>
 
 ![Drinks](docs/features/drink_menu.png)
+![Drinks](docs/features/drinks.png)
 </details>
 
 ### Social Media Links
@@ -662,6 +667,7 @@ Performance, best practices and SEO was tested using Lighthouse.
 ------------ | ------------ | ------------ |
 | Click on the 'Home' link in the navigation bar | Homepage will load| Works as expected |
 | Click on the 'Register' link in the navigation bar | Sign up page will load| Works as expected |
+| The username and email field uses ajax to validate user inputs | Show corresponding error and prevent user from submitting form | works as expected |
 | Click on the 'Login' link in the navigation bar | Login page will load| Works as expected |
 | Click on the 'Menu' link in the navigation bar, select 'Foods' | Food menu page will load| Works as expected |
 | Click on the 'Menu' link in the navigation bar, select 'Drinks' | Drinks menu page will load| Works as expected |
@@ -713,7 +719,7 @@ Performance, best practices and SEO was tested using Lighthouse.
 | Click on the 'Book' link button on the home page if logged in | Find the booking form on the reservations page | Works as expected |
 
 <details><summary></summary>
-<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/reserve_button.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/home_book.png">
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/reserve.png">
 
 </details>
@@ -722,7 +728,7 @@ Performance, best practices and SEO was tested using Lighthouse.
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
-| From 'My Bookings' click 'Edit' on booking to be edited| Find the edit booking form loaded  | Works as expected |
+| From 'Reservations' click 'Edit' on booking to be edited| Find the edit booking form loaded  | Works as expected |
 
 <details><summary></summary>
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/reserve_edit.png">
@@ -812,6 +818,7 @@ Performance, best practices and SEO was tested using Lighthouse.
 <details><summary></summary>
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/booking.png">
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/booked.png">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/book_update.png">
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/features/reserve_delete_info.png">
 
 </details>
@@ -870,11 +877,11 @@ This allowed me to test on real devices and not just device emulators.
 The following devices were used to test my site:
 
 <details><summary>Samsung Galaxy S22 Ultra</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/device-test-samsung-s22-ultra.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/device-test-samsung-s22-ultra.PNG">
 </details>
 
 <details><summary>Apple iPhone 13</summary>
-<img src="https://raw.githubusercontent.com/ArronBeale/CI_PP4_the_diplomat/main/docs/testing/device-test-iphone-13.PNG">
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/testing/device-test-iphone-13.PNG">
 </details>
 
 <details><summary>Google Pixel 5</summary>
