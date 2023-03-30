@@ -32,8 +32,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['bongo-man.herokuapp.com', 'localhost']
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-dee68-milestoneproject-1iijjf1t0n6.ws-eu90.gitpod.io/', 'https://www.heroku.com/']
-
 
 # Application definition
 

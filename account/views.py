@@ -279,8 +279,7 @@ def profile_update(request):
         return render(
             request,
             'account/update_profile.html',
-            context,
-            status=400
+            context
             )
     else:
         user_form = UserUpdateForm(instance=request.user)
