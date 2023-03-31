@@ -181,7 +181,7 @@ def review_list(request):
     try:
         reviews = paginator.page(page)
     except PageNotAnInteger:
-        reviews = paginator.page(1) 
+        reviews = paginator.page(1)
     except EmptyPage:
         reviews = paginator.page(paginator.num_pages)
     context = {'reviews': reviews}

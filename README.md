@@ -92,12 +92,6 @@ The Bongo Restaurant is a fictional business where users can create an account, 
 17. As a User I can get notified so that I know my action of creation, edit, or deletion of a booking has been successful (Must have)
 18. As a User I can see my login status so that I know if I am logged in or not(Must have)
 
-
-<!-- 23. As a User I can have a profile so that I can change my username and info about myself(Must have) -->
-
-<!-- 13. As a User I can view the list of reviews made by customers of various tables (Must have) -->
-<!-- 14. As a user I can login so that I can give a review (Must have) -->
-
 21. As a User I can not book a date in the past so that my booking is valid (Must have)
 
 22. As a User I can not book a table already booked so that my booking is valid and not double booked (Must have)
@@ -450,12 +444,13 @@ The Review Model contains the following:
 
 
 ### Pagination
-- Pagination is used on the home page and the reviews page
+- Pagination is used on the home page, reservations page and the reviews page
 - Ensures the page is kept tidy as only 3 items are displayed per page
   
 <details><summary>See feature images</summary>
 
 ![Pagination](docs/features/pagination.png)
+![Pagination](docs/features/reserve_pagination.png)
 </details>
 
 

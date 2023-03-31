@@ -345,6 +345,9 @@ table.table-bordered th {
 .nav-link:hover, .nav-link:focus {
     text-decoration: none;
 }
+.active {
+    color: #cda45e!important;
+}
 .nav-link.disabled {
     color: #6c757d;
     cursor: default;

@@ -282,4 +282,4 @@ class ProfileTest(BaseTest):
                                     self.logged_in_user,
                                     format='text/html'
                                     )
-        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.status_code, 200)

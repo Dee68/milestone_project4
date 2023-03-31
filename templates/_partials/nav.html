@@ -1,9 +1,7 @@
 {% load static %}
 
-{% url 'restaurant:home' as home %}
-{% url 'restaurant:table' as table %}
-{% url 'restaurant:contact' as contact %}
-{% url 'account:signin' as signin %}
+
+
     <!-- Navbar Start -->
     <div class="container-fluid p-0 nav-bar">
       <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
@@ -15,16 +13,21 @@
           </button>
           <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
               <div class="navbar-nav ml-auto p-4">
-                  <a href="{% url 'restaurant:home' %}" class="nav-item nav-link active">Home</a>
-                  <a href="{% url 'restaurant:reviews' %}" class="nav-item nav-link">Reviews</a>
+                {% url 'restaurant:home' as url %}
+                  <a href="{{ url }}" class="nav-item nav-link {% if request.path == url %}active{% endif %}">Home</a>
+                  {% url 'restaurant:reviews' as url %}
+                  <a href="{{ url }}" class="nav-item nav-link {% if request.path == url %}active{% endif %}">Reviews</a>
                   <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="true">Menu</a>
+                    {% url 'restaurant:foods' as url %}
+                    <a class="nav-link dropdown-toggle {% if request.path == url %}active{% endif %}" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="true">Menu</a>
+                    
                       <ul class="dropdown-menu text-capitalize" aria-labelledby="dropdown01">
                         
                         <li>
-                          <a class="dropdown-item" href="{% url 'restaurant:foods' %}">Foods</a>
+                          <a class="dropdown-item" href="{{ url }}">Foods</a>
                         </li>
-                        <li><a class="dropdown-item" href="{% url 'restaurant:drinks' %}">Drinks</a></li>
+                        {% url 'restaurant:drinks' as url %}
+                        <li><a class="dropdown-item" href="{{ url }}">Drinks</a></li>
                         
                       </ul>
                   </div>
@@ -32,7 +35,8 @@
                   {% if user.id is not None %}
                  
                   <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-bs-toggle="dropdown" aria-expanded="false">Hi, {{ request.user }}</a>
+                    {% url 'account:profile' as url %}
+                    <a class="nav-link dropdown-toggle {% if request.path == url %}active{% endif %}" href="#" id="dropdown02" data-bs-toggle="dropdown" aria-expanded="false">Hi, {{ request.user }}</a>
                       <ul class="dropdown-menu text-capitalize" aria-labelledby="dropdown02">
                         <li class="nav-item">
                           <span style="margin-left: 15px;">
@@ -46,10 +50,13 @@
                         <li><a class="dropdown-item" href="{% url 'restaurant:reservations' %}">Reservations</a></li>
                       </ul>
                   </div>
-                  <a href="{% url 'restaurant:reservations' %}" class="nav-item nav-link">Reservations</a>
+                  {% url 'restaurant:reservations' as url %}
+                  <a href="{% url 'restaurant:reservations' %}" class="nav-item nav-link {% if request.path == url %}active{% endif %}">Reservations</a>
                   {% else %}
-                  <a href="{% url 'account:register' %}" class="nav-item nav-link">Signup</a>
-                  <a href="{% url 'account:signin' %}" class="nav-item nav-link">Login</a>
+                  {% url 'account:register' as url %}
+                  <a href="{{ url }}" class="nav-item nav-link {% if request.path == url %}active{% endif %}">Signup</a>
+                  {% url 'account:signin' as url %}
+                  <a href="{{ url }}" class="nav-item nav-link {% if request.path == url %}active{% endif %}">Login</a>
                   {% endif %}
               </div>
           </div>
