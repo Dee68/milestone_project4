@@ -797,7 +797,7 @@ Accessibility is tested using this tool
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
 | Visit the admin page https://bongo-man.herokuapp.com/admin/login/?next=/admin/ | Enter admin login credentials, gain access to back end | Works as expected |
-| Click on the Foods / Drinks on the left panel, select an item by id | Item Form is displayed allowing, editing and deletion  |Works as expected |
+| Click on the Foods / Drinks on the left panel, select an item by id(name) | Item Form is displayed allowing, editing and deletion  |Works as expected |
 
 
 <details><summary></summary>
@@ -914,7 +914,7 @@ The following devices were used to test my site:
 | Booking from past | The code was adjusted to compare the current date time with the reservation start date time. |
 | Pagination not working properly in home page | A class meta with an ordering was added to the table model |
 | Pagination not working properly in reviews page | A meta class was added with an ordering property to the review model |
-| Foods not listing by type, snacks, mains and desserts | I needed to fix the database loop for the food items to specify the food type had to be a starter to display in the starter section of the menu, and the same for mains and desserts |
+| Foods not listing by type, snacks, mains and desserts | I needed to fix the database loop for the food items to specify the food type had to be a desserts to display in the desserts section of the menu, and the same for mains and snacks |
 | Drinks not listing by type, wines, beers and cocktails | I needed to fix the database loop for the drinks item to specify the drink type had to be a wine to display in the wine section of the menu, and the same for beers and cocktails |
 | Card links not working on home page for book a table, food menu and drinks menu | The links were not set within urls.py so just needed to be wired up to load each relevant page |
 | Search field in admin using username returning error:Related field got invalid lookup:icontains | I changed the search_fields tuple to 'customer__username' |

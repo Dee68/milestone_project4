@@ -1,13 +1,18 @@
+# Imports
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# 3rd party:
 from django.db import models
 from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from cloudinary.models import CloudinaryField
 from django.contrib.auth.models import User
 from django.shortcuts import reverse
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Create your models here.
 
 
+# The table model for the database
 class Table(models.Model):
     TABLE_TYPE = (
         ('basic', 'basic'),
@@ -49,6 +54,7 @@ class Table(models.Model):
         return f'Table number {self.number} with a capacity of {self.capacity}'
 
 
+# The reservation model for the database
 class Reservation(models.Model):
     customer = models.ForeignKey(to=User, on_delete=models.CASCADE)
     table = models.ForeignKey(to=Table, on_delete=models.CASCADE)
@@ -71,6 +77,7 @@ class Reservation(models.Model):
         return f'{self.customer.username} reserved {self.table.title}'
 
 
+# The review model for the database
 class Review(models.Model):
     table = models.ForeignKey(
         Table,
@@ -89,6 +96,7 @@ class Review(models.Model):
         return f'{self.author.username} reviewed {self.table.title}'
 
 
+# The food model for the database
 class Food(models.Model):
     FOOD_TYPE = (
         ('snacks', 'Snacks'),
@@ -116,6 +124,7 @@ class Food(models.Model):
         return str(self.name)
 
 
+# The drink model for the database
 class Drink(models.Model):
     DRINK_TYPE = (
         ('wines', 'Wines'),

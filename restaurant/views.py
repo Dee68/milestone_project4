@@ -1,18 +1,24 @@
+# Imports
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# 3rd party:
 from django.shortcuts import (
                                 render,
                                 HttpResponseRedirect,
                                 get_object_or_404,
                                 redirect
                                 )
-from .models import Table, Reservation, Review, Food, Drink
+from django.utils.timezone import now
+from datetime import datetime
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
+import pytz
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Internal:
 from .forms import ReservationForm, ReviewForm
 from account.models import Profile
-from django.utils.timezone import now
-from datetime import datetime
-import pytz
+from .models import Table, Reservation, Review, Food, Drink
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 def restaurant(request):

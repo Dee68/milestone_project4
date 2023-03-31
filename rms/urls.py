@@ -23,7 +23,7 @@ urlpatterns = [
     path('', include('restaurant.urls', namespace='restaurant')),
     path('admin/', admin.site.urls),
     path('account/', include('account.urls', namespace='account')),
-
+    # ~~~~~~ password reset ~~~~~~~~~~~~~~~~~~~~~~
     path('password-reset/', auth_views.PasswordResetView.as_view(
         template_name='account/password_reset.html'
     ), name='password_reset'),
@@ -44,6 +44,7 @@ urlpatterns = [
         ),
         name='password_reset_complete'
         ),
+    # ~~~~~~~~~~~~~ end password reset ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ]
 
-handler404 = "rms.views.page_not_found_view"
+handler404 = "rms.views.page_not_found_view"  # custom 404 handler

@@ -4,11 +4,15 @@
 from django.urls import path
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import views as auth_views
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Internal:
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 from .import views
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 app_name = 'account'
 
+# Urls for all the pages in the account app
 urlpatterns = [
     path('', views.profile_page, name='profile'),
     path('update-profile/', views.profile_update, name='update-profile'),
