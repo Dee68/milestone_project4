@@ -17,7 +17,7 @@ import pytz
 # Internal:
 # from .forms import ReservationForm, ReviewForm
 from account.models import Profile
-from .models import  Food, Drink
+from .models import Table, Reservation, Review, Food, Drink
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -215,7 +215,7 @@ def review_table(request, slug):
                                          )
             review.save()
             messages.success(request, 'Your review is added successfully.')
-            return redirect('restaurant:home')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
         else:
             messages.error(request, 'Something went wrong')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
