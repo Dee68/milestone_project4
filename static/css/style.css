@@ -256,6 +256,11 @@ table.table-bordered th {
 .contact .php-email-form input {
     height: 44px;
 }
+.show {
+    transform: translateY(0rem);
+    visibility: visible;
+    opacity: 1;
+}
 
 .bm {
     color: #fff!important;
