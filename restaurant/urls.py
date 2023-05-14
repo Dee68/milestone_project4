@@ -25,7 +25,7 @@ urlpatterns = [
         views.reservation_delete,
         name='reservation-delete'
         ),
-    path('reservation/reviews', views.review_list, name='reviews'),
+    path('reviews', views.review_list, name='reviews'),
     path('reviews/<str:slug>/', views.review_table, name='table-review'),
     path('reservation/login_user/', views.login_user, name='login-user'),
     path('foods', views.food_list, name='foods'),
