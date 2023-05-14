@@ -16,7 +16,7 @@
                 {% url 'restaurant:home' as url %}
                   <a href="{{ url }}" class="nav-item nav-link {% if request.path == url %}active{% endif %}">Home</a>
                   
-                    <a href="{% url 'restaurant:reviews' %}" class="nav-item nav-link {% if request.path == url %}active{% endif %}">Reviews</a>
+                    <a href="{{ url }}" class="nav-item nav-link {% if request.path == url %}active{% endif %}">Reviews</a>
                   <div class="nav-item dropdown">
                     {% url 'restaurant:foods' as url %}
                     <a class="nav-link dropdown-toggle {% if request.path == url %}active{% endif %}" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="true">Menu</a>
