@@ -15,7 +15,7 @@ from django.contrib.auth.decorators import login_required
 import pytz
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Internal:
-# from .forms import ReservationForm, ReviewForm
+from .forms import ReservationForm, ReviewForm
 from account.models import Profile
 from .models import Table, Reservation, Review, Food, Drink
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
