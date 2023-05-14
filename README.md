@@ -72,6 +72,7 @@ The Bongo Restaurant is a fictional business where users can create an account, 
 ##### Back to [top](#table-of-contents)<hr>
 
 ## User Stories
+This is the link to the project board [Bongo-Man](https://github.com/users/Dee68/projects/9)
 
 ### Users
 
