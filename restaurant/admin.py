@@ -5,7 +5,7 @@ from django.contrib import admin
 from rangefilter.filters import DateRangeFilter
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Internal:
-from .models import Table, Reservation, Review, Food, Drink
+from .models import Food, Drink
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -17,22 +17,22 @@ class TableAdmin(admin.ModelAdmin):
 
 
 # Registration of reservations in the admin panel
-class ReservationAdmin(admin.ModelAdmin):
-    list_filter = (
-        'customer',
-        'table',
-        'reserve_start',
-        'reserve_end',
-        'reserve_on'
-        )
-    list_display = (
-        'customer',
-        'table',
-        'reserve_start',
-        'reserve_end')
+# class ReservationAdmin(admin.ModelAdmin):
+#     list_filter = (
+#         'customer',
+#         'table',
+#         'reserve_start',
+#         'reserve_end',
+#         'reserve_on'
+#         )
+#     list_display = (
+#         'customer',
+#         'table',
+#         'reserve_start',
+#         'reserve_end')
 
-    search_fields = ('customer__username',)
-    list_filter = (('reserve_start', DateRangeFilter),)
+#     search_fields = ('customer__username',)
+#     list_filter = (('reserve_start', DateRangeFilter),)
 
 
 # Registration of foods in the admin panel
@@ -52,14 +52,14 @@ class DrinkAdmin(admin.ModelAdmin):
 
 
 # Registration of reviews in the admin panel
-class ReviewAdmin(admin.ModelAdmin):
-    list_display = ('table', 'author', 'date_created',)
-    list_filter = ['table',]
-    search_fields = ('author__username',)
+# class ReviewAdmin(admin.ModelAdmin):
+#     list_display = ('table', 'author', 'date_created',)
+#     list_filter = ['table',]
+#     search_fields = ('author__username',)
 
 
-admin.site.register(Table, TableAdmin)
-admin.site.register(Reservation, ReservationAdmin)
-admin.site.register(Review, ReviewAdmin)
+# admin.site.register(Table, TableAdmin)
+# admin.site.register(Reservation, ReservationAdmin)
+# admin.site.register(Review, ReviewAdmin)
 admin.site.register(Food, FoodAdmin)
 admin.site.register(Drink, DrinkAdmin)
