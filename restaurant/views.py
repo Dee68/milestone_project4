@@ -217,7 +217,7 @@ def review_table(request, slug):
             messages.success(request, 'Your review is added successfully.')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
         else:
-            messages.error(request, 'Something went wrong')
+            messages.error(request, 'Please fill all fields.')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     return render(request, 'restaurant/table_review.html', context)
 
