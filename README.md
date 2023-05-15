@@ -74,6 +74,10 @@ The Bongo Restaurant is a fictional business where users can create an account, 
 ## User Stories
 This is the link to the project board [Bongo-Man](https://github.com/users/Dee68/projects/9)
 
+### Epics
+
+
+
 ### Users
 
 1.  As a Site User I can create an account so that I can have the benefits of the system user(Must have)
@@ -274,7 +278,7 @@ The Review Model contains the following:
 
 <details><summary>See feature images</summary>
 
-![Home page](docs/features/home.png)
+![Home page](docs/features/home1.png)
 </details>
 
 ### Brand & Navigation
@@ -285,7 +289,7 @@ The Review Model contains the following:
 
 <details><summary>See feature images</summary>
 
-![Footer](docs/features/brand_navigation.png)
+![Footer](docs/features/home.png)
 ![Footer](docs/features/hamburger_navigation.png)
 ![Footer](docs/features/logged_in.png)
 </details>
@@ -347,6 +351,18 @@ The Review Model contains the following:
 ![Logout](docs/features/logout_click.png)
 ![Logout](docs/features/confirm_action.png)
 </details>
+
+### Password Reset
+- Allows a registered user to reset password if forgotten.
+
+<details>
+<summary>See feature images</summary>
+
+![Password reset](docs/features/passw_reset.png)
+![Password confirm](docs/features/passw_sent.png)
+![password Done](docs/features/passw_reset_confirm.png)
+</details>
+
 
 ### Book
 - Allows the user to reserve a table using the reservation form

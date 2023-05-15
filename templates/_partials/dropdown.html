@@ -1,23 +1,15 @@
 <script>
-    const dropdownBtn = document.getElementById("dropdown01");
-    const dropdownBtn2 = document.getElementById("dropdown02");
-    const dropdownMenu = document.getElementById("foodmenu");
-    const dropdownMenu2 = document.getElementById("accountmenu");
-    const toggleDropdown = function () {
-  dropdownMenu.classList.toggle("show");
+const dropdownBtn2 = document.getElementById("dropdown02");
+const dropdownMenu2 = document.getElementById("accountmenu");
 
-};
 const toggleDropdown2 = function () {
   dropdownMenu2.classList.toggle("show");
 
 };
-dropdownBtn.addEventListener("click", function (e) {
-  e.stopPropagation();
-  toggleDropdown();
-});
-
+if(dropdownBtn2 != undefined){
 dropdownBtn2.addEventListener("click", function (e) {
   e.stopPropagation();
   toggleDropdown2();
 });
+}
 </script>

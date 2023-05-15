@@ -17,26 +17,16 @@
                   <a href="{{ url }}" class="nav-item nav-link {% if request.path == url %}active{% endif %}">Home</a>
                   {% url 'restaurant:reviews' as url %}
                   <a href="{{ url }}" class="nav-item nav-link {% if request.path == url %}active{% endif %}">Reviews</a>
-                  <div class="nav-item dropdown">
-                    {% url 'restaurant:foods' as url %}
-                    <a class="nav-link dropdown-toggle {% if request.path == url %}active{% endif %}" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="true">Menu</a>
-                    
-                      <ul class="dropdown-menu text-capitalize" aria-labelledby="dropdown01" id="foodmenu">
-                        
-                        <li>
-                          <a class="dropdown-item" href="{{ url }}">Foods</a>
-                        </li>
-                        {% url 'restaurant:drinks' as url %}
-                        <li><a class="dropdown-item" href="{{ url }}">Drinks</a></li>
-                        
-                      </ul>
-                  </div>
+                  {% url 'restaurant:foods' as url %}
+                  <a href="{{ url }}" class="nav-item nav-link {% if request.path == url %}active{% endif %}">Foods</a>
+                  {% url 'restaurant:drinks' as url %}
+                  <a href="{{ url }}" class="nav-item nav-link {% if request.path == url %}active{% endif %}">Drinks</a>
                  
                   {% if user.id is not None %}
                  
                   <div class="nav-item dropdown" id="dropdown">
                     {% url 'account:profile' as url %}
-                    <a class="nav-link dropdown-toggle {% if request.path == url %}active{% endif %}" href="#" id="dropdown02" data-bs-toggle="dropdown" aria-expanded="false">Hi, {{ request.user }}</a>
+                    <a class="nav-link dropdown-toggle {% if request.path == url %}active{% endif %}" href="#" id="dropdown02" data-bs-toggle="dropdown" aria-expanded="true">Hi, {{ request.user }}</a>
                       <ul class="dropdown-menu text-capitalize" aria-labelledby="dropdown02" id="accountmenu">
                         <li class="nav-item">
                           <span style="margin-left: 15px;">
