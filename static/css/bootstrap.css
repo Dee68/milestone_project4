@@ -3487,7 +3487,7 @@ textarea.form-control-lg {
     --bs-card-cap-padding-x: 1rem;
     --bs-card-cap-bg: rgba(0,  0,  0,  0.03);
     --bs-card-cap-color:#001  ;
-    --bs-card-height: 250px ;
+    --bs-card-height: auto ;
     --bs-card-color: #fff ;
     --bs-card-bg: #fff;
     --bs-card-img-overlay-padding: 1rem;
@@ -3535,6 +3535,9 @@ textarea.form-control-lg {
 .card-subtitle {
     margin-top: calc(-.5 * var(--bs-card-title-spacer-y));
     margin-bottom: 0;
+}
+.card-text {
+    color: #000;
 }
 .card-text:last-child {
     margin-bottom: 0;
@@ -6877,6 +6880,8 @@ textarea.form-control-lg {
 .text-body {
     --bs-text-opacity: 1;
     color: rgba(var(--bs-body-color-rgb), var(--bs-text-opacity))!important;
+    margin-left: 25px!important;
+    text-align: right!important;
 }
 .text-muted {
     --bs-text-opacity: 1;

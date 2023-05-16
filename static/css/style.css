@@ -250,6 +250,22 @@ table.table-bordered th {
     font-size: 14px;
     color: #bab3a6;
 }
+
+element.style {
+}
+.text-white {
+    color: #fff!important;
+}
+.text-white {
+    color: #fff!important;
+}
+.m-0 {
+    margin: 0!important;
+}
+.display-1 {
+    position: relative;
+    top: 37%!important;
+}
 .contact .info .open-hours, .contact .info .email, .contact .info .phone {
     margin-top: 40px;
 }
@@ -261,7 +277,9 @@ table.table-bordered th {
     visibility: visible;
     opacity: 1;
 }
-
+.visually-hidden {
+    visibility: hidden;
+}
 .bm {
     color: #fff!important;
 }
@@ -319,12 +337,23 @@ table.table-bordered th {
 .mr-2, .mx-2 {
     margin-right: 0.5rem !important;
 }
+.mb-3 {
+    text-align: right!important;
+}
+p.text-body {
+    margin-bottom: 0rem!important;
+    text-align: right!important;
+}
 .ky {
     display: flex;
     flex-wrap: wrap;
 }
 .text-primary {
     color: #cda45e !important;
+}
+h2.text-primary {
+    position: relative;
+    top: 40%;
 }
 .d-flex {
     display: flex!important;
@@ -389,6 +418,18 @@ table.table-bordered th {
     }
     .table {
         table-layout: auto;
+    }
+    .carousel-item {
+        display: flex;
+    }
+    .display-1, h2.text-primary {
+        top: 25%!important;
+    }
+    .carousel-caption > h1 {
+        font-size: 85%;
+    }
+    .carousel-caption > h2 {
+        font-size: 75%;
     }
 }
 @media (min-width: 768px) and (max-width: 912px){

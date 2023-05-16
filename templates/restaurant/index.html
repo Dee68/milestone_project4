@@ -42,7 +42,10 @@
 </div>
 <!-- pagination -->
 {% if tables.has_other_pages %}
-    <nav aria-label="..." class="mt-5">
+<div class="row mt-5">
+  <div class="col-md-4"></div>
+    <div class="text-center col-md-4">
+    <nav aria-label="Page navigation" class="mt-5">
       <ul class="pagination justify-content-center">
         {% if tables.has_previous %}
           <li class="page-item">
@@ -77,6 +80,9 @@
         {% endif %}
     </ul>
     </nav>
+  </div>
+  <div class="col-md-4"></div>
+</div>
   {% endif %}
 </div>
 
