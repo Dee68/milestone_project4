@@ -539,6 +539,7 @@ The W3C Jigsaw CSS Validation Service
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/css1_validation.png">
 </details><hr>
 
+
 <details><summary>Account.css</summary>
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/validations/account_css.png">
 </details><hr>
