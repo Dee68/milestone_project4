@@ -107,13 +107,19 @@ The Bongo Restaurant is a fictional business where users can create an account, 
 23. As a Site Owner I can provide a fully responsive site for my customers so that they have a good user experience (Must have)
 24. As a Site Owner I can validate data entered into my site so that all submitted data is correct to avoid errors (Must have)
 
-### Board, Epics & User Stories
+### Board & Epics
 
-<details><summary>User Stories</summary>
-
+<details><summary>Board</summary>
 This is the link to the project board [Bongo-Man](https://github.com/users/Dee68/projects/9)
+</details>
 
-### Epics
+<details>
+<summary>Epics</summary>
+
+#### Epic:[Navigation & View](https://github.com/users/Dee68/projects/9/views/1?pane=issue&itemId=28190218)
+#### Epic:[User Authentication](https://github.com/Dee68/milestone_project4/issues/27)
+#### Epic:[Reservation](https://github.com/Dee68/milestone_project4/issues/28)
+#### Epic:[Admin functionality](https://github.com/users/Dee68/projects/9?pane=issue&itemId=28383239)
 
 </details>
 
@@ -1050,5 +1056,5 @@ Bootstrap dark navigation theme was used alongside boostrap classes and carousel
 ### Special thanks to the following:
 - Code Institute
 - My mentor for his extraordinary insight and useful feedbacks.
-- Our facilitator Irene from Code Institute for keeping up with us on our daily schedules in the classroom.
+- Our facilitator Irene Neville from Code Institute for keeping up with us on our daily schedules in the classroom.
 - Friends and collegues that helped in testing the application.
