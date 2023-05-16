@@ -72,10 +72,6 @@ The Bongo Restaurant is a fictional business where users can create an account, 
 ##### Back to [top](#table-of-contents)<hr>
 
 ## User Stories
-This is the link to the project board [Bongo-Man](https://github.com/users/Dee68/projects/9)
-
-### Epics
-
 
 
 ### Users
@@ -111,11 +107,13 @@ This is the link to the project board [Bongo-Man](https://github.com/users/Dee68
 23. As a Site Owner I can provide a fully responsive site for my customers so that they have a good user experience (Must have)
 24. As a Site Owner I can validate data entered into my site so that all submitted data is correct to avoid errors (Must have)
 
-### User Stories
+### Board, Epics & User Stories
 
 <details><summary>User Stories</summary>
 
-![User stories](https://raw.githubusercontent.com/dee68/milestone_project4/main/docs/features/user_stories.png)
+This is the link to the project board [Bongo-Man](https://github.com/users/Dee68/projects/9)
+
+### Epics
 
 </details>
 
