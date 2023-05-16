@@ -13,7 +13,7 @@ from .models import Table, Reservation, Review, Food, Drink
 class TableAdmin(admin.ModelAdmin):
     list_display = ['number', 'capacity', 'image_tag']
     readonly_fields = ['image_tag']
-    prepopulated_fields = {'slug': ('title',)}
+    prepopulated_fields = {'slug': ('title', )}
 
 
 # Registration of reservations in the admin panel
@@ -32,30 +32,30 @@ class ReservationAdmin(admin.ModelAdmin):
         'reserve_end')
 
     search_fields = ('customer__username',)
-    list_filter = (('reserve_start', DateRangeFilter),)
+    list_filter = (('reserve_start', DateRangeFilter), )
 
 
 # Registration of foods in the admin panel
 class FoodAdmin(admin.ModelAdmin):
-    list_display = ('name', 'food_type', 'image_tag',)
+    list_display = ('name', 'food_type', 'image_tag', )
     readonly_fields = ['image_tag']
-    search_fields = ('name', 'description',)
-    list_filter = ['food_type',]
+    search_fields = ('name', 'description', )
+    list_filter = ['food_type', ]
 
 
 # Registration of drinks in the admin panel
 class DrinkAdmin(admin.ModelAdmin):
-    list_display = ('name', 'drink_type', 'image_tag',)
+    list_display = ('name', 'drink_type', 'image_tag', )
     readonly_fields = ['image_tag']
-    search_fields = ('name', 'description',)
-    list_filter = ['drink_type',]
+    search_fields = ('name', 'description', )
+    list_filter = ['drink_type', ]
 
 
 # Registration of reviews in the admin panel
 class ReviewAdmin(admin.ModelAdmin):
-    list_display = ('table', 'author', 'date_created',)
-    list_filter = ['table',]
-    search_fields = ('author__username',)
+    list_display = ('table', 'author', 'date_created', )
+    list_filter = ['table', ]
+    search_fields = ('author__username', )
 
 
 admin.site.register(Table, TableAdmin)

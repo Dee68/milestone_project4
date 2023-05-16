@@ -559,6 +559,10 @@ JSHint JS Validation Service
 <img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/timer_js.png">
 </details><hr>
 
+<details><summary>Dropdown.js</summary>
+<img src="https://raw.githubusercontent.com/Dee68/milestone_project4/main/docs/dropdown.png">
+</details><hr>
+
 ### PEP8 Validation
 PEP8 Validation was done by using Code Institute CI Python Linter
 
