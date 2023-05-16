@@ -145,9 +145,9 @@ The site was designed for the user to be familiar with the layout such as a navi
 The footer contains all relevant social media links that the business has so the user can visit any social media site and follow the business there to expand the businesses followers, likes and shares.
 
 - The site consists of the following pages:
-  - Homepage with cards for the user to choose to reserve a table or review it, view the foods or drinks menu.
-  - Food menu has the current list of all available foods from the database sorted by snacks, mains and desserts
-  - Drinks menu has the current list of all available drinks from the database sorted by type
+  - Homepage with cards for the user to choose to reserve a table or review it, view the foods or drinks links.
+  - Food link has the current list of all available foods from the database sorted by snacks, mains and desserts
+  - Drinks link has the current list of all available drinks from the database sorted by type
   - Reserve page allows registered users to reserve a table of given capacity, date time for start of reservation and date time for end of reservation
   - Reservations displays all reservations for the user that they have made, reservations in the past are automatically rejected
   - Edit reservation allows the user to change their date, time
@@ -410,7 +410,7 @@ The Review Model contains the following:
   
 <details><summary>See feature images</summary>
 
-![Reviews](docs/features/review_list.png)
+![Reviews Update](docs/features/reviews_update.png)
 </details>
 
 ### Review
