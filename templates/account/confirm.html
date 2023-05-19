@@ -15,7 +15,7 @@
                 <h3>Are you sure you want to logout?</h3>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                   <input type="submit" value="Yes" name="yes" class="btn btn-outline-primary cfm">
-                  <input type="submit" value="No" name="no"  class="btn btn-outline-danger cfm">
+                  <a href="{% url 'restaurant:home' %}" class="btn btn-outline-danger cfm">No</a>
                 </div>
               </form>
             </div>

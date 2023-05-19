@@ -166,12 +166,11 @@ def confirm_page(request):
     '''
     form = request.POST
     if request.method == 'POST':
-        if form.get('yes'):
-            logout(request)
-            messages.success(request, 'You are now logged out.')
-            return redirect('restaurant:home')
-        else:
-            return redirect('restaurant:home')
+        logout(request)
+        messages.success(request, 'You are now logged out.')
+        return redirect('restaurant:home')
+    else:
+        return redirect('restaurant:home')
     return render(request, 'account/confirm.html')
 
 
