@@ -21,7 +21,9 @@ urlpatterns = [
     path('logout', views.logout_page, name='logout'),
     path(
         'validate-username',
-        csrf_exempt(views.Usernamevalidation.as_view()), name='validate-username'),
+        csrf_exempt(views.Usernamevalidation.as_view()),
+        name='validate-username'
+        ),
     path(
         'validate-email',
         csrf_exempt(views.validate_email), name='validate-email'),

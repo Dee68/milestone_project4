@@ -75,7 +75,7 @@
         <div class="service-item rounded">
             <div class="service-icon bg-transparent">
                 <div class="d-flex align-items-center justify-content-center">
-                    <img src="{{ review.author.profile.avatar.url }}" style="height:80px; width:80px; border-radius:50%;" alt="userimage">
+                    <img src="{% if review.author.profile.avatar %}{{ review.author.profile.avatar.url }}{% else %}{% static 'images/userimage.png' %}{% endif %}" style="height:80px; width:80px; border-radius:50%;" alt="userimage">
                 </div>
             </div>
             <h3 class="mb-3 one">{{ review.author | title }}</h3>

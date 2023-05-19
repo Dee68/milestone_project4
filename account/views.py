@@ -220,7 +220,6 @@ class Usernamevalidation(View):
             )
 
 
-
 def validate_email(request):
     '''
         This view enables ajax validation
