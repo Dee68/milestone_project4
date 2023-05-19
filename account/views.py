@@ -3,6 +3,7 @@
 # 3rd party:
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
+from django.views import View
 from django.contrib import messages
 from django.utils.safestring import mark_safe
 from django.http import JsonResponse, HttpResponseRedirect
@@ -182,40 +183,42 @@ def logout_page(request):
     return render(request, 'account/confirm.html')
 
 
-def validate_username(request):
+class Usernamevalidation(View):
     '''
         This view enables ajax validation
         of the username input field for a
         better userexperience
     '''
-    data = json.loads(request.body)
-    err_str = 'Username should contain only alphanumeric characters.'
-    err_str1 = 'Username must be between 2 and 8 characters.'
-    err_str2 = 'Sorry username already in use, choose another.'
-    username = data['username']
-    if not str(username).isalnum():
+    def post(self, request):
+        data = json.loads(request.body)
+        err_str = 'Username should contain only alphanumeric characters.'
+        err_str1 = 'Username must be between 2 and 8 characters.'
+        err_str2 = 'Sorry username already in use, choose another.'
+        username = data['username']
+        if not str(username).isalnum():
+            return JsonResponse(
+                {'username_error': err_str},
+                status=400,
+                content_type='application/json'
+                )
+        if len(data['username']) <= 1 or len(data['username']) >= 9:
+            return JsonResponse(
+                {'username_error': err_str1},
+                status=406,
+                content_type='application/json'
+                )
+        if User.objects.filter(username=username).exists():
+            return JsonResponse(
+                {'username_error': err_str2},
+                status=409,
+                content_type='application/json'
+                )
         return JsonResponse(
-            {'username_error': err_str},
-            status=400,
+            {'username_valid': True},
+            status=200,
             content_type='application/json'
             )
-    if len(data['username']) <= 1 or len(data['username']) >= 9:
-        return JsonResponse(
-            {'username_error': err_str1},
-            status=406,
-            content_type='application/json'
-            )
-    if User.objects.filter(username=username).exists():
-        return JsonResponse(
-            {'username_error': err_str2},
-            status=409,
-            content_type='application/json'
-            )
-    return JsonResponse(
-        {'username_valid': True},
-        status=200,
-        content_type='application/json'
-        )
+
 
 
 def validate_email(request):
