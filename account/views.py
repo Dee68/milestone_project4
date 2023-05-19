@@ -78,12 +78,12 @@ def register(request):
                         status=404
                         )
         if User.objects.filter(username=username).exists():
-            messages.error(request, 'Email already taken, choose another.')
+            messages.error(request, 'Username already taken, choose another.')
             return render(
                         request,
                         'account/register.html',
                         context,
-                        status=409
+                        status=400
                         )
         if not (re.search(regex, email)):
             messages.error(request, 'Email is invalid.')
@@ -91,7 +91,7 @@ def register(request):
                         request,
                         'account/register.html',
                         context,
-                        status=400
+                        status=409
                         )
         if User.objects.filter(email=email).exists():
             messages.error(request, 'Email already taken, choose another.')
