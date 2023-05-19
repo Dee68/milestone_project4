@@ -47,7 +47,7 @@ def register(request):
                         context,
                         status=400
                         )
-        if len(username) < 2 or len(username) > 8:
+        elif len(username) < 2 or len(username) > 8:
             messages.error(
                 request,
                 'username must be between 2 or 8 characters.'
@@ -58,7 +58,7 @@ def register(request):
                         context,
                         status=406
                         )
-        if not username.isalnum():
+        elif not username.isalnum():
             messages.error(
                         request,
                         'Only alpha numeric characters allowed.'
@@ -69,7 +69,7 @@ def register(request):
                         context,
                         status=400
                         )
-        if password1 != password2:
+        elif password1 != password2:
             messages.error(request, 'Passwords do not match.')
             return render(
                         request,
@@ -77,7 +77,7 @@ def register(request):
                         context,
                         status=404
                         )
-        if User.objects.filter(username=username).exists():
+        elif User.objects.filter(username=username).exists():
             messages.error(request, 'Username already taken, choose another.')
             return render(
                         request,
@@ -85,7 +85,7 @@ def register(request):
                         context,
                         status=400
                         )
-        if not (re.search(regex, email)):
+        elif not (re.search(regex, email)):
             messages.error(request, 'Email is invalid.')
             return render(
                         request,
@@ -93,7 +93,7 @@ def register(request):
                         context,
                         status=409
                         )
-        if User.objects.filter(email=email).exists():
+        elif User.objects.filter(email=email).exists():
             messages.error(request, 'Email already taken, choose another.')
             return render(
                         request,
