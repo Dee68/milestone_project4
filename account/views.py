@@ -162,7 +162,7 @@ def signin(request):
 def confirm_page(request):
     '''
         This view accounts for confirmation
-        of users action.
+        of users action to logout.
     '''
     form = request.POST
     if request.method == 'POST':

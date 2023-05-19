@@ -10,6 +10,9 @@ from django.utils.safestring import mark_safe
 
 
 class Profile(models.Model):
+    '''
+        This is the profile model of the user in the database.
+    '''
     GENDER = (
         ('male', 'male'),
         ('female', 'female'),

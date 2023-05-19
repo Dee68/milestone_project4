@@ -232,7 +232,7 @@ def login_user(request):
 
 def food_list(request):
     '''
-        This view displays the food menu items.
+        This view displays the food list items.
     '''
     desserts = Food.objects.filter(food_type='dessert')
     foods = Food.objects.filter(food_type='main')
@@ -243,7 +243,7 @@ def food_list(request):
 
 def drink_list(request):
     '''
-        This view displays the drink menu items.
+        This view displays the drink list items.
     '''
     wines = Drink.objects.filter(drink_type='wines')
     beers = Drink.objects.filter(drink_type='beers')

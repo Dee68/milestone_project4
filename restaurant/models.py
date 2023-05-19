@@ -14,6 +14,9 @@ from django.shortcuts import reverse
 
 # The table model for the database
 class Table(models.Model):
+    '''
+        This is the table model in the database.
+    '''
     TABLE_TYPE = (
         ('basic', 'basic'),
         ('vip', 'vip'),
@@ -56,6 +59,9 @@ class Table(models.Model):
 
 # The reservation model for the database
 class Reservation(models.Model):
+    '''
+        This is the reservation model in the database.
+    '''
     customer = models.ForeignKey(to=User, on_delete=models.CASCADE)
     table = models.ForeignKey(to=Table, on_delete=models.CASCADE)
     reserve_start = models.DateTimeField()
@@ -79,6 +85,9 @@ class Reservation(models.Model):
 
 # The review model for the database
 class Review(models.Model):
+    '''
+        This is the review model in the database.
+    '''
     table = models.ForeignKey(
         Table,
         on_delete=models.CASCADE,
@@ -98,6 +107,9 @@ class Review(models.Model):
 
 # The food model for the database
 class Food(models.Model):
+    '''
+        This is the food model in the database.
+    '''
     FOOD_TYPE = (
         ('snacks', 'Snacks'),
         ('main', 'Main'),
@@ -126,6 +138,9 @@ class Food(models.Model):
 
 # The drink model for the database
 class Drink(models.Model):
+    '''
+        This is the drink model in the database.
+    '''
     DRINK_TYPE = (
         ('wines', 'Wines'),
         ('beers', 'Beers'),
