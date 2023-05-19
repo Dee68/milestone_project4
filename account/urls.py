@@ -26,6 +26,8 @@ urlpatterns = [
         ),
     path(
         'validate-email',
-        csrf_exempt(views.validate_email), name='validate-email'),
+        csrf_exempt(views.validate_email),
+        name='validate-email'
+        ),
     path('confirmation', views.confirm_page, name='confirmation'),
 ]
