@@ -2,7 +2,7 @@
 
 ![Am I Responsive](docs/amirespo.png)
 
-**Developer: Dimie Egberipou**
+**Developer: Dimie E.**
 
 [The live project can be viewed here](https://bongo-man.herokuapp.com/)
 
