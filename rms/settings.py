@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['bongo-man.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['bongo-man.herokuapp.com', 'localhost',  '8000-dee68-milestoneproject-5miakvf1eh9.ws-eu103.gitpod.io']
 
 
 # Application definition
