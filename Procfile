@@ -1,1 +1,1 @@
-web: gunicorn rms.wsgi
+web: gunicorn rms.wsgi --workers 3 --timeout 60
